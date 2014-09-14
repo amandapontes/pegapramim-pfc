@@ -1,0 +1,66 @@
+header{
+
+/*	background-color: red; */
+	width: 100%;
+	height: 203px;
+	max-height: 203px;
+}
+
+footer{
+	display: block;
+	clear:both;
+/*	background-color: black; */
+
+}
+
+#notification_encomenda{
+	float:right;
+	/* background-color: yellow; */
+	width: 38%;
+	max-height: 904px;
+	overflow: auto;
+}
+
+#new_encomenda  form{
+ 	border-bottom-style: solid;
+ 	border-bottom-color: #ccc;
+ 	border-width: 1px;	
+ 	/*padding: 10px 10px 10px 10px; */
+ 	line-height:200%;
+}
+
+#localizacao_atual{
+/*	float:left;*/
+	/* background-color: pink; */
+	max-width: 100%
+}
+
+#centro{
+	width: 100%;
+	display: block;
+	clear: both;
+	margin-top: 24px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#sessao-json{
+	float:left;
+	width: 60%;
+	min-height: 20px;
+	/* background-color: red; */
+}
+
+input[name=vr_proposta]{
+	display: inherit;
+
+}
+
+fieldset{
+	border-width: 1px !important;
+}
+
+#login, #cadastro{
+	float:left;
+	width: 48%;
+}

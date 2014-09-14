@@ -1,0 +1,167 @@
+*{
+	margin: 0px 0px 0px 0px;
+	color: #666666;	
+}
+a:link{
+	text-decoration: none;
+}
+a:hover{
+	color:#52840c !important;
+}
+a:visited{
+}
+a:active{
+}
+header{
+	height: 105px;
+}
+#logo{
+	margin-left: 1.5%;
+	margin-top: 1.5%;
+	margin-bottom: 1.5%;
+	float:left;
+	width:48%;
+}
+#menu{
+	float:left;
+	margin-right: 1.5%;
+	margin-top: 3%;
+	width:48%;
+	word-wrap:normal;
+	text-align: right;
+}
+#menu a{
+
+	padding-left: 5%;
+}
+.full_width{
+	width: 100%;
+}
+
+.titulo{
+	font-size: 32px;
+	text-align: center;
+	display: block;
+	clear: both;
+}
+
+.descricao{
+
+
+}
+
+
+.left-text-content{
+	width: 68%;
+	float:left;
+	padding-left: 1.5%;
+	padding-top: 2%;
+	padding-bottom: 2%;
+}
+
+.rigth-icon-content{
+	text-align: center;
+	width: 29%;
+	float:left;
+}
+
+#conteudo {
+	margin-top: 1.5%;
+	height: auto;
+}
+section.left-text-content li {
+	border-size:1px;
+	font-size: 18px;
+	padding-top:2%;
+
+}
+
+ol{
+	list-style-type: none;
+	padding-left: 0px;
+}
+
+li{
+	margin-top: 2%;
+}
+.circle{
+	background-color: #cdcdcd;
+	border-radius: 15px; 
+	width: 24px;
+	height: 24px;
+	display: inline-block;
+}
+.centro{
+	margin-left: 25%;
+	margin-right: 50%;
+	text-align: center;
+	color: #FFFFFF;
+}
+#trigger{
+	margin-top: 30%;
+}
+.rigth-icon-content > img {
+	width: 100%;
+
+}
+.centro-text{
+	text-align: center;	
+}
+.color-logo{
+	color: #52840C;
+	font-weight: bold;
+}
+
+.email{
+	text-align: center;
+}
+form {
+	width: 100%;
+	text-align: -webkit-center;
+	margin-top: 2%;
+}
+section > input , section > input[type="submit"], section > button{
+	height: 30px;
+	clear: both;	
+
+}
+section > input[type="submit"], section > button{
+	background-color:#2ecc71;
+	color:#FFFFFF;
+	border-style: none;
+	width: 15%;
+	margin-top: 0.5%;
+	font-size: 90%;
+	clear:left;
+	padding-left: 2%;
+	padding-right: 2%;
+}
+section > input[type="email"] {
+	width: 30%;
+	clear: both;
+	font-size: 90%;
+	border-style: solid;
+	border-color:#cdcdcd;
+	border-width: 1px;	
+}
+
+footer{
+	width: 100%;
+	height: 180px;
+	background-color: #cdcdcd;
+	color:#999999;
+
+}
+footer > p{
+	float: left;
+	margin-top: 160px;
+	width: 40%;
+	margin-left: 1.5%;
+	color: #999999;
+}
+#social{
+	margin-right: 1.5%; 
+	height: 64px;
+	float:right;
+	margin-top: 55px;
+}
