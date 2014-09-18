@@ -24,7 +24,7 @@ class Entidades extends CI_Controller{
 		//echo "<pre>"; print_r($this->upload->data()); "</pre>";
 		if($e->salvar($_data)){
 			$_data['id_ent']        = $e->id;
-			
+			$e->stored->id_ent	        = $e->id;
 			$c = new Contato();
 			$c->salvar($_data);
 			

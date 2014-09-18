@@ -9,6 +9,7 @@ class Inicio extends CI_Controller{
 
 	 	$e = new Encomenda();
 		$encomendas = array();
+	
 		$encomendas['encomendas'] = $e->getEncomendasById($this->session->userdata['id_ent']) ;
 		$encomendas['id_logado']  = $this->session->userdata('id_ent');
 		$encomendas['nome_ent']   = $this->session->userdata('nome_ent');

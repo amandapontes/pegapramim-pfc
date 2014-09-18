@@ -37,7 +37,7 @@
 					<span class="icon">
 						<i aria-hidden="true" class="icon-portfolio"></i>
 					</span>
-					<span>Soliciar Motoboy</span>
+					<span>Soliciar Ajuda</span>
 				</a>
 			</li>
 			<li>
@@ -56,7 +56,7 @@
 					<span class="icon">
 						<i aria-hidden="true" class="icon-regulamento"></i>
 					</span>
-					<span>Ajuda</span>
+					<span>FAQ</span>
 				</a>
 			</li>
 			<li>
