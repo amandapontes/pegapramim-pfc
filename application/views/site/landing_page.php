@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<title></title>
 	<link rel="stylesheet" href="<?php echo base_url(); ?>resources/css/style.css" />
-	<title>Bem Vindo - FlyMoto</title>
+	<title>Bem Vindo - PegaPraMim</title>
 
 	<script type="text/javascript" src="<?php echo base_url()?>resources/js/jquery.min.js"></script>
 	
@@ -52,7 +52,9 @@
 	<header>
 	<a href="#">
 	<section id="logo">
-		<img src="<?php echo base_url(); ?>resources/img/site/logo.png" />
+		<!-- 
+			 <img src="<?php echo base_url(); ?>resources/img/site/logo.png" />
+		 -->
 	</section>
 	</a>
 	<nav id="menu">
@@ -62,8 +64,10 @@
 		<a href="#cadastro">Cadastre-se</a>
 	</nav>
 	</header>
-	<section id="banner">
-		<img src="<?php echo base_url(); ?>resources/img/site/banner.png" class="full_width"/>
+	<section id="banner"  class="full_width">
+		<!-- 
+		 <img src="<?php echo base_url(); ?>resources/img/site/banner.png"/>
+		 -->
 	</section>
 		
 		<h1 class="titulo">
@@ -72,11 +76,9 @@
 
 		<section class="left-text-content">
 		<p>
-			Fly Moto é uma plataforme para solicitação e integração
-			entre motoboys e empresas ou pessoas físicas que
-			queiram contratar um serviço de motofrete.
-			Nossa plataforma pode der instalada em smartphones
-			com Android ou iOS de forma rápida, fácil e gratuita.
+			PegaPraMim é uma plataforme para solicitação e integração
+			entre pessoas que queiram ajudar ou contratar um serviço de entrega.
+			Nossa plataforma é gratuita e de fácil utilização.
 		</p>
 		</section>	
 			<article class="rigth-icon-content">
@@ -95,7 +97,7 @@
 			</li>
 			<li>
 				<div class="circle"><span class="centro">2</span></div>
-				<span>Receba os orçamentos</span>
+				<span>Receba as solicitações de ajuda</span>
 			</li>
 			
 			<li>
@@ -105,11 +107,11 @@
 			<li>
 				
 				<div class="circle"><span class="centro">4</span></div>
-				<span>Aguarde a confirmação por parte do motoboy</span>
+				<span>Aguarde a confirmação por parte do ajudante</span>
 			</li>
 			<li>
 				<div class="circle"><span class="centro">5</span></div>
-				<span>Tudo ok, acompanhe a chegada do motoboy em tempo real pelo mapa. Entregue a mercadoria e pague o serviço</span>
+				<span>Tudo ok, acompanhe a chegada do ajudante em tempo real pelo mapa. Entregue a mercadoria.</span>
 			</li>
 			<li>
 				<div class="circle"><span class="centro">6</span></div>
@@ -133,9 +135,11 @@
 
 		<section class="left-text-content" style="width:98% !important; float:none !important">
 		<p class="centro-text">
-			Para saber mais sobre o <span class="color-logo">flyMoto</span> <u>cadastre-se e receba descontos especiais</u> e novidades por e-mail.
+			Para saber mais sobre o <span class="color-logo">PegaPraMim</span> <u>cadastre-se e receba descontos especiais</u> e novidades por e-mail.
 			<br />
-			<i>OBS: VÁLIDO PARA APENAS OS <strong>100</strong> PRIMEIROS</i>
+			<!-- 
+				 <i>OBS: VÁLIDO PARA APENAS OS <strong>100</strong> PRIMEIROS</i>
+			 -->
 		</p>
 		<?php 
 				echo form_open('site/landing_page/save_news');
@@ -157,7 +161,7 @@
 
 	<footer>
 		<p>
-			Todos os direitos reservados FlyMoto 2014
+			Todos os direitos reservados PegaPraMim 2014
 		</p>
 		<section id="social">
 			<a href="">

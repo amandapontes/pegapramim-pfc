@@ -1,7 +1,5 @@
 <section id="localizacao_atual">
-<h2>
-	Localização atual
-</h2>
+<h2>Localização atual</h2>
 	<?php
 		echo form_hidden('hd_latitude_atual');
 		echo form_hidden('hd_longitude_atual');

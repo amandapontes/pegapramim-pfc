@@ -4,7 +4,7 @@
 });
 </script>
 
-<h2>Solicitar Motoboy</h2>
+<h2>Solicitar Ajuda</h2>
 
        <!-- <div id="apresentacao"> -->
         <?php

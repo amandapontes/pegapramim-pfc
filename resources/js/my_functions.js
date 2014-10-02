@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	$('#menu a').click(function(){
+		
 		if($(this).attr('id') == 'inicio'){
 			location.reload();	
 		}
@@ -22,12 +23,12 @@ $(document).ready(function(){
 	});
 
 	$('#esconde').click(function(){
+		/*
 		lat = $('input[name="hd_latitude_atual"]').val();
 		log = $('input[name="hd_longitude_atual"]').val();
 		if( lat =! '' && log =! ''){
 			$('#latitude_cli_entra').val(lat);
 			$('#longitude_cli_entra').val(log);
-
         $.ajax({
           type: "GET",
           url: "login_controller/atualizarLocalizacao",
@@ -38,6 +39,7 @@ $(document).ready(function(){
           location.reload();
           });
 		}
+		 */
 	});
 
 	 $('input[name="btnEnviar"]').click(function(){

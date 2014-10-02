@@ -16,7 +16,7 @@
 	<h1>ENTRAR</h1>
 		<?php
 			echo form_open_multipart('login_controller/custom_form','name="form" class="form-horizontal" role="form"');
-			echo form_fieldset('Login');
+			echo form_fieldset(' ');
 		?>
 	<div class="form-group">
 	    <label for="inputEmail3" class="col-sm-2 control-label">CPF/CNPJ</label>
