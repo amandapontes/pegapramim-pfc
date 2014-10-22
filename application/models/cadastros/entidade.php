@@ -129,19 +129,27 @@ class Entidade extends DataMapper {
 //		echo "<pre>"; print_r(				array_merge((array)$n->stored, $_data)); "</pre>";
 		//$n->dt_criacao = 		date("Y-m-d H:i:s");
 		//$e->id_ent       = $_data['id_ent'];
-		$this->ativo        = $_data['ativo'];
-		$this->nome_ent     = $_data['nome_ent'];
-		$this->login_ent    = $_data['login_ent'];
-		$this->senha_ent    = $_data['senha_ent'];
-		$this->cpf_cnpj_ent = $_data['cpf_cnpj_ent'];
-		$this->dt_nasc_ent  = $_data['dt_nasc_ent'];
-		$this->tipo_ent     = $_data['tipo_ent'];
-		return $this->save();
+		$existe = $this->verificar_existe($_data['cpf_cnpj_ent']);
+		if(empty($existe)){
+			$this->ativo        = $_data['ativo'];
+			$this->nome_ent     = $_data['nome_ent'];
+			$this->login_ent    = $_data['login_ent'];
+			$this->senha_ent    = $_data['senha_ent'];
+			$this->cpf_cnpj_ent = $_data['cpf_cnpj_ent'];
+			$this->dt_nasc_ent  = $_data['dt_nasc_ent'];
+			$this->tipo_ent     = $_data['tipo_ent'];
+			return $this->save();
+		}
+		return $existe;
 		//echo "<print>"; print_r($e->id); echo "</pre>";
 	}
 
 	public function verificar_login($login, $senha){
 		return $this->where('cpf_cnpj_ent',$login)->where('senha_ent',$senha)->get();
+	}
+	
+	public function verificar_existe($cpf_cnpj){
+		return $this->where('cpf_cnpj_ent',$login)->get();
 	}
 
 }

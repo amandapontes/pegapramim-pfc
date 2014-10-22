@@ -49,6 +49,8 @@
 			echo form_close();
 ?>
 	</section>
+	<section id="cadastro">
+	<h1>CADASTRAR</h1>
 		<?php
 		 $this->load->view('cadastros/entidades');
 		?>

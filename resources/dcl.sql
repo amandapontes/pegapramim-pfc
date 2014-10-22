@@ -140,7 +140,8 @@ create table encomendas(
 	id_ent int not null,
 	foreign key(id_ent) references entidades(id_ent),
 	id_ent_motoboy int null,
-	foreign key(id_ent_motoboy) references entidades(id_ent)
+	foreign key(id_ent_motoboy) references entidades(id_ent),
+	descricao_enc text null
 )engine=MYiSAM;
 
 

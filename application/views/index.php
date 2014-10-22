@@ -52,31 +52,32 @@
 				</a>
 			</li>
 			<li>
-				<a href="#">
-					<span class="icon">
-						<i aria-hidden="true" class="icon-regulamento"></i>
-					</span>
-					<span>FAQ</span>
-				</a>
-			</li>
-			<li>
-				<a href="site/landing_page#cadastro">
+				<a href="site/landing_page">
 					<span class="icon">
 						<i aria-hidden="true" class="icon-contact"></i>
 					</span>
-					<span>Contato</span>
+					<span>Site</span>
 				</a>
 			</li>
 			<li>
-				<a href="login_controller/deslogar">
+				<a href="#" id="cadastro_entidade">
 				<?php
 
- 				#	echo form_hidden('url','cadastros/entidades');
+ 					echo form_hidden('url','cadastros/entidades');
 				?>
 					<span class="icon"> 
 						<i aria-hidden="true" class="icon-team"></i>
 					</span>
 					<span><?php echo $this->session->userdata('nome_ent'); ?></span>
+				</a>
+			</li>
+			
+			<li>
+				<a href="login_controller/deslogar">
+					<span class="icon"> 
+						<i aria-hidden="true" class="icon-team"></i>
+					</span>
+					<span>Sair</span>
 				</a>
 			</li>
 		</ul>

@@ -16,11 +16,30 @@
       <input type="text" class="form-control" id="inputPassword3" placeholder="Valor por KM" name="vr_por_km" value="{vr_por_km}">
     </div>
   </div>
-  <div class="form-group">
+ 
+  
+  
+  <p class="bs-callout bs-callout-info">
+	Filtre os resultados das solicitações de Ajuda, inserindo a <strong>distância MÁXIMA</strong> entre você e o endereço de entrega proposto.
+</p>
+
+
+<div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label">Limite de distância</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputPassword3" placeholder="Distância" name="distancia_limite" value="{distancia_limite}">
+    </div>
+  </div>
+
+  
+  
+   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-4">
       <button type="submit" class="btn btn-default">Salvar</button>
     </div>
   </div>
+  
+  
 <?php
 	echo form_close();
 ?>

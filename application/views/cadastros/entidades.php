@@ -1,5 +1,3 @@
-<section id="cadastro">
-	<h1>CADASTRAR</h1>
 <?php
 	echo form_open_multipart('cadastros/entidades/custom_form','name="form" class="form-horizontal" role="form"');
 	echo form_fieldset(' ');
@@ -11,26 +9,29 @@
 	#echo form_radio('tipo_ent','M',TRUE).'Motoboy';
 	#echo form_radio('tipo_ent','C').'Cliente';
 ?>
-<div class="form-group">
-    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-    <div class="col-sm-10">
-      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-    </div>
-  </div>
-
+    
+    
 <div class="form-group">
     <label for="inputEmail3" class="col-sm-2 control-label">Nome</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="inputEmail3" placeholder="Nome Completo" name="nome_ent" />
+      <input type="text" class="form-control" id="inputEmail3" placeholder="Nome Completo" name="nome_ent" value="{nome_ent}"/>
     </div>
   </div>
+  
+<div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+    <div class="col-sm-10">
+      <input type="login_ent" class="form-control" id="inputEmail3" placeholder="Email" value="{login_ent}">
+    </div>
+  </div>
+
 
 <div class="form-group">
 	    <label for="inputEmail3" class="col-sm-2 control-label">CPF/CNPJ</label>
 	    <div class="col-sm-10">
-	      <input type="text" class="form-control" id="inputEmail3" placeholder="CPF ou CNPJ" name="cpf_cnpj_ent" />
+	      <input type="text" class="form-control" id="inputEmail3" placeholder="CPF ou CNPJ" name="cpf_cnpj_ent" value="{cpf_cnpj_ent}" />
 	    </div>
-	  </div>
+  </div>
 
   <div class="form-group">
     <label for="inputPassword3" class="col-sm-2 control-label">Senha</label>
@@ -49,7 +50,7 @@
 <div class="form-group">
     <label for="inputPassword3" class="col-sm-2 control-label">Telefone</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="inputPassword3" placeholder="Telefone Fixo" name="descricao_cont_tel">
+      <input type="text" class="form-control" id="inputPassword3" placeholder="Telefone Fixo" name="descricao_cont_tel" value="{descricao_cont_tel}">
     </div>
   </div>
   
@@ -57,7 +58,7 @@
 <div class="form-group">
     <label for="inputPassword3" class="col-sm-2 control-label">Celular</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="inputPassword3" placeholder="Celular" name="descricao_cont_cel">
+      <input type="text" class="form-control" id="inputPassword3" placeholder="Celular" name="descricao_cont_cel" value="{descricao_cont_cel}">
     </div>
   </div>
   
