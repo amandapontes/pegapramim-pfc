@@ -47,7 +47,8 @@ class Encomenda_Controller extends CI_Controller{
 				}
 			$value->duracao = $json->rows['0']->elements['0']->duration->text;
 			}
-			$value->vr_medio = $vr_calc;
+			
+			$value->vr_medio = 99;
 		}
 		//echo $e->getEncomendas($_data);
 	//	echo "<pre>"; echo print_r($encomendas); echo "</pre>";
@@ -56,7 +57,7 @@ class Encomenda_Controller extends CI_Controller{
 	}
 
 	public function enviar_proposta(){
-		$_data = $this->input->post();
+		$_data = $_POST;
 		$_data['id_ent_motoboy'] = $this->session->userdata('id_ent');
 		//echo "<pre>";  echo print_r($_POST); echo "</pre>";
 		$p = new Proposta();

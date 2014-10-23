@@ -43,7 +43,8 @@ create table opcoes(
 	id_opc int UNSIGNED AUTO_INCREMENT  PRIMARY KEY NOT NULL,
 	id_ent int not null,
 	foreign key(id_ent) references entidades(id_ent),
-	vr_por_km double(5,2) null
+	vr_por_km double(5,2) null,
+	distancia_limite int null
 )engine=MYiSAM;
 
 create table lista_enderecos(

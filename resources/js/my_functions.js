@@ -48,10 +48,11 @@ $(document).ready(function(){
             $('form[name="formSolicitar"] > input[name="longitude_cli"]').val($('input[name="longitude_cli_entra"]').val());
             
         });
-		$('input:button').click(function(){
-	        	if($(this).attr('id') == 'enviarProposta'){
-				var formulario = $(this).parent('form');
+		$('[name="enviarProposta"]').on("click", function(){
+				
+				var formulario = $(this).parents('form');
 				var dados = formulario.serialize();
+
 		        $.ajax({
 		          type: "POST",
 		          url: "encomenda_controller/enviar_proposta",
@@ -64,8 +65,6 @@ $(document).ready(function(){
 		         // alert(position.coords.latitude);
 		           //  location.reload(); 
 		          });
-
-			}
 		});
 
 

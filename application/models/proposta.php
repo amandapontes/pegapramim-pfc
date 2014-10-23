@@ -127,7 +127,7 @@ class Proposta extends DataMapper {
 	*/
 	public function salvar($_data){
 		//$e = new Entidade();
-//		echo "<pre>"; print_r(				array_merge((array)$n->stored, $_data)); "</pre>";
+		//echo "<pre>"; print_r($_data); "</pre>";
 		//$n->dt_criacao = 		date("Y-m-d H:i:s");
 		$this->dt_criacao_pro = date("Y-m-d H:i:s");
 		//$this->id_pro         = $_data['id_opc'];

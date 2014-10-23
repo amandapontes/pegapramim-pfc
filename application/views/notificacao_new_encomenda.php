@@ -16,9 +16,9 @@
 
 			}
 		}
-$.getJSON("http://maps.google.com/maps/api/geocode/json?address="+position.coords.latitude +","+position.coords.longitude+"&sensor=false",function(result){
+/*$.getJSON("http://maps.google.com/maps/api/geocode/json?address="+position.coords.latitude +","+position.coords.longitude+"&sensor=false",function(result){
                  $("#str-endereco").html("Seu endereço é: " +result.results[0].formatted_address);
-            });
+            });*/
 	
 	});
 </script>
@@ -61,6 +61,7 @@ $.getJSON("http://maps.google.com/maps/api/geocode/json?address="+position.coord
 					  <div class="col-md-4"><strong>Distância:</strong> {distancia}</div>
 					  <div class="col-md-offset-2"><strong>Duração:</strong> {duracao}</div>
 				</div>
+				<p><strong>Descrição encomenda:</strong></p> {descricao_enc}
 			<div class="form-group">
 			    <label for="inputEmail3" class="col-sm-2 control-label">Proposta: </label>
 			</div>	

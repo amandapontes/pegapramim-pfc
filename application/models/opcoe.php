@@ -135,14 +135,19 @@ class Opcoe extends DataMapper {
 		if(!$o->exists()){
 			$this->id_ent         = $_data['id_ent'];
 			$this->vr_por_km      = $_data['vr_por_km'];
+			$this->distancia_limite      = $_data['distancia_limite'];
 			return $this->save();
 		}
 		else{
-			return $o->update('vr_por_km', $_data['vr_por_km']);
+			return $o->update(array('vr_por_km' => $_data['vr_por_km'] , 'distancia_limite' => $_data['distancia_limite']));
 		}
 	}
 
 	public function getVrKm($id){
+		return $this->where('id_ent',$id)->get();
+	}
+	
+	public function getAll($id){
 		return $this->where('id_ent',$id)->get();
 	}
 }

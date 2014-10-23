@@ -134,6 +134,7 @@ class Encomenda extends DataMapper {
 		$this->latitude_cli      = $_data['latitude_cli'];
 		$this->longitude_enco    = $_data['txtLongitude'];
 		$this->latitude_enco     = $_data['txtLatitude'];
+		$this->descricao_enc     = $_data['descricao_enc'];
 		$this->dt_criacao_enco   = date('Y-m-d h:m:i');
 		$this->id_ent          	 = $_data['id_ent'];
 		$this->id_ent_motoboy    = 0;

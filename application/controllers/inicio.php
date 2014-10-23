@@ -52,9 +52,9 @@ class Inicio extends CI_Controller{
 
 				$distancia_quebrada = explode(" ", $value->distancia);
 
-				//echo "<pre>"; echo print_r($distancia_quebrada); echo "</pre>";
+				
 				if($distancia_quebrada[1] == 'km'){
-					$vr_calc = $vrKm * $distancia_quebrada[0];
+					$vr_calc = $vrKm * str_replace(',', '.', $distancia_quebrada[0]);
 				}else{
 					$vr_calc = $vrKm ;
 				}
