@@ -67,6 +67,15 @@ $(document).ready(function(){
 		          });
 		});
 
+		$('#proposta_aprovacao').on('click', function(){
+			alert('oi');
+				$('#sessao-json > #troca').load('index.php/ver_propostas');
+		});
+
+		$('#proposta_recusar').click(function(){
+			alert('oi');
+				$(this).parent('td').parent('tr').hide();
+		});
 
 //or for specific element
 /* progressJs().set(80);

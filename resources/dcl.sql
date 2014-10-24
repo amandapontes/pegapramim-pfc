@@ -157,3 +157,16 @@ create table propostas(
 	foreign key(id_ent_motoboy) references entidades(id_ent)
 )engine=MYiSAM;
 
+
+
+create table negociacao(
+	id_nego int UNSIGNED AUTO_INCREMENT  PRIMARY KEY NOT NULL,
+	dt_criacao_pro datetime not null,
+	id_enc int not null,
+	foreign key(id_enc) references encomendas(id_enc),
+	id_ent_motoboy int not null,
+	foreign key(id_ent_motoboy) references entidades(id_ent),
+	id_lista_nego int not null,
+	foreign key(id_lista_nego) references lista_negociacao(id_lista_nego)
+)engine=MYiSAM;
+
