@@ -12,6 +12,7 @@
         
           <th>Usuário</th>
           <th>Proposta</th>
+          <th>Encomenda</th>
           <th>Ações</th>
         </tr>
       </thead>
@@ -19,6 +20,7 @@
         <tr class="active">
           <td>Lucas Henrique</td>
           <td>R$ 17,50</td>
+          <td>Encomenda X</td>
           <td>
            <a href="#" id="proposta_aprovacao">  <span class="glyphicon glyphicon-ok"></span> </a>
             <a href="#" id="proposta_recusar">  <span class="glyphicon glyphicon-remove"></span> </a>
@@ -26,8 +28,9 @@
 
         </tr>
         <tr>
-                   <td>Lucas Henrique</td>
+          <td>Lucas Henrique</td>
           <td>R$ 17,50</td>
+          <td>Encomenda X</td>
           <td>
            <a href="#" id="proposta_aprovacao">  <span class="glyphicon glyphicon-ok"></span> </a>
             <a href="#" id="proposta_recusar">  <span class="glyphicon glyphicon-remove"></span> </a>
@@ -35,8 +38,9 @@
 
         </tr>
         <tr class="success">
-                    <td>Lucas Henrique</td>
+          <td>Lucas Henrique</td>
           <td>R$ 17,50</td>
+          <td>Encomenda X</td>
           <td>
            <a href="#" id="proposta_aprovacao">  <span class="glyphicon glyphicon-ok"></span> </a>
             <a href="#" id="proposta_recusar">  <span class="glyphicon glyphicon-remove"></span> </a>
@@ -45,6 +49,7 @@
         </tr>
         <td>Lucas Henrique</td>
           <td>R$ 17,50</td>
+          <td>Encomenda X</td>
           <td>
            <a href="#" id="proposta_aprovacao">  <span class="glyphicon glyphicon-ok"></span> </a>
             <a href="#" id="proposta_recusar">  <span class="glyphicon glyphicon-remove"></span> </a>
@@ -52,8 +57,10 @@
 
         </tr>
         <tr class="info">
-                    <td>Lucas Henrique</td>
+          <td>Lucas Henrique</td>
           <td>R$ 17,50</td>
+          <td>Encomenda X</td>
+          
           <td>
            <a href="#" id="proposta_aprovacao">  <span class="glyphicon glyphicon-ok"></span> </a>
             <a href="#" id="proposta_recusar">  <span class="glyphicon glyphicon-remove"></span> </a>
@@ -61,8 +68,9 @@
 
         </tr>
         <tr>
-                    <td>Lucas Henrique</td>
+          <td>Lucas Henrique</td>
           <td>R$ 17,50</td>
+          <td>Encomenda X</td>
           <td>
            <a href="#" id="proposta_aprovacao">  <span class="glyphicon glyphicon-ok"></span> </a>
             <a href="#" id="proposta_recusar">  <span class="glyphicon glyphicon-remove"></span> </a>
@@ -70,8 +78,9 @@
 
         </tr>
         <tr class="warning">
-                    <td>Lucas Henrique</td>
+          <td>Lucas Henrique</td>
           <td>R$ 17,50</td>
+          <td>Encomenda X</td>
           <td>
            <a href="#" id="proposta_aprovacao">  <span class="glyphicon glyphicon-ok"></span> </a>
             <a href="#" id="proposta_recusar">  <span class="glyphicon glyphicon-remove"></span> </a>
@@ -79,8 +88,9 @@
 
         </tr>
         <tr>
-                    <td>Lucas Henrique</td>
+          <td>Lucas Henrique</td>
           <td>R$ 17,50</td>
+          <td>Encomenda X</td>
           <td>
            <a href="#" id="proposta_aprovacao">  <span class="glyphicon glyphicon-ok"></span> </a>
             <a href="#" id="proposta_recusar">  <span class="glyphicon glyphicon-remove"></span> </a>
@@ -88,8 +98,9 @@
 
         </tr>
         <tr class="danger">
-                    <td>Lucas Henrique</td>
+          <td>Lucas Henrique</td>
           <td>R$ 17,50</td>
+          <td>Encomenda X</td>
           <td>
            <a href="#" id="proposta_aprovacao">  <span class="glyphicon glyphicon-ok"></span> </a>
             <a href="#" id="proposta_recusar">  <span class="glyphicon glyphicon-remove"></span> </a>

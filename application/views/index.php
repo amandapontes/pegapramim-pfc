@@ -51,6 +51,19 @@
 					<span>Propostas Recebidas</span>
 				</a>
 			</li>
+
+			<li>
+				<a href="#">
+				<?php
+ 					echo form_hidden('url','ver_negociacoes');
+				?>
+					<span class="icon">
+						<i aria-hidden="true" class="icon-portfolio"></i>
+					</span>
+					<span>Lista Negociações</span>
+				</a>
+			</li>
+
 				<li>
 				<a href="#">
 				<?php
@@ -62,6 +75,24 @@
 					<span>Negociações</span>
 				</a>
 			</li>
+
+
+
+				<li>
+				<a href="#">
+				<?php
+ 					echo form_hidden('url','ver_avaliacoes');
+				?>
+					<span class="icon">
+						<i aria-hidden="true" class="icon-portfolio"></i>
+					</span>
+					<span>Avaliações</span>
+				</a>
+			</li>
+
+			
+
+
 			<li>
 				<a href="#" id="opcoes">
 				<?php

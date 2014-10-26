@@ -1,4 +1,4 @@
-<h2>Lista de Propostas</h2>
+<h2>Histórico da Proposta</h2>
 <p class="bs-callout bs-callout-info">
 	Agora é possível conversar com seu ajudante e acertar os detalhes.
 </p>
@@ -28,13 +28,17 @@
           </div>
         </div>
       </li>
-       <div class="col-sm-10">
+       <div class="col-sm-10 comentar_div">
       <textarea class="form-control" id="inputEmail3" placeholder="Sua mensagem" name=""></textarea>
+    
     </div>
-    <br />
-     <a href="#" id="proposta_aprovacao">  <span class="glyphicon glyphicon-envelope"> Enviar</span> </a>
+    <nav class="comentar_div">
+    	  <a href="#" id="proposta_aprovacao">  <span class="glyphicon glyphicon-envelope"> Enviar</span> </a>
         <a href="#" id="proposta_aprovacao">  <span class="glyphicon glyphicon-ok"> Aprovar</span> </a>
         <a href="#" id="proposta_recusar">  <span class="glyphicon glyphicon-remove"> Recusar</span> </a>
+  	
+    </nav>
+    
     </ul>
   
   
