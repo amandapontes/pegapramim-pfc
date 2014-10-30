@@ -15,5 +15,6 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>resources/css/default.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>resources/css/component.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>resources/css/progressjs.min.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>resources/css/estilo.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>resources/css/my_bootstrap.css" />
 	

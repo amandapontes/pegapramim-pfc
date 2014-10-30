@@ -32,7 +32,7 @@
 	  </div>
 	  <div class="form-group">
 	    <div class="col-sm-offset-2 col-sm-10">
-	      <button type="submit" class="btn btn-default">Entrar</button>
+	      <button type="submit" class="btn btn-default">Entrar</button> ou  <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-user"></span>  Entrar com rede social</button> 
 	    </div>
 	  </div>
 			<!-- echo form_label('CPF/CNPJ');
