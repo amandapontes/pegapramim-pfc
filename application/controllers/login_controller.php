@@ -6,8 +6,16 @@ class Login_Controller extends CI_Controller{
 	public function index(){
 		//verifica_acesso($this->session->userdata('id_ent'),$this->session->userdata('tipo_ent'), true);
 		$e = new Entidade();
-	//	echo "<pre>"; print_r($e); echo "</pre>";die;
- 		$this->parser->parse('login',(array)$e->stored); 
+		#echo "<pre>"; print_r($e); echo "</pre>";die;
+
+		$dados 							= (array)$e->stored;
+		$dados['nome_ent'] 				='';
+		$dados['login_ent'] 			='';
+		$dados['cpf_cnpj_ent'] 			='';
+		$dados['descricao_cont_tel'] 	='';
+		$dados['descricao_cont_cel'] 	='';
+
+ 		$this->parser->parse('login',$dados); 
 	}
 
 	public function custom_form(){

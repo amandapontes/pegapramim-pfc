@@ -149,7 +149,7 @@ class Entidade extends DataMapper {
 	}
 	
 	public function verificar_existe($cpf_cnpj){
-		return $this->where('cpf_cnpj_ent',$login)->get();
+		return $this->where('cpf_cnpj_ent',$cpf_cnpj)->get();
 	}
 
 }
