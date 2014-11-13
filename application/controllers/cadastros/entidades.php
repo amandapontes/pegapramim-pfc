@@ -14,7 +14,7 @@ class Entidades extends CI_Controller{
 		$retorno['descricao_cont_cel']='';
  		$this->parser->parse('cadastros/entidades',$retorno); 
 	}
-	public function custom_form(){
+	public function custom_form($save = TRUE){
 
 		$_data = $this->input->post();
 		$e = new Entidade();
@@ -39,6 +39,14 @@ class Entidades extends CI_Controller{
 		verifica_acesso($_data['id_ent'],$this->session->userdata('tipo_ent'), false);
 		
 		//-$this->parser->parse('cadastros/entidade',array());
+	}
+
+	public function load_user(){
+		$e = new Entidade();
+		$id_logado = $this->session->userdata('id_ent');
+		$_data = $e->get_by_id($id_logado);
+		#echo "<pre>"; print_r($_data);echo "</pre>";
+ 		$this->parser->parse('cadastros/entidades',$_data[0]); 
 	}
 /*
 	function do_upload($id){

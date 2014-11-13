@@ -76,7 +76,7 @@
 				<a href="#" id="cadastro_entidade">
 				<?php
 
- 					echo form_hidden('url','cadastros/entidades');
+ 					echo form_hidden('url','cadastros/entidades/load_user');
 				?>
 					<span class="glyphicon glyphicon-user"> <?php echo $this->session->userdata('nome_ent'); ?></span>
 					

@@ -21,7 +21,7 @@
 <div class="form-group">
     <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
     <div class="col-sm-10">
-      <input type="login_ent" class="form-control" id="inputEmail3" placeholder="Email" value="{login_ent}">
+      <input type="text" name="login_ent" class="form-control" id="inputEmail3" placeholder="Email" value="{login_ent}">
     </div>
   </div>
 

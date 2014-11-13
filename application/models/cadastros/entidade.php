@@ -153,6 +153,9 @@ class Entidade extends DataMapper {
 		return $this->where('cpf_cnpj_ent',$cpf_cnpj)->get();
 	}
 
+public function get_by_id($id){
+		return $this->db->query("select * from entidades join contatos on contatos.id_ent= entidades.id_ent where entidades.id_ent = ". $id .";")->result();
+	}
 }
 /* End of file template.php */
 /* Location: ./application/models/template.php */
