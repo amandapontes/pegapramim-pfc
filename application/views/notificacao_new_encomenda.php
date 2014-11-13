@@ -68,11 +68,11 @@
 			<div class="form-group">
 			   <div class="input-group">
 				  <span class="input-group-addon">R$</span>
-				  <input type="text" class="form-control text-right" placeholder="Valor" name="vr_proposta" value="{vr_medio}" />
+				  <input type="text" class="form-control text-right" placeholder="Valor" name="vr_pro" value="{vr_medio}" />
 				</div>
 			</div>
 			<?php
-				#echo form_input('vr_proposta','{vr_medio}');
+				#echo form_input('vr_pro','{vr_medio}');
 				//echo form_submit('enviar','Enviar Proposta');
 			?>
 			<div class="form-group">

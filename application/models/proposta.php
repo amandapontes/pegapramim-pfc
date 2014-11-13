@@ -133,6 +133,7 @@ class Proposta extends DataMapper {
 		//$this->id_pro         = $_data['id_opc'];
 		$this->id_ent_motoboy = $_data['id_ent_motoboy'];
 		$this->id_enc         = $_data['id_enc'];
+		$this->vr_pro         = $_data['vr_pro'];
 		$this->aprovado_pro   = '0';
 		return $this->save();
 		//echo "<print>"; print_r($e->id); echo "</pre>";
@@ -142,6 +143,14 @@ class Proposta extends DataMapper {
 		return $this->get();
 	}
 
+
+public function getPropostasByIdUsuario($id){
+		/*$this->get();
+		$e = new Entidade();
+		return $e->where_related($this->get());*/
+		return $this->db->query("select * from encomendas JOIN propostas on propostas.id_enc = encomendas.id_enc JOIN entidades on propostas.id_ent_motoboy = entidades.id_ent where encomendas.id_ent = ". $id .";")->result();
+		//return $this->db->get()->result();
+	}
 }
 /* End of file template.php */
 /* Location: ./application/models/template.php */

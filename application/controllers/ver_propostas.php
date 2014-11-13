@@ -3,9 +3,17 @@
 class Ver_Propostas extends CI_Controller{
 
 	public function index(){
-		//$p = new Propostas();
-		//$p->getVrKm($this->session->userdata('id_ent'));
- 		$this->parser->parse('ver_propostas',array()); 
+		$p = new Proposta();
+		$id_logado = $this->session->userdata('id_ent');
+		$dados['propostas'] = $p->getPropostasByIdUsuario($id_logado);
+		#echo "<print>"; print_r($dados['propostas'][0]); echo "</pre>";
+		$dados['nenhum_resultado'] = 'display:none';
+		$dados['nenhum_resultado_tabela'] = 'display:block';
+		if(empty($dados['propostas'])){
+			$dados['nenhum_resultado'] = 'display:block';
+			$dados['nenhum_resultado_tabela'] = 'display:none';
+		}
+ 		$this->parser->parse('ver_propostas',$dados); 
 	}
 
 	public function custom_form(){

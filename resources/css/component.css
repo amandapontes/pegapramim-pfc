@@ -45,7 +45,10 @@
 
 .cbp-spmenu-horizontal {
 	width: 100%;
+	/*
+	CComentado
 	height: 150px;
+	*/
 	left: 0;
 	z-index: 1000;
 	overflow: hidden;

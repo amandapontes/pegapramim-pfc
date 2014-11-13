@@ -22,7 +22,7 @@
 <div class="form-group">
     <label for="inputPassword3" class="col-sm-2 control-label">Descrição</label>
     <div class="col-sm-10">
-       <textarea class="form-control" id="inputEmail3" placeholder="Descrição da Ajuda" name="descricao_enc" class="form-control" id="inputPassword3" required></textarea>
+       <textarea class="form-control" id="descricao_enc" placeholder="Descrição da Ajuda" name="descricao_enc" class="form-control" id="inputPassword3" required></textarea>
     </div>
   </div>
 

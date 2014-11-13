@@ -150,6 +150,7 @@ create table encomendas(
 create table propostas(
 	id_pro int UNSIGNED AUTO_INCREMENT  PRIMARY KEY NOT NULL,
 	dt_criacao_pro datetime not null,
+	vr_pro double(5,2) null,
 	aprovado_pro char(1) not null,
 	id_enc int not null,
 	foreign key(id_enc) references encomendas(id_enc),

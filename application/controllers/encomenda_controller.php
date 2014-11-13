@@ -64,7 +64,7 @@ class Encomenda_Controller extends CI_Controller{
 	public function enviar_proposta(){
 		$_data = $_POST;
 		$_data['id_ent_motoboy'] = $this->session->userdata('id_ent');
-		//echo "<pre>";  echo print_r($_POST); echo "</pre>";
+		//echo "<pre>";  echo print_r($_data); echo "</pre>";die;
 		$p = new Proposta();
 		$p->salvar($_data);
 	}

@@ -24,6 +24,7 @@ $(document).ready(function(){
 		if(valor != 'undefined'){
 			$('#sessao-json > #troca').load(valor);
 			if(valor=='solicitar_motoboy'){
+				$('#descricao_enc').focus();
 				$('#esconde').hide();
 			}
 			else{

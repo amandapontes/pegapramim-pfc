@@ -2,6 +2,9 @@
 class Inicio extends CI_Controller{
 
 	public function index(){
+		if(empty($this->session->userdata['id_ent'])){
+			 redirect("login_controller");
+		}
 		$e = new Encomenda();
 		$encomendas = array();
  		$this->parser->parse('index',array()); 
@@ -46,19 +49,22 @@ class Inicio extends CI_Controller{
 			$json = json_decode($json);
 
 				//echo "<pre>"; echo print_r($json->rows['0']->elements['0']->status); echo "</pre>";
-			if($json->rows['0']->elements['0']->status == 'OK'){
-				$value->distancia = $json->rows['0']->elements['0']->distance->text;
+			if(!empty($json->rows)){
 
-				$distancia_quebrada = explode(" ", $value->distancia);
+				if($json->rows['0']->elements['0']->status == 'OK'){
+					$value->distancia = $json->rows['0']->elements['0']->distance->text;
 
-				
-				if($distancia_quebrada[1] == 'km'){
-					$vr_calc = $vrKm * str_replace(',', '.', $distancia_quebrada[0]);
-				}else{
-					$vr_calc = $vrKm ;
+					$distancia_quebrada = explode(" ", $value->distancia);
+
+					
+					if($distancia_quebrada[1] == 'km'){
+						$vr_calc = $vrKm * str_replace(',', '.', $distancia_quebrada[0]);
+					}else{
+						$vr_calc = $vrKm ;
+					}
+				$value->duracao = $json->rows['0']->elements['0']->duration->text;
+				$value->vr_medio = $vr_calc;
 				}
-			$value->duracao = $json->rows['0']->elements['0']->duration->text;
-			$value->vr_medio = $vr_calc;
 			}
 		}
 		//echo $e->getEncomendas($_data);
