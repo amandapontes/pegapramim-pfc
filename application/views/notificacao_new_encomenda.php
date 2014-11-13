@@ -22,7 +22,7 @@
 	
 	});
 </script>
-<section id="notification_encomenda">
+<section id="notification_encomenda" style="display: {exibe_notificacao}">
 		
 	<section id="new_encomenda">
 		{encomendas}

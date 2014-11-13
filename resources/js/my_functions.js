@@ -1,6 +1,16 @@
 $(document).ready(function(){
-	$('#menu a').click(function(){
-		
+	if($('#notification_encomenda').is(":visible")){
+		$('#sessao-json').attr("style","width: 60%");
+	}
+	else{
+		$('#sessao-json').attr("style","width: 98%");	
+	}
+	
+	$('#opcoes_sistema a').click(function(){
+		$('#opcoes_sistema a').each(function(){
+			$(this).removeClass('link_ativo');
+		});
+		$(this).addClass('link_ativo');
 		if($(this).attr('id') == 'inicio'){
 			location.reload();	
 		}
@@ -76,6 +86,8 @@ $(document).ready(function(){
 			alert('oi');
 				$(this).parent('td').parent('tr').hide();
 		});
+
+		
 
 //or for specific element
 /* progressJs().set(80);

@@ -19,123 +19,76 @@
 
 
 <header>
-	<nav id="menu" class="nav">					
-		<ul>
-			<li>
-				<a href="#" id="inicio">
-					<span class="icon">
-						<i aria-hidden="true" class="icon-home"></i>
-					</span>
-					<span>Inicio</span>
+<div id="opcoes_sistema">
+	<nav id="cbp-spmenu-s3" class="cbp-spmenu cbp-spmenu-horizontal cbp-spmenu-top cbp-spmenu-open">					
+		<a href="#" id="inicio" class="link_ativo">
+					<span class="glyphicon glyphicon-home"> Inicio</span>
+				
 				</a>
-			</li>
-			<li>
+		
 				<a href="#">
 				<?php
  					echo form_hidden('url','solicitar_motoboy');
 				?>
-					<span class="icon">
-						<i aria-hidden="true" class="icon-portfolio"></i>
-					</span>
-					<span>Soliciar Ajuda</span>
+					<span class="glyphicon glyphicon-globe"> Soliciar Ajuda</span>
+					
 				</a>
-			</li>
-			<li>
+		
 				<a href="#">
 				<?php
  					echo form_hidden('url','ver_propostas');
 				?>
-					<span class="icon">
-						<i aria-hidden="true" class="icon-portfolio"></i>
-					</span>
-					<span>Propostas Recebidas</span>
+					<span class="glyphicon glyphicon-usd"> Propostas Recebidas</span>
+					
 				</a>
-			</li>
-
-			<li>
 				<a href="#">
 				<?php
  					echo form_hidden('url','ver_negociacoes');
 				?>
-					<span class="icon">
-						<i aria-hidden="true" class="icon-portfolio"></i>
-					</span>
-					<span>Lista Negociações</span>
+					<span class="glyphicon glyphicon-user"> Lista Negociações</span>
+					
 				</a>
-			</li>
-
-				<li>
 				<a href="#">
 				<?php
  					echo form_hidden('url','lista_negociacao');
 				?>
-					<span class="icon">
-						<i aria-hidden="true" class="icon-portfolio"></i>
-					</span>
-					<span>Negociações</span>
+					<span class="glyphicon glyphicon-user"> Negociações</span>
+					
 				</a>
-			</li>
-
-
-
-				<li>
 				<a href="#">
 				<?php
  					echo form_hidden('url','ver_avaliacoes');
 				?>
-					<span class="icon">
-						<i aria-hidden="true" class="icon-portfolio"></i>
-					</span>
-					<span>Avaliações</span>
+					<span class="glyphicon glyphicon-user"> Avaliações</span>
+					
 				</a>
-			</li>
-
-			
-
-
-			<li>
 				<a href="#" id="opcoes">
 				<?php
  					echo form_hidden('url','opcoes');
 				?>
-					<span class="icon">
-						<i aria-hidden="true" class="icon-blog"></i>
-					</span>
-					<span>Configurações</span>
+					<span class="glyphicon glyphicon-cog"> Configurações</span>
+					
 				</a>
-			</li>
-			<li>
 				<a href="site/landing_page">
-					<span class="icon">
-						<i aria-hidden="true" class="icon-contact"></i>
-					</span>
-					<span>Site</span>
+					<span class="glyphicon glyphicon-user"> Site</span>
+					
 				</a>
-			</li>
-			<li>
 				<a href="#" id="cadastro_entidade">
 				<?php
 
  					echo form_hidden('url','cadastros/entidades');
 				?>
-					<span class="icon"> 
-						<i aria-hidden="true" class="icon-team"></i>
-					</span>
-					<span><?php echo $this->session->userdata('nome_ent'); ?></span>
+					<span class="glyphicon glyphicon-user"> <?php echo $this->session->userdata('nome_ent'); ?></span>
+					
 				</a>
-			</li>
 			
-			<li>
-				<a href="login_controller/deslogar">
-					<span class="icon"> 
-						<i aria-hidden="true" class="icon-team"></i>
-					</span>
-					<span>Sair</span>
+				<a href="login_controller/deslogar"> 
+					<span class="glyphicon glyphicon-user"> Sair</span>
+					
 				</a>
-			</li>
-		</ul>
+			
 	</nav>
-	
+</div>
 </header>
 <div id="camposEscondidos">
 	<input type="hidden" name="latitude_cli_entra" id="latitude_cli_entra" />

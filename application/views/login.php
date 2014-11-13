@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>Title pagina</title>
+<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Responsive Retina-Friendly Menu with different, size-dependent layouts" />
+	<meta name="keywords" content="responsive menu, retina-ready, icon font, media queries, css3, transition, mobile" />
+	<meta name="author" content="Codrops" />
+	<title>Bem Vindo - PegaPraMim</title>
 	<?php
 		$this->load->view('includes/css');
 		$this->load->view('includes/js');
 	?>
+	<script>jQuery(document).ready(function($) {
+		alert()
+	});</script>
 </head>
 
 <body>

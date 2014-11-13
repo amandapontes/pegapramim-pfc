@@ -154,7 +154,7 @@ class Encomenda extends DataMapper {
 		/*$this->get();
 		$e = new Entidade();
 		return $e->where_related($this->get());*/
-		return $this->db->query("select encomendas.*, entidades.*, contatos.* FROM entidades JOIN encomendas ON encomendas.id_ent = entidades.id_ent LEFT JOIN propostas ON propostas.id_enc = encomendas.id_enc LEFT JOIN contatos ON contatos.id_ent = entidades.id_ent where propostas.id_enc IS NULL or propostas.id_ent_motoboy !=" . $id ." GROUP BY encomendas.id_enc;")->result();
+		return $this->db->query("select encomendas.*, entidades.*, contatos.* FROM entidades JOIN encomendas ON encomendas.id_ent = entidades.id_ent LEFT JOIN propostas ON propostas.id_enc = encomendas.id_enc LEFT JOIN contatos ON contatos.id_ent = entidades.id_ent where propostas.id_enc IS NULL AND encomendas.id_ent !=" . $id ." GROUP BY encomendas.id_enc;")->result();
 		//return $this->db->get()->result();
 	}
 

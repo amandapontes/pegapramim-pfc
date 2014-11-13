@@ -2,7 +2,7 @@
  * Noty Helpers Javascript From JQuery Javascript Library
  *
  * Ported by Maksim Pecherskiy.  Original Licensing:
- *
+ *http://tympanus.net/Blueprints/SlidePushMenus/#
  * http://jquery.com/
  *
  * Copyright 2011, John Resig

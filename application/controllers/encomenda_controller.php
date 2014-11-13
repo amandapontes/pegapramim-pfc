@@ -11,6 +11,7 @@ class Encomenda_Controller extends CI_Controller{
 
 	 	$e = new Encomenda();
 		$encomendas = array();
+		$encomendas['exibe_notificacao'] = "none";
 		$encomendas['encomendas'] = $e->getEncomendas() ;
 		$encomendas['id_logado'] = $this->session->userdata('id_ent');
 		$opcoes = new Opcoe();
@@ -53,6 +54,10 @@ class Encomenda_Controller extends CI_Controller{
 		//echo $e->getEncomendas($_data);
 	//	echo "<pre>"; echo print_r($encomendas); echo "</pre>";
 //		echo "<pre>"; echo print_r($encomendas); echo "</pre>";
+//		
+		if(!empty($encomendas['encomendas'])){
+			$encomendas['exibe_notificacao'] = "block";
+		}
 		$this->parser->parse('notificacao_new_encomenda',$encomendas);
 	}
 

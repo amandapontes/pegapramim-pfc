@@ -130,7 +130,8 @@ class Entidade extends DataMapper {
 		//$n->dt_criacao = 		date("Y-m-d H:i:s");
 		//$e->id_ent       = $_data['id_ent'];
 		$existe = $this->verificar_existe($_data['cpf_cnpj_ent']);
-		if(empty($existe)){
+		#echo "<print>"; print_r(); echo "</pre>";die;
+		if(empty($existe->stored->id_ent)){
 			$this->ativo        = $_data['ativo'];
 			$this->nome_ent     = $_data['nome_ent'];
 			$this->login_ent    = $_data['login_ent'];

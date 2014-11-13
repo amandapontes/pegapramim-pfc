@@ -4,12 +4,11 @@ class Inicio extends CI_Controller{
 	public function index(){
 		$e = new Encomenda();
 		$encomendas = array();
-		$encomendas['encomendas'] = $e->getEncomendas();
  		$this->parser->parse('index',array()); 
 
 	 	$e = new Encomenda();
 		$encomendas = array();
-	
+		$encomendas['exibe_notificacao'] = "none";
 		$encomendas['encomendas'] = $e->getEncomendasById($this->session->userdata['id_ent']) ;
 		$encomendas['id_logado']  = $this->session->userdata('id_ent');
 		$encomendas['nome_ent']   = $this->session->userdata('nome_ent');
@@ -65,6 +64,9 @@ class Inicio extends CI_Controller{
 		//echo $e->getEncomendas($_data);
 	//	echo "<pre>"; echo print_r($encomendas); echo "</pre>";
 //		echo "<pre>"; echo print_r($encomendas); echo "</pre>";
+		if(!empty($encomendas['encomendas'])){
+			$encomendas['exibe_notificacao'] = "block";
+		}
 		$this->parser->parse('notificacao_new_encomenda',$encomendas);
 
  		$this->parser->parse('footer', array());
