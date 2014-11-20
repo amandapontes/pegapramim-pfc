@@ -79,17 +79,72 @@ $(document).ready(function(){
 		});
 
 		$('#proposta_aprovacao').on('click', function(){
-			alert('oi');
+			
 				$('#sessao-json > #troca').load('index.php/ver_propostas');
 		});
 
 		$('#proposta_recusar').click(function(){
-			alert('oi');
+			
 				$(this).parent('td').parent('tr').hide();
 		});
 
+		$('.glyphicon-ok').on("click", function(){
+			
+		});
 		
+		/**
+		 * Evento de click para logar
+		 */
 
+		$('#btn_login').click(function(evt){
+				evt.preventDefault();
+				var formulario = $(this).parents('form');
+				var dados = formulario.serialize();
+
+		        $.ajax({
+		          type: "POST",
+		          url: "login_controller/custom_form",
+		          data: dados
+		        })
+		          .done(function( msg ) {
+		          	if(msg != 1){
+		          		alert("Usuário não existe");
+		          		return false;
+		          	}
+		          	else{
+		          		alert('Seja Bem Vindo !');
+		          		 location.reload(); 
+		          	}
+		          	
+		          });
+		});
+
+	/**
+		 * Evento de click para SALVAR OU CADASTRAR uma entidade
+		 */
+
+		$('#btn_salvar_entidade').click(function(evt){
+				evt.preventDefault();
+				var formulario = $(this).parents('form');
+				var dados = formulario.serialize();
+
+		        $.ajax({
+		          type: "POST",
+		          url: "cadastros/entidades/custom_form",
+		          data: dados
+		        })
+		          .done(function( msg ) {
+		          	if(msg != 1){
+		          		alert("Usuário não existe");
+		          		return false;
+		          	}
+		          	else{
+		          		alert('Seja Bem Vindo !');
+		          		 location.reload(); 
+		          	}
+		          	
+		          });
+		});
 //or for specific element
 /* progressJs().set(80);
 progressJs("#centro").start();

@@ -136,9 +136,6 @@ class Entidade extends DataMapper {
 			$this->nome_ent     = $_data['nome_ent'];
 			$this->login_ent    = $_data['login_ent'];
 			$this->senha_ent    = $_data['senha_ent'];
-			$this->cpf_cnpj_ent = $_data['cpf_cnpj_ent'];
-			$this->dt_nasc_ent  = $_data['dt_nasc_ent'];
-			$this->tipo_ent     = $_data['tipo_ent'];
 			return $this->save();
 		}
 		return $existe;
@@ -146,11 +143,11 @@ class Entidade extends DataMapper {
 	}
 
 	public function verificar_login($login, $senha){
-		return $this->where('cpf_cnpj_ent',$login)->where('senha_ent',$senha)->get();
+		return $this->where('login_ent',$login)->where('senha_ent',$senha)->get();
 	}
 	
-	public function verificar_existe($cpf_cnpj){
-		return $this->where('cpf_cnpj_ent',$cpf_cnpj)->get();
+	public function verificar_existe($login){
+		return $this->where('login_ent',$login)->get();
 	}
 
 public function get_by_id($id){

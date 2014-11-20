@@ -20,7 +20,7 @@ class Entidades extends CI_Controller{
 		$e = new Entidade();
 		//$end = new Enderecos_Temp();
 		//$vei = new Veiculos_Temp();
-		#echo "<pre>"; print_r($_data);echo "</pre>";
+		echo "<pre>"; print_r($_data);echo "</pre>";
 		#echo "<pre>"; print_r($this->upload->data()); "</pre>";
 		if($e->salvar($_data)){
 			$_data['id_ent']        	= $e->id;
