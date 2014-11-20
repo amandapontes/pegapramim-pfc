@@ -1,4 +1,9 @@
 $(document).ready(function(){
+	$('a').tooltip();
+	$('.popover-dismiss').popover({
+	  trigger: 'click'
+	});
+	$('.cel').mask('(99) 9999-99999?');
 	if($('#notification_encomenda').is(":visible")){
 		$('#sessao-json').attr("style","width: 60%");
 	}
@@ -91,60 +96,158 @@ $(document).ready(function(){
 		$('.glyphicon-ok').on("click", function(){
 			
 		});
+
+/*====================================================================== LGON E DADOS ENTIDADE
+*/
+//$('#login').hide();
+		$('#cadastrar').hide();
+		$('a#openLogin').click(function(){
+			$('#login').show(600);
+			$('#cadastrar').hide(500);
+		});
+		$('a#openCadastro').click(function(){
+			$('#cadastrar').show(600);
+			$('#login').hide(500);
+		});
+
+/*
+		$("#login").validate({
+			submitHandler: function(form){
+			var formulario = $('form#login');
+			var dados = formulario.serialize();
+			 $.ajax({
+		          type: "POST",
+		          url: "acesso/cadastrar",
+		          data: dados
+		        })
+		          .success(function( msg ) {
+		        	var n = noty({text: msg, type: 'error'});
+		        	removeTodos(n);
+		          });
+				return false;
+			}
+		});
+*/
+	function removeTodos(n){
 		
-		/**
-		 * Evento de click para logar
-		 */
+	}
+	
+	function feedback(msg){
+		var obj = jQuery.parseJSON(msg);
+		if(obj.cod == '-1' || obj.cod == '0' ){
+        	var n = noty({text: obj.msg, type: 'error', shadow: false, styling: "bootstrap" , hide: true, delay: 500,
+			killer: true
 
-		$('#btn_login').click(function(evt){
-				evt.preventDefault();
-				var formulario = $(this).parents('form');
-				var dados = formulario.serialize();
-
-		        $.ajax({
-		          type: "POST",
-		          url: "login_controller/custom_form",
-		          data: dados
-		        })
-		          .done(function( msg ) {
-		          	if(msg != 1){
-		          		alert("Usuário não existe");
-		          		return false;
-		          	}
-		          	else{
-		          		alert('Seja Bem Vindo !');
-		          		 location.reload(); 
-		          	}
-		          	
-		          });
+        				});
+        	removeTodos(n);
+        	return 0;
+      	}
+      	else if(obj.cod == '1'){
+      		var n = noty({text: obj.msg, type: 'success',shadow: false, styling: "bootstrap" , hide: true, delay: 500,
+      	killer: true
+		});
+  			removeTodos(n);
+  			return obj.cod;
+      	}
+      	return obj.cod;
+}
+		$('input[name="login_ent"]').keypress(function(){
+			//$(this).parent('#group-email');
+			//console.log($(this).parent('#group-email'));
+			
+			var elemento = $(this).parents('.form-group');
+			
+			$(elemento).removeClass('has-error');
 		});
 
-	/**
-		 * Evento de click para SALVAR OU CADASTRAR uma entidade
-		 */
-
-		$('#btn_salvar_entidade').click(function(evt){
-				evt.preventDefault();
-				var formulario = $(this).parents('form');
-				var dados = formulario.serialize();
-
-		        $.ajax({
-		          type: "POST",
-		          url: "cadastros/entidades/custom_form",
-		          data: dados
-		        })
-		          .done(function( msg ) {
-		          	if(msg != 1){
-		          		alert("Usuário não existe");
-		          		return false;
-		          	}
-		          	else{
-		          		alert('Seja Bem Vindo !');
-		          		 location.reload(); 
-		          	}
-		          	
-		          });
+		$('#login_senha').keypress(function(){
+			var elemento = $(this).parent('#group_login_senha');
+			if($('#login_senha').val().length >= 5){
+				$(elemento).removeClass('has-error');
+				
+			}
 		});
+
+$('#cadastro_senha').keypress(function(){
+			
+			//console.log($(this).parent('#group-email'));
+			
+			var elemento = $(this).parent('#group_cadastrar_senha');
+			if($('#cadastro_senha').val().length >= 5){
+				$(elemento).removeClass('has-error');
+			}
+		});
+
+		$('#login').submit(function(event){
+
+		    event.preventDefault;
+			var formulario = $('form#login');
+			var dados = formulario.serialize();
+			if($('#login_senha').val().length < 6){
+				var n = noty({text: 'Senha deve conter no mínimo 6 caracteres.', type: 'error',shadow: false, styling: "bootstrap" , hide: true, delay: 500});
+				removeTodos(n);
+				$('#group_login_senha').addClass('has-error');
+			        $('#login_senha').focus(function(){
+			        	 $(this).select();
+			        	});
+			}
+			else {
+	        $.ajax({
+	          type: "POST",
+	           url: "index.php/login_controller/custom_form",
+	          data: dados
+	        })
+	          .success(function( msg ) {
+	          	if(feedback(msg)){
+					setInterval(function(){
+		          		document.location = 'index.php/inicio';
+						},3000);
+	          	}
+          		//var n = noty({text: msg, type: 'error',shadow: false, styling: "bootstrap" , hide: true, delay: 500});
+	          });
+	          event.preventDefault;
+			}
+        	  return false;
+			});
+
+		$('#cadastrar').submit(function(event){
+			var formulario = $('form#cadastrar');
+			console.log(formulario);
+			var dados = formulario.serialize();
+			if($('#cadastro_senha').val().length < 6){
+				var n = noty({text: 'Senha deve conter no mínimo 6 caracteres.', type: 'error',shadow: false, styling: "bootstrap" , hide: true, delay: 500});
+				removeTodos(n);
+				$('#group_cadastrar_senha').addClass('has-error');
+			        $('#cadastro_senha').focus(function(){
+			        	 $(this).select();
+			        	});
+			}
+			else{
+				if($('#cadastro_senha_rp').val() != $('#cadastro_senha').val()){
+					var n = noty({text: 'A confirmação da senha digitada não é igual a senha.', type: 'error',shadow: false, styling: "bootstrap" , hide: true, delay: 500});
+				}else{
+			        $.ajax({
+			          type: "POST",
+			          url: "index.php/cadastros/entidades/custom_form",
+			          data: dados
+			        })
+			          .success(function( msg ) {
+			          	if(feedback(msg)){
+						setInterval(function(){
+			          		document.location = 'upload';
+								},3000);
+			          	}
+						$('#group-email').addClass('has-error');
+				        $('#group-email > input[name="login_ent"]').focus(function(){
+				        	 $(this).select();
+				        	});
+			          });
+					  event.preventDefault;
+				}
+			}
+		        	  return false;
+				});
+/* *=========================================================================/
 //or for specific element
 /* progressJs().set(80);
 progressJs("#centro").start();

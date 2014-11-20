@@ -60,10 +60,10 @@ fieldset{
 	border-width: 1px !important;
 }
 
-#login, #cadastro{
+/*#login, #cadastro{
 	float:left;
 	width: 48%;
-}
+}*/
 
 .comentar_div{
 	margin-top: 20px;

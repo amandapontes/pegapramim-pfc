@@ -1,86 +1,49 @@
-<?php
-	echo form_open_multipart('cadastros/entidades/custom_form','name="form" class="form-horizontal" role="form"');
-	echo form_fieldset(' ');
+ <hgroup class="bs-callout bs-callout-info">
+	<h4> Cadastrar </h4>
+	<h5><a href="#" id="openCadastro"  data-toggle="tooltip" data-placement="bottom" data-original-title="Vamos lá, é rápido e fácil!!">Clique aqui</a> para se cadastrar em nosso site e ter acesso aos nossos recursos</h5>
 
-	echo form_hidden('ativo','1');
-	echo form_hidden('login_ent','');
-	echo form_hidden('tela_login','0');
-?>
-    
-  <div class="form-group">
-	  	<div class="col-sm-11">
-			<div class="input-group">
-	 			 <span class="input-group-addon">Nome</span>
-	  			 <input type="text" class="form-control" placeholder="Digite seu nome" name="nome_ent" value="{nome_ent}" required/>
-			</div>
-		</div>
-		</div>
-  
-
-	  <div class="form-group">
-	  	<div class="col-sm-11">
-			<div class="input-group">
-	 			 <span class="input-group-addon">Email&nbsp;</span>
-	  			 <input type="text" class="form-control" placeholder="Digite seu e-mail" name="login_ent" value="{login_ent}" required/>
-			</div>
-		</div>
-		</div>
-
-
-	  <div class="form-group">
-		    <div class="col-sm-11">
+		<form class="form-horizontal" role="form" id="cadastrar" method="POST">
+			<?php
+				echo form_hidden('ativo','1');
+				echo form_hidden('login_ent','');
+				echo form_hidden('tela_login','0');
+			?>
+			<div class="form-group">
 				<div class="input-group">
-		 			 <span class="input-group-addon">Senha</span>
-		  			 <input type="password" class="form-control" placeholder="Senha" name="senha_ent" required/>
+				  <span class="input-group-addon">
+				  	<span class="glyphicon glyphicon-user"></span>
+				  </span>
+				  <input type="text" class="form-control" placeholder="Nome" name="nome_ent" value="{nome_ent}" required>
 				</div>
 			</div>
-		</div>
 
-
-
-	  <div class="form-group">
-		    <div class="col-sm-11">
+			<div class="form-group" id="group-email">
 				<div class="input-group">
-		 			 <span class="input-group-addon">Confirmar senha</span>
-		  			 <input type="password" class="form-control" placeholder="Confirmar Senha" name="senha_ent_conf" required/>
+				  <span class="input-group-addon">
+				  	<img src="<?php echo base_url();?>resources/img/email.png" width="14px" height="14px" />
+				  </span>
+				  <input type="email" class="form-control" placeholder="Email" name="login_ent" value="{login_ent}" required>
 				</div>
 			</div>
-		</div>
 
-
-
- 	<div class="form-group">
-	  	<div class="col-sm-11">
-			<div class="input-group">
-	 			 <span class="input-group-addon">Telefone</span>
-	  			 <input type="text" class="form-control" placeholder="+xx (xx) xxxx-xxxxx" name="descricao_cont_tel" value="{descricao_cont_tel}" />
+			<div class="form-group">
+				<div class="input-group"  id="group_cadastrar_senha">
+				  <span class="input-group-addon">
+				  	<img src="<?php echo base_url();?>resources/img/lock.png" width="14px" height="14px" />
+				  </span>
+				  <input type="password" class="form-control" placeholder="Senha" name="senha_ent"  id="cadastro_senha" minlength="6" required>
+				</div>
 			</div>
-		</div>
-		</div>
-
-
- 	<div class="form-group">
-	  	<div class="col-sm-11">
-			<div class="input-group">
-	 			 <span class="input-group-addon">Celular&nbsp;&nbsp;&nbsp;</span>
-	  			 <input type="text" class="form-control" placeholder="+xx (xx) xxxx-xxxxx" placeholder="Celular" name="descricao_cont_cel" value="{descricao_cont_cel}" />
+			<div class="form-group">
+				<div class="input-group" id="group_cadastrar_senharp">
+				  <span class="input-group-addon">
+				  	<img src="<?php echo base_url();?>resources/img/lock.png" width="14px" height="14px" />
+				  </span>
+				  <input type="password" class="form-control" placeholder="Confirmar senha" name="senha_ent_conf" id="cadastro_senha_rp" minlength="6" required>
+				</div>
 			</div>
-		</div>
-		</div>
-
-  </div>
-
-	  <div class="form-group">
-	    <div class="col-sm-11">
-	      <button type="submit" class="btn btn-default" id="btn_salvar_entidade"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Salvar</button>
-	    </div>
-	  </div>
-
-
-
-<?php	
-
-	echo form_fieldset_close();
-	echo form_close();
-?>
-</section>
+			<div class="form-group">
+		      <button type="submit" class="btn btn-default" id="btnCadastrar" >Salvar</button>
+		    </div>
+		</form>
+</hgroup>

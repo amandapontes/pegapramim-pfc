@@ -129,7 +129,7 @@ class Entidade extends DataMapper {
 //		echo "<pre>"; print_r(				array_merge((array)$n->stored, $_data)); "</pre>";
 		//$n->dt_criacao = 		date("Y-m-d H:i:s");
 		//$e->id_ent       = $_data['id_ent'];
-		$existe = $this->verificar_existe($_data['cpf_cnpj_ent']);
+		$existe = $this->verificar_existe($_data['login_ent']);
 		#echo "<print>"; print_r(); echo "</pre>";die;
 		if(empty($existe->stored->id_ent)){
 			$this->ativo        = $_data['ativo'];

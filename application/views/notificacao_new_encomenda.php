@@ -68,7 +68,7 @@
 			<div class="form-group">
 			   <div class="input-group">
 				  <span class="input-group-addon">R$</span>
-				  <input type="text" class="form-control text-right" placeholder="Valor" name="vr_pro" value="{vr_medio}" />
+				  <input type="text" class="form-control text-right" placeholder="Valor" name="vr_pro" value="{vr_medio}" readonly="readonly" />
 				</div>
 			</div>
 			<?php
@@ -78,7 +78,7 @@
 			<div class="form-group">
 			    <div class="col-sm-offset-1">
 				<button type="button" name="enviarProposta" id="enviarProposta" class="btn btn-default" >
-					<span class="glyphicon glyphicon-usd"></span> Enviar Proposta
+					<span class="glyphicon glyphicon-usd"></span> Aceitar Proposta
 				</button>
 				</div>
 			</div>

@@ -13,53 +13,49 @@
 </head>
 
 <body>
-<section class="em-linha">
-	<section id="login">
-	
-	<h1>ENTRAR</h1>
-		<?php
-			echo form_open_multipart('login_controller/custom_form','name="form" class="form-horizontal" role="form"');
-			echo form_fieldset(' ');
-		?>
-	
+<header>
+<section id="logo">
+	<img src="<?php echo base_url()?>resources/img/logo.png" />
+</section>
+</header>
+	<hgroup class="bs-callout bs-callout-info">
+	<h4> Entrar </h4>
+	<h5>Caso já possua cadastro em nosso site, <a href="#" data-original-title="Boa escolha =D" id="openLogin">clique aqui</a> para entrar.</h5>
+ 
 
-	  <div class="form-group">
-	  	<div class="col-sm-11">
-			<div class="input-group">
-	 			 <span class="input-group-addon">Email&nbsp;</span>
-	  			 <input type="text" class="form-control" placeholder="Digite seu e-mail" name="login_ent" required/>
-			</div>
-		</div>
-		</div>
-
-
-	  <div class="form-group">
-		    <div class="col-sm-11">
+		<form class="form-horizontal" role="form" id="login" method="POST">
+			<div class="form-group" id="group-email-login">
 				<div class="input-group">
-		 			 <span class="input-group-addon">Senha</span>
-		  			 <input type="password" class="form-control" placeholder="Senha" name="senha_ent" required/>
+				  <span class="input-group-addon">
+					  <img src="<?php echo base_url();?>resources/img/email.png" width="14px" height="14px" />
+				  </span>
+				  <input type="email" class="form-control" placeholder="Email" name="login_ent" required>
 				</div>
 			</div>
-		</div>
 
-	  <div class="form-group">
-	    <div class="col-sm-11">
-	      <button type="submit" class="btn btn-default" id="btn_login"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Entrar</button>
-	    </div>
-	  </div>
-		
-
-		
-	<?php
-			echo form_fieldset_close();
-			echo form_close();
+			<div class="form-group">
+				<div class="input-group" id="group_login_senha">
+				  <span class="input-group-addon">
+				  	<img src="<?php echo base_url();?>resources/img/lock.png" width="14px" height="14px" />
+				  </span>
+				  <input type="password" class="form-control" placeholder="Senha" name="senha_ent" id="login_senha" required minlength="6" >
+				</div>
+			</div>
+			<div class="form-group">
+		      <button type="submit" class="btn btn-default" id="btnEntrar">Entrar</button>
+		    </div>
+		</form>
+	</hgroup>
+<?php
+	$this->load->view('cadastros/entidades');
 ?>
-	</section>
-	<section id="cadastro">
-	<h1>CADASTRAR</h1>
-		<?php	
-		 $this->load->view('cadastros/entidades');
-		?>
-</section>
+<hgroup class="bs-callout bs-callout-warning">
+	<h4> Conheça </h4>
+	<h5>Não sabe como funciona nossa solução? <a href="index.php/site/landing_page" data-original-title="Não demora nem 1 minuto!!" >Clique aqui</a> e veja o seu funcionamento.</h5>
+</hgroup>
+
 </body>
 </html>
+<?php
+	#require_once('includes/footer.php');
+?>

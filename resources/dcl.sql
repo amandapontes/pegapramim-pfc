@@ -1,15 +1,15 @@
-create database flymoto;
-use flymoto;
+create database pegapramim;
+use pegapramim;
 
 create table entidades(
 	id_ent int UNSIGNED AUTO_INCREMENT  PRIMARY KEY NOT NULL,
 	ativo char(1) not null,
 	nome_ent varchar(100) not null,
 	login_ent varchar(16) not null,
-	senha_ent varchar(20) not null,
-	cpf_cnpj_ent varchar(14) not null,
-	dt_nasc_ent date null,
-	tipo_ent char(1) not null
+	senha_ent varchar(20) not null
+	#cpf_cnpj_ent varchar(14) not null,
+	#dt_nasc_ent date null,
+	#tipo_ent char(1) not null
 	)engine=MYiSAM;
 
 create table tipo_endereco_contatos(
