@@ -13,11 +13,7 @@
 </head>
 
 <body>
-<header>
-<section id="logo">
-	<img src="<?php echo base_url()?>resources/img/logo.png" />
-</section>
-</header>
+	<?php $this->load->view('includes/header');?>
 	<hgroup class="bs-callout bs-callout-info">
 	<h4> Entrar </h4>
 	<h5>Caso já possua cadastro em nosso site, <a href="#" data-original-title="Boa escolha =D" id="openLogin">clique aqui</a> para entrar.</h5>

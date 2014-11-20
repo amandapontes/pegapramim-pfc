@@ -75,3 +75,10 @@ fieldset{
 #opcoes_sistema{
 	height: 135px;
 }
+.cbp-spmenu-top.cbp-spmenu-open{
+	top: 126px !important;
+	position: inherit !important;
+}
+h5[data-original-title] {
+	cursor: help;
+}

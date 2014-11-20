@@ -157,9 +157,7 @@ input[type="submit"]:hover { background: #12587C }
 }
 
 .linha{
-	background-color: #ccc;
-	border-style: solid;
+	border: 1px solid #eee;
 	width: 100%;
 	margin-bottom: 10px;
-	height: 1px;
 }

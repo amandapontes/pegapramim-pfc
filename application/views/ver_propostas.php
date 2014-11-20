@@ -13,7 +13,7 @@
 <table class="table table-responsive table-striped">
       <thead>
         <tr>
-        
+        <th style="display:none">id</th>
           <th>Usuário</th>
           <th>Proposta</th>
           <th>Encomenda</th>
@@ -23,12 +23,15 @@
       <tbody>
       {propostas}
         <tr>
+             
+          <td style="display:none" value="{id_pro}" id="table_id"></td>
           <td>{nome_ent}</td>
           <td>R$ {vr_pro}</td>
           <td>{descricao_enc}</td>
           <td>
-           <a href="#" id="proposta_aprovacao">  <span class="glyphicon glyphicon-ok"></span> </a>
-            <a href="#" id="proposta_recusar">  <span class="glyphicon glyphicon-remove"></span> </a>
+           <a href="#" name="proposta_aprovacao" id="proposta_aprovacao">  <span class="glyphicon glyphicon-ok"></span> </a>
+
+            <a href="#" name="proposta_recusar" id="proposta_recusar">  <span class="glyphicon glyphicon-remove"></span> </a>
           </td>
 
         </tr>

@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	$('a').tooltip();
+	$('[data-original-title]').tooltip();
 	$('.popover-dismiss').popover({
 	  trigger: 'click'
 	});
@@ -81,20 +82,6 @@ $(document).ready(function(){
 		         // alert(position.coords.latitude);
 		           //  location.reload(); 
 		          });
-		});
-
-		$('#proposta_aprovacao').on('click', function(){
-			
-				$('#sessao-json > #troca').load('index.php/ver_propostas');
-		});
-
-		$('#proposta_recusar').click(function(){
-			
-				$(this).parent('td').parent('tr').hide();
-		});
-
-		$('.glyphicon-ok').on("click", function(){
-			
 		});
 
 /*====================================================================== LGON E DADOS ENTIDADE
@@ -248,6 +235,22 @@ $('#cadastro_senha').keypress(function(){
 		        	  return false;
 				});
 /* *=========================================================================/
+
+
+/* =========================================================== PROPOSSTAS=====================================================*/
+	$("[name=proposta_recusar]").on("click" , function(){
+		$(this).parent('td').parent('tr').hide();
+		alert('teste');
+		alert($(this).parents('#table_id').val());
+	});
+
+	$('[name=proposta_aprovacao]').on('click', function(){
+		$('#sessao-json > #troca').load('index.php/ver_propostas');
+		});
+
+/* =========================================================================*/
+
+
 //or for specific element
 /* progressJs().set(80);
 progressJs("#centro").start();
