@@ -24,4 +24,9 @@ class Ver_Propostas extends CI_Controller{
 			 redirect("inicio");
 		}
 	}
+
+	public function atualizar_aprovado($id, $status){
+		$p = new Proposta();
+		$p->atualizar_aprovado($id, $status);
+	}
 }

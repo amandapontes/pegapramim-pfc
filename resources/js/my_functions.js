@@ -212,7 +212,8 @@ $('#cadastro_senha').keypress(function(){
 			else{
 				if($('#cadastro_senha_rp').val() != $('#cadastro_senha').val()){
 					var n = noty({text: 'A confirmação da senha digitada não é igual a senha.', type: 'error',shadow: false, styling: "bootstrap" , hide: true, delay: 500});
-				}else{
+				}
+				else{
 			        $.ajax({
 			          type: "POST",
 			          url: "index.php/cadastros/entidades/custom_form",
@@ -237,18 +238,6 @@ $('#cadastro_senha').keypress(function(){
 /* *=========================================================================/
 
 
-/* =========================================================== PROPOSSTAS=====================================================*/
-	$("[name=proposta_recusar]").on("click" , function(){
-		$(this).parent('td').parent('tr').hide();
-		alert('teste');
-		alert($(this).parents('#table_id').val());
-	});
-
-	$('[name=proposta_aprovacao]').on('click', function(){
-		$('#sessao-json > #troca').load('index.php/ver_propostas');
-		});
-
-/* =========================================================================*/
 
 
 //or for specific element

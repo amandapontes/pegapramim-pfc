@@ -151,6 +151,25 @@ public function getPropostasByIdUsuario($id){
 		return $this->db->query("select * from encomendas JOIN propostas on propostas.id_enc = encomendas.id_enc JOIN entidades on propostas.id_ent_motoboy = entidades.id_ent where encomendas.id_ent = ". $id .";")->result();
 		//return $this->db->get()->result();
 	}
+
+
+public function deletar($id){
+		/*$this->get();
+		$e = new Entidade();
+		return $e->where_related($this->get());*/
+		return $this->db->query("delete from propostas where id_pro = ". $id .";")->result();
+		//return $this->db->get()->result();
+	}
+
+	public function verifica_vinculo($id){
+		return $this->where('id_pro',$id)->count_all_results();
+	}
+
+
+	public function atualizar_aprovado($id, $status){
+		$p = new Proposta();
+		return $p->where('id_pro',$id)->update(array('aprovado_pro' => $status ));
+	}
 }
 /* End of file template.php */
 /* Location: ./application/models/template.php */

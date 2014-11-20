@@ -1,3 +1,28 @@
+<script>
+  $(document).ready(function(){
+
+/* =========================================================== PROPOSSTAS=====================================================*/
+  $("[name=proposta_aprovacao]").on("click" , function(){
+    //$(this).parent('td').parent('tr').hide();
+    var id = $(this).parents('td').parents('tr').find('#table_id').attr('value');
+    var el = this;
+      $.ajax({
+                type: "POST",
+                url: "ver_propostas/atualizar_aprovado/"+id+"/1"
+              })
+                .success(function( msg ) {
+                    $(el).parent('td').parent('tr').hide();
+                });
+  });
+
+  $('[name=proposta_recusar]').on('click', function(){
+    $('#sessao-json > #troca').load('index.php/ver_propostas');
+    });
+
+/* =========================================================================*/
+  });
+
+</script>
 <h2>Lista de Propostas</h2>
 <p class="bs-callout bs-callout-info">
 	Abaixo você pode ver a lista das propostas que foram feitas a você.
