@@ -1,178 +1,141 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title></title>
-	<link rel="stylesheet" href="<?php echo base_url(); ?>resources/css/style.css" />
-	<title>Bem Vindo - PegaPraMim</title>
-
-	<script type="text/javascript" src="<?php echo base_url()?>resources/js/jquery.min.js"></script>
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Bem Vindo - PegaPraMimSite</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<script type="text/javascript" src="<?php echo base_url()?>resources/js/site/jquery.min.js"></script>
+		<script type="text/javascript" src="<?php echo base_url()?>resources/js/site/jquery.scrollzer.min.js"></script>
+		<script type="text/javascript" src="<?php echo base_url()?>resources/js/site/jquery.scrolly.min.js"></script>
+		<script type="text/javascript" src="<?php echo base_url()?>resources/js/site/skel.min.js"></script>
+		<script type="text/javascript" src="<?php echo base_url()?>resources/js/site/skel-layers.min.js"></script>
+		<script type="text/javascript" src="<?php echo base_url()?>resources/js/site/init.js"></script>
 	
-	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
-	<!--
-		<script type="text/javascript" src="<?php echo base_url()?>resources/js/location.js"></script>
-	<script type="text/javascript" src="<?php echo base_url()?>resources/js/demo_progress.js"></script>
-	-->
-	<script type="text/javascript" src="<?php echo base_url()?>resources/js/location_atual.js"></script>
-	<script type="text/javascript" src="<?php echo base_url()?>resources/js/mapa.js"></script>
-	<script type="text/javascript" src="<?php echo base_url()?>resources/js/modernizr.custom.js"></script>
-	<script type="text/javascript" src="<?php echo base_url()?>resources/js/progress.min.js"></script>
-	<script type="text/javascript" src="<?php echo base_url()?>resources/js/jquery.noty.packaged.min.js"></script>
-	<script type="text/javascript" src="<?php echo base_url()?>resources/js/my_functions.js"></script>
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>resources/css/site/skel.css" />
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>resources/css/site/style.css" />
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>resources/css/site/style-xlarge.css" />
+	
+		<!--[if lte IE 8]><link rel="stylesheet" type="text/css" href="<?php echo base_url()?>resources/css/site/ie/v8.css" /><![endif]-->
+	</head>
+	<body>
+		<div id="wrapper">
 
-<script type="text/javascript">
-	$(document).ready(function(){
-		$('#btn_enviar').click(function(){
-			if($('.email').val() != ''){
+			<!-- Header -->
+				<section id="header" class="skel-layers-fixed">
+					<header>
+						<span class="image avatar"><img src="<?php echo base_url()?>resources/img/logo_nuvem.png" /></span>
+						<h1 id="logo"><a href="#">PegaPraMim</a></h1>
+						<p>Sistema de frete compartilhado<br />
+						totalmente gratuito.</p>
+					</header>
+					<nav id="nav">
+						<ul>
+							<li><a href="#one" class="active">Sobre</a></li>
+							<li><a href="#two">Como funciona</a></li>
+							<li><a href="#three">Equipe</a></li>
+							<li><a href="#four">Contato</a></li>
+						</ul>
+					</nav>
+					<footer>
+						 <ul class="icons">
+							<li><a href="mail:lucashenriqueps93@gmail.com" class="icon fa-envelope"><span class="label">Email</span></a></li>
+						</ul> 
+					</footer>
+				</section>
 
-			var dados = $('form').serialize();
-		$.ajax({
-		          type: "POST",
-		          url: "landing_page/save_news",
-		          data: dados
-		          //data: { latitude: position.coords.latitude, longitude: position.coords.longitude }
-		        })
-		          .done(function( msg ) {
-					var n = noty({text: 'Obrigado, email cadastrado com sucesso.',  type: 'success'});
-					$('.email').val('');
-		          });
+			<!-- Main -->
+				<div id="main">
 
-			}
-			else{
-				$('.email').focus();
-			}
-		});
-
-	});
-
-</script>
-
-</head>
-<body>
-	<header>
-	<a href="#">
-	<section id="logo">
-		<!-- 
-			 <img src="<?php echo base_url(); ?>resources/img/site/logo.png" />
-		 -->
-	</section>
-	</a>
-	<nav id="menu">
-		<a href="#oque">O que é</a>
-		<a href="#como">Como funciona</a>
-		<!-- <a href="#regulamento">Regulamento</a> -->
-		<a href="#cadastro">Cadastre-se</a>
-	</nav>
-	</header>
-	<section id="banner"  class="full_width">
-		<!-- 
-		 <img src="<?php echo base_url(); ?>resources/img/site/banner.png"/>
-		 -->
-	</section>
-		
-		<h1 class="titulo">
-		<a name="oque">O que é</a>
-		</h1>
-
-		<section class="left-text-content">
-		<p>
-			PegaPraMim é uma plataforme para solicitação e integração
-			entre pessoas que queiram ajudar ou contratar um serviço de entrega.
-			Nossa plataforma é gratuita e de fácil utilização.
-		</p>
-		</section>	
-			<article class="rigth-icon-content">
-				<img src="<?php echo base_url(); ?>resources/img/site/question.png" style="max-height:250px !important; max-width:250px;"/>
-			</article>
-
-		<h1 class="titulo">
-		<a name="como">Como funciona</a>
-		</h1>
-
-		<section class="left-text-content">
-			<ol>
-			<li>
-				<div class="circle"><span class="centro">1</span></div>
-				<span>Informe os locais de retirada e entrega da mercadoria</span>
-			</li>
-			<li>
-				<div class="circle"><span class="centro">2</span></div>
-				<span>Receba as solicitações de ajuda</span>
-			</li>
+					<!-- One -->
+						<section id="one">
+							<div class="container">
+								<header class="major">
+									<h2>Sobre</h2>
+									<p>Precisando levar algo em algum lugar e ta sem tempo para ir até lá?<br />
+									Com o <a href="#">PEGAPRAMIM</a> falta de tempo não é empecilho.</p>
+								</header>
+								<p>
+								O PegaPraMim irá coletar informações de onde o usuário está e para onde ele precisa ir, assim temos um rede de pessoas com necessidades em comum que podem se ajudar.
+								</p>
+								<h5>Porque Usar?</h5>
+									<blockquote>
+									É possível possível diminuir o custo com a entrega de um produto, ou até mesmo ter custo zero, sendo uma forma de não depender do nosso serviço de entrega (Correios), que não possui todos seus serviços a âmbito nacional e não ficamos dependentes da utilização de empresas de transporte que possuem um alto custo.
+									</blockquote>
+							</div>
+						</section>
+						
+					<!-- Two -->
+						<section id="two">
+							<div class="container">
+								<h2>Como Funciona</h2>
+								<p>Veja como Funciona em menos de 1 minuto.</p>
+								<ul class="feature-icons">
+									<li class="fa-wifi">Peça ajuda</li>
+									<li class="fa-coffee">Acompanhe a entrega</li>
+									<li class="fa-users">Receba propostas</li>
+									<li class="fa-twitch">Avalie seu ajudante</li>
+									<li class="fa-calculator">Negocie propostas</li>
+									<li class="fa-birthday-cake">Fique satisfeito</li>
+								</ul>
+							</div>
+						</section>
+						
+					<!-- Three -->
+						<section id="three">
+							<div class="container">
+								<h2>Nossa equipe</h2>
+								<p>Veja quem transforma idéias em ações, profissionais especializados em ajudar o usuário.</p>
+								<div class="features">
+									<article>
+										<a href="#" class="image"><img src="<?php echo base_url()?>resources/img/site/lucashenrique.jpg" alt="" /></a>
+										<div class="inner">
+											<h4>Lucas Henrique</h4>
+											<p>
+												<ul class="feature-icons">
+													<li class="fa-code">PHP</li>
+													<li class="fa-code">HTML</li>
+													<li class="fa-code">CSS</li>
+													<li class="fa-code">JQUERY</li>
+													<li class="fa-code">SQL</li>
+												</ul>
+											</p>
+										</div>
+									</article>
+								</div>
+							</div>
+						</section>
+						
+					<!-- Four -->
+						<section id="four">
+							<div class="container">
+								<h2>Contato</h2>
+								<p>Inscreva-se nossa newsletter e fique por dentro das novidades.</p>
+								<form method="post" action="site/landing_page/save_news">
+									<div class="row uniform collapse-at-2">
+										<div class="6u"><input type="email" name="email" id="email" placeholder="Digite seu email ..." required /></div>
+									</div>							
+									<div class="row uniform">
+										<div class="12u">
+											<ul class="actions">
+												<li><input type="submit" class="special" value="Inscrever" /></li>
+											</ul>
+										</div>
+									</div>
+								</form>
+							</div>
+						</section>
+				</div>
+			<!-- Footer -->
+				<section id="footer">
+					<div class="container">
+						<ul class="copyright">
+							<li>&copy; PegaPraMim todos os direitos reservados.</li>
+						</ul>
+					</div>
+				</section>
 			
-			<li>
-				<div class="circle"><span class="centro">3</span></div>
-				<span>Escolha o que melhor lhe atender. Veja as avaliações, fotos, distância entre outras informações</span>
-			</li>
-			<li>
-				
-				<div class="circle"><span class="centro">4</span></div>
-				<span>Aguarde a confirmação por parte do ajudante</span>
-			</li>
-			<li>
-				<div class="circle"><span class="centro">5</span></div>
-				<span>Tudo ok, acompanhe a chegada do ajudante em tempo real pelo mapa. Entregue a mercadoria.</span>
-			</li>
-			<li>
-				<div class="circle"><span class="centro">6</span></div>
-				<span>Acompanhe o trajeto no mapa até a entrega</span>
-			</li>
-			<li>
-				<div class="circle"><span class="centro">7</span></div>
-				<span>Receba a confirmação da entrega</span>
-			</li>
-			
-			</ol>
-		</section>	
-			<article class="rigth-icon-content">
-				<img src="<?php echo base_url(); ?>resources/img/site/setting.png"  id="trigger" style="max-height:250px !important; max-width:250px;"/>
-
-			</article>
-
-		<h1 class="titulo">
-		<a name="cadastro">Cadastre-se</a>
-		</h1>
-
-		<section class="left-text-content" style="width:98% !important; float:none !important">
-		<p class="centro-text">
-			Para saber mais sobre o <span class="color-logo">PegaPraMim</span> <u>cadastre-se e receba descontos especiais</u> e novidades por e-mail.
-			<br />
-			<!-- 
-				 <i>OBS: VÁLIDO PARA APENAS OS <strong>100</strong> PRIMEIROS</i>
-			 -->
-		</p>
-		<?php 
-				echo form_open('site/landing_page/save_news');
-			
-			?>
-			<section>
-				
-				<input type='email' placeholder="Digite seu email ... " class="email" name="email" required="required" />
-			<?php
-				echo "<br />";
-				echo form_button('btn_enviar','Enviar','id="btn_enviar"');
-				
-			?>
-			</section>
-			<?php
-				echo form_close();
-			?>
-		</section>	
-
-	<footer>
-		<p>
-			Todos os direitos reservados PegaPraMim 2014
-		</p>
-		<section id="social">
-			<a href="">
-				<img src="<?php echo base_url(); ?>resources/img/site/facebook.png"  id="trigger" style="max-height:250px !important; max-width:250px;"/>
-			</a>
-			<a href="">
-				<img src="<?php echo base_url(); ?>resources/img/site/twitter.png"  id="trigger" style="max-height:250px !important; max-width:250px;"/>
-			</a>
-			<a href="">
-				<img src="<?php echo base_url(); ?>resources/img/site/youtube.png"  id="trigger" style="max-height:250px !important; max-width:250px;"/>
-			</a>
-		</section>
-</body>
+		</div>
+	</body>
 </html>

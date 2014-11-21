@@ -30,14 +30,14 @@
 	<script src="<?php echo base_url()?>resources/js/validator-form/jquery.validate.js"></script>
 	<script src="<?php echo base_url()?>resources/js/validator-form/packaged/additional-methods.js"></script>
 	<script src="<?php echo base_url()?>resources/js/validator-form/packaged/jquery.noty.packaged.js"></script>
-	<script src="<?php echo base_url()?>resources/js/validator-form/localization/messages_pt_BR.js "></script>
+	<script src="<?php echo base_url()?>resources/js/validator-form/localization/messages_pt_BR.js"></script>
 
 	
-	<script src="<?php echo base_url()?>resources/js/jquery.tools.min.js "></script>
+	<script src="<?php echo base_url()?>resources/js/jquery.tools.min.js"></script>
 	
-	<script src="<?php echo base_url()?>resources/js/bootstrap-filestyle.js "></script>
-	<script src="<?php echo base_url()?>resources/js/jquery.MultiFile.js "></script>
-	<script src="<?php echo base_url()?>resources/js/jquery-upload.js "></script>
+	<script src="<?php echo base_url()?>resources/js/bootstrap-filestyle.js"></script>
+	<script src="<?php echo base_url()?>resources/js/jquery.MultiFile.js"></script>
+	<script src="<?php echo base_url()?>resources/js/jquery-upload.js"></script>
 	
 	<script src="<?php echo base_url()?>resources/js/jquery.mockjax.js"></script>
 	<script src="<?php echo base_url()?>resources/js/jquery.autocomplete.min.js"></script>
