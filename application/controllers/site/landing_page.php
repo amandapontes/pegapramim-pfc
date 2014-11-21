@@ -9,7 +9,13 @@ class Landing_Page extends CI_Controller{
 
 	public function save_news(){
 		$n = new News_Letter();
-		if($n->salvar($_POST)){
+		#echo "<pre>"; print_r($_POST); echo "</pre>";
+		$dados = $_POST;
+		if($n->salvar($dados)){
+			echo 1;
+		}
+		else{
+			echo 0;
 		}
 	}
 }

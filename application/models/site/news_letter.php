@@ -125,11 +125,17 @@ class News_Letter extends DataMapper {
 	 	}
 	}
 	*/
-	public function salvar($_data){
+	public function salvar($dados){
 		$n = new News_Letter();
-		$n->email      = $_data['email'];
-		$n->dt_criacao = 		date("Y-m-d H:i:s");
-		return $n->save();
+		$n->where('email',$dados['email'])->get();
+		#echo "<pre>"; print_r($dados); echo "</pre>";
+		if(!$n->exists()){
+			$n->email      = $dados['email'];
+			$n->dt_criacao = date("Y-m-d H:i:s");
+			$n->save();
+			return true;
+		}
+			return false;
 	}
 }
 

@@ -18,6 +18,35 @@
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>resources/css/site/style-xlarge.css" />
 	
 		<!--[if lte IE 8]><link rel="stylesheet" type="text/css" href="<?php echo base_url()?>resources/css/site/ie/v8.css" /><![endif]-->
+		<script>
+			$(document).ready(function(){
+				$('#news_letter').submit(function(event){
+					event.preventDefault;
+					var formulario = $(this);
+					var dados = formulario.serialize();
+			        $.ajax({
+			          type: "POST",
+			           url: "<?php echo base_url()?>index.php/site/landing_page/save_news",
+			          data: dados
+			        })
+			          .success(function( msg ) {
+			          	if(msg == 1){
+							alert('Inscrição realizada com sucesso!');
+							$('#email').val('');
+			          	}
+			          	else if(msg == "0"){
+							alert('Você já esta inscrido!');
+							$('#email').focus();
+			          	}
+		          		//var n = noty({text: msg, type: 'error',shadow: false, styling: "bootstrap" , hide: true, delay: 500});
+			          });
+			          event.preventDefault;
+
+		        	  return false;
+					});
+			});
+						</script>
+						
 	</head>
 	<body>
 		<div id="wrapper">
@@ -112,20 +141,21 @@
 							<div class="container">
 								<h2>Contato</h2>
 								<p>Inscreva-se nossa newsletter e fique por dentro das novidades.</p>
-								<form method="post" action="site/landing_page/save_news">
+								<form method="post" id="news_letter">
 									<div class="row uniform collapse-at-2">
 										<div class="6u"><input type="email" name="email" id="email" placeholder="Digite seu email ..." required /></div>
 									</div>							
 									<div class="row uniform">
 										<div class="12u">
 											<ul class="actions">
-												<li><input type="submit" class="special" value="Inscrever" /></li>
+												<li><input type="submit" class="special" value="Inscrever" id="news_letter_btn" /></li>
 											</ul>
 										</div>
 									</div>
 								</form>
 							</div>
 						</section>
+					
 				</div>
 			<!-- Footer -->
 				<section id="footer">
