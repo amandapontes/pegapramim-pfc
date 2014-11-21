@@ -152,12 +152,23 @@ create table propostas(
 	dt_criacao_pro datetime not null,
 	vr_pro double(5,2) null,
 	aprovado_pro char(1) not null,
+	status_pro char(1) not null,
 	id_enc int not null,
 	foreign key(id_enc) references encomendas(id_enc),
 	id_ent_motoboy int not null,
 	foreign key(id_ent_motoboy) references entidades(id_ent)
 )engine=MYiSAM;
 
+
+create table negociacoes(
+	id_nego int UNSIGNED AUTO_INCREMENT  PRIMARY KEY NOT NULL,
+	dt_criacao_nego datetime not null,
+	status_nego char(1) not null,
+	id_pro int not null,
+	foreign key(id_pro) references encomendas(id_enc),
+	id_ent_motoboy int not null,
+	foreign key(id_ent_motoboy) references entidades(id_ent)
+)engine=MYiSAM;
 
 
 create table negociacao(

@@ -1,3 +1,4 @@
+<script type="text/javascript" src="<?php echo base_url()?>resources/js/my_functions.js"></script>
 <script>
   $(document).ready(function(){
 
@@ -16,6 +17,16 @@
   });
 
   $('[name=proposta_recusar]').on('click', function(){
+    $(this).parent('td').parent('tr').hide();
+    var id = $(this).parents('td').parents('tr').find('#table_id').attr('value');
+    var el = this;
+      $.ajax({
+                type: "POST",
+                url: "ver_propostas/deletar/"+id
+              })
+                .success(function( msg ) {
+                    $(el).parent('td').parent('tr').hide();
+                });
     $('#sessao-json > #troca').load('index.php/ver_propostas');
     });
 
@@ -54,9 +65,9 @@
           <td>R$ {vr_pro}</td>
           <td>{descricao_enc}</td>
           <td>
-           <a href="#" name="proposta_aprovacao" id="proposta_aprovacao">  <span class="glyphicon glyphicon-ok"></span> </a>
+           <a href="#" name="proposta_aprovacao" id="proposta_aprovacao" data-original-title="Aprovar">  <span class="glyphicon glyphicon-ok"></span> </a>
 
-            <a href="#" name="proposta_recusar" id="proposta_recusar">  <span class="glyphicon glyphicon-remove"></span> </a>
+            <a href="#" name="proposta_recusar" id="proposta_recusar" data-original-title="Recusar">  <span class="glyphicon glyphicon-remove"></span> </a>
           </td>
 
         </tr>

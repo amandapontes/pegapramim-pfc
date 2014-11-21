@@ -134,6 +134,7 @@ class Proposta extends DataMapper {
 		$this->id_ent_motoboy = $_data['id_ent_motoboy'];
 		$this->id_enc         = $_data['id_enc'];
 		$this->vr_pro         = $_data['vr_pro'];
+		$this->status_pro     = 'N';
 		$this->aprovado_pro   = '0';
 		return $this->save();
 		//echo "<print>"; print_r($e->id); echo "</pre>";
@@ -143,22 +144,29 @@ class Proposta extends DataMapper {
 		return $this->get();
 	}
 
+	public function getByStatus($status){
+		return $this->where('aprovado_pro', $status)->get();
+	}
 
-public function getPropostasByIdUsuario($id){
+
+public function getPropostasByIdUsuario($id, $aprovado = "-1"){
 		/*$this->get();
 		$e = new Entidade();
 		return $e->where_related($this->get());*/
-		return $this->db->query("select * from encomendas JOIN propostas on propostas.id_enc = encomendas.id_enc JOIN entidades on propostas.id_ent_motoboy = entidades.id_ent where encomendas.id_ent = ". $id .";")->result();
+		if($aprovado == "-1"){
+			return $this->db->query("select * from encomendas JOIN propostas on propostas.id_enc = encomendas.id_enc JOIN entidades on propostas.id_ent_motoboy = entidades.id_ent where encomendas.id_ent = ". $id .";")->result();	
+		}
+		return $this->db->query("select * from encomendas JOIN propostas on propostas.id_enc = encomendas.id_enc JOIN entidades on propostas.id_ent_motoboy = entidades.id_ent where encomendas.id_ent = ". $id ." and aprovado_pro =". $aprovado ." ;")->result();
 		//return $this->db->get()->result();
 	}
 
 
 public function deletar($id){
-		/*$this->get();
 		$e = new Entidade();
+		/*$this->get();
 		return $e->where_related($this->get());*/
-		return $this->db->query("delete from propostas where id_pro = ". $id .";")->result();
-		//return $this->db->get()->result();
+		return $e->where('id_pro', $id)->get()->delete();
+				//return $this->db->get()->result();
 	}
 
 	public function verifica_vinculo($id){
