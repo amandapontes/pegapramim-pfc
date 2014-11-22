@@ -145,9 +145,12 @@ class Entidade extends DataMapper {
 	public function verificar_login($login, $senha){
 		return $this->where('login_ent',$login)->where('senha_ent',$senha)->get();
 	}
+	public function verificar_existe($login){
+		return $this->where('login_ent',$login)->get();
+	}
 
 public function get_by_id($id){
-		return $this->db->query("select * from entidades join contatos on contatos.id_ent= entidades.id_ent where entidades.id_ent = ". $id .";")->result();
+		return $this->db->query("select * from entidades where entidades.id_ent = ". $id .";")->result();
 	}
 }
 /* End of file template.php */

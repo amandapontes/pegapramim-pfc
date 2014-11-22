@@ -15,8 +15,6 @@ class Login_Controller extends CI_Controller{
 		$dados 							= (array)$e->stored;
 		$dados['nome_ent'] 				='';
 		$dados['login_ent'] 			='';
-		#$dados['descricao_cont_tel'] 	='';
-		#$dados['descricao_cont_cel'] 	='';
  		$this->parser->parse('login',$dados); 
 	}
 

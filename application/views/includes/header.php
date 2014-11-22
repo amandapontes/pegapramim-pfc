@@ -1,5 +1,7 @@
 <header>
 <section id="logo">
-	<img src="<?php echo base_url()?>resources/img/logo.png" />
+	<a>
+		<img src="<?php echo base_url()?>resources/img/logo.png" />	
+	</a>
 </section>
 </header>

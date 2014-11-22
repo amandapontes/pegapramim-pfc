@@ -65,6 +65,7 @@
 							<li><a href="#two">Como funciona</a></li>
 							<li><a href="#three">Equipe</a></li>
 							<li><a href="#four">Contato</a></li>
+							<li><a href="<?php echo base_url()?>">Entrar no sistema</a></li>
 						</ul>
 					</nav>
 					<footer>

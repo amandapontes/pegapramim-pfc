@@ -1,3 +1,67 @@
+<script>
+	$(document).ready(function(){
+	
+	function feedback(msg){
+		var obj = jQuery.parseJSON(msg);
+		if(obj.cod == '-1' || obj.cod == '0' ){
+        	var n = noty({text: obj.msg, type: 'error', shadow: false, styling: "bootstrap" , hide: true, delay: 500,
+			killer: true
+
+        				});
+        	removeTodos(n);
+        	return 0;
+      	}
+      	else if(obj.cod == '1'){
+      		var n = noty({text: obj.msg, type: 'success',shadow: false, styling: "bootstrap" , hide: true, delay: 500,
+      	killer: true
+		});
+  			removeTodos(n);
+  			return obj.cod;
+      	}
+      	return obj.cod;
+}
+
+		$('#cadastrar').submit(function(event){
+					var formulario = $('form#cadastrar');
+					var dados = formulario.serialize();
+					if($('#cadastro_senha').val().length < 6){
+						var n = noty({text: 'Senha deve conter no mínimo 6 caracteres.', type: 'error',shadow: false, styling: "bootstrap" , hide: true, delay: 500});
+						
+						$('#group_cadastrar_senha').addClass('has-error');
+					        $('#cadastro_senha').focus(function(){
+					        	 $(this).select();
+					        	});
+					}
+					else{
+						if($('#cadastro_senha_rp').val() != $('#cadastro_senha').val()){
+							var n = noty({text: 'A confirmação da senha digitada não é igual a senha.', type: 'error',shadow: false, styling: "bootstrap" , hide: true, delay: 500});
+						}
+						else{
+					        $.ajax({
+					          type: "POST",
+					          url: "<?php echo base_url();?>index.php/cadastros/entidades/custom_form",
+					          data: dados
+					        })
+					          .success(function( msg ) {
+					          	if(feedback(msg)){
+								setInterval(function(){
+					          		document.location = "<?php echo base_url();?>index.php/inicio";
+										},3000);
+					          	}
+								$('#group-email').addClass('has-error');
+						        $('#group-email > input[name="login_ent"]').focus(function(){
+						        	 $(this).select();
+						        	});
+					          });
+							  event.preventDefault;
+						}
+					}
+				        	  return false;
+						});
+
+	});
+
+</script>
  <hgroup class="bs-callout bs-callout-info">
 	<h4> Cadastrar </h4>
 	<h5><a href="#" id="openCadastro"  data-toggle="tooltip" data-placement="bottom" data-original-title="Vamos lá, é rápido e fácil!!">Clique aqui</a> para se cadastrar em nosso site e ter acesso aos nossos recursos</h5>

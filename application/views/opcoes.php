@@ -5,18 +5,18 @@
 <?php
 	echo form_open('opcoes/custom_form','name="formOpcoes" class="form-horizontal" role="form"');
 	echo form_hidden('id_opc','{id_opc}');
-#	echo form_label('VR por KM');
-	#echo form_input('vr_por_km','{vr_por_km}');
 
-	#echo form_submit('enviar','Salvar','class="btn btn-default"');
 ?>
-<div class="form-group">
-    <label for="inputPassword3" class="col-sm-2 control-label">Valor por KM</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="inputPassword3" placeholder="Valor por KM" name="vr_por_km" value="{vr_por_km}">
-    </div>
-  </div>
- 
+    <div class="form-group" id="group-email-login">
+    <div class="col-sm-11">
+        <div class="input-group">
+          <span class="input-group-addon">
+            Valor por KM
+          </span>
+          <input type="text" class="form-control" placeholder="0.00" name="vr_por_km" value="{vr_por_km}">
+        </div>
+        </div>
+      </div>
   
   
   <p class="bs-callout bs-callout-info">
@@ -24,17 +24,21 @@
 </p>
 
 
-<div class="form-group">
-    <label for="inputPassword3" class="col-sm-2 control-label">Limite de distância</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="inputPassword3" placeholder="Distância" name="distancia_limite" value="{distancia_limite}">
-    </div>
-  </div>
-
+  <div class="form-group" id="group-email-login">
+    <div class="col-sm-11">
+        <div class="input-group">
+          <span class="input-group-addon">
+            Limite de distância
+          </span>
+          <input type="text" class="form-control" placeholder="0" placeholder="Distância" name="distancia_limite" value="{distancia_limite}" />
+        </div>
+        </div>
+      </div>
   
+ 
   
    <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-4">
+    <div class="col-sm-11">
       <button type="submit" class="btn btn-default">Salvar</button>
     </div>
   </div>

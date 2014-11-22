@@ -23,25 +23,26 @@ class Entidades extends CI_Controller{
 		#echo "<pre>"; print_r($_data);echo "</pre>";
 		#echo "<pre>"; print_r($this->upload->data()); "</pre>";
 		$temp = $e->verificar_existe($_data['login_ent']);
-		if(!empty($temp->stored->id_ent)){
-			echo 0;
+		#echo $this->session->userdata('id_ent');
+		if(!empty($temp->stored->id_ent) && empty($this->session->userdata('id_ent'))){
+			$feedback['cod'] = '0';
+		 	$feedback['msg'] = 'Usuário já existe';
+		 	echo json_encode($feedback);
 			return false;
 		}
 		if($e->salvar($_data)){
 			$_data['id_ent']        	= $e->id;
 			$e->stored->id_ent	        = $e->id;
-			#$c = new Contato();
-			#$c->salvar($_data);
-			
 			//echo "<pre>"; print_r($e->id); "</pre>";
-			
-			$this->login->criarSessao($e);
-			//$this->do_upload($_data['id_ent']);
-		}
-
-		$id = $this->session->userdata('id_ent');
-		echo $id;
+			if(empty($this->session->userdata('id_ent'))){
+					$this->login->criarSessao($e);		
+			}
 		
+			$feedback['cod'] = '1';
+	 		$feedback['msg'] = 'Olá <strong>'.$temp->stored->nome_ent.'</strong> suas informações foram salvas com sucesso';
+	 		echo json_encode($feedback);
+			
+		}
 		//-$this->parser->parse('cadastros/entidade',array());
 	}
 
