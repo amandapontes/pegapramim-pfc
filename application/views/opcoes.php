@@ -1,6 +1,6 @@
 <h2>Opções</h2>
 <p class="bs-callout bs-callout-info">
-	Preencha abaixo o <strong>valor(R$)</strong> de cada Quilometro(KM) para facilitar o cálculo da sua proposta.
+	Preencha abaixo o <strong>valor(R$)</strong> de cada <strong>Quilometro(KM)</strong> para facilitar o cálculo da sua proposta.
 </p>
 <?php
 	echo form_open('opcoes/custom_form','name="formOpcoes" class="form-horizontal" role="form"');
@@ -20,7 +20,7 @@
   
   
   <p class="bs-callout bs-callout-info">
-	Filtre os resultados das solicitações de Ajuda, inserindo a <strong>distância MÁXIMA</strong> entre você e o endereço de entrega proposto.
+	Filtre os resultados das solicitações de Ajuda, inserindo a <strong>distância MÁXIMA em Quilometro(KM)</strong> entre você e o endereço de entrega proposto.
 </p>
 
 
