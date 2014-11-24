@@ -48,6 +48,7 @@
 					<span class="glyphicon glyphicon-user"> Negociações</span>
 					
 				</a>
+				<!--
 				<a href="#">
 				<?php
  					echo form_hidden('url','lista_negociacao');
@@ -55,6 +56,7 @@
 					<span class="glyphicon glyphicon-user"> Remover Negociações</span>
 					
 				</a>
+				-->
 				<a href="#">
 				<?php
  					echo form_hidden('url','ver_avaliacoes');

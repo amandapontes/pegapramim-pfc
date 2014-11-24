@@ -1,3 +1,26 @@
+function removeTodos(n){
+		
+	}
+	
+	function feedback(msg){
+		var obj = jQuery.parseJSON(msg);
+		if(obj.cod == '-1' || obj.cod == '0' ){
+        	var n = noty({text: obj.msg, type: 'error', shadow: false, styling: "bootstrap" , hide: true, delay: 500,
+			killer: true
+
+        				});
+        	removeTodos(n);
+        	return 0;
+      	}
+      	else if(obj.cod == '1'){
+      		var n = noty({text: obj.msg, type: 'success',shadow: false, styling: "bootstrap" , hide: true, delay: 500,
+      	killer: true
+		});
+  			removeTodos(n);
+  			return obj.cod;
+      	}
+      	return obj.cod;
+}
 $(document).ready(function(){
 	$('a').tooltip();
 	$('[data-original-title]').tooltip();
@@ -115,29 +138,7 @@ $(document).ready(function(){
 			}
 		});
 */
-	function removeTodos(n){
-		
-	}
 	
-	function feedback(msg){
-		var obj = jQuery.parseJSON(msg);
-		if(obj.cod == '-1' || obj.cod == '0' ){
-        	var n = noty({text: obj.msg, type: 'error', shadow: false, styling: "bootstrap" , hide: true, delay: 500,
-			killer: true
-
-        				});
-        	removeTodos(n);
-        	return 0;
-      	}
-      	else if(obj.cod == '1'){
-      		var n = noty({text: obj.msg, type: 'success',shadow: false, styling: "bootstrap" , hide: true, delay: 500,
-      	killer: true
-		});
-  			removeTodos(n);
-  			return obj.cod;
-      	}
-      	return obj.cod;
-}
 		$('input[name="login_ent"]').keypress(function(){
 			//$(this).parent('#group-email');
 			//console.log($(this).parent('#group-email'));

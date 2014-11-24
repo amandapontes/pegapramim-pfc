@@ -39,7 +39,7 @@
 	Abaixo você pode ver a lista das propostas que foram feitas a você.
 </p>
 <p class="bs-callout bs-callout-danger" style="{nenhum_resultado}">
-  Você não tem nenhuma proposta <strong>;(</strong>
+  Você não tem nenhuma <code>proposta</code> <strong>;(</strong>
 </p>
     <?php 
      echo form_open('encomenda_controller/enviar_proposta','name="formEncomenda" class="bs-callout bs-callout-warning form-horizontal" role="form" style="{nenhum_resultado_tabela}"');

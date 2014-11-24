@@ -78,7 +78,7 @@ create table lista_negociacoes(
 )engine=MYiSAM;
 
 
-create table avalicacoes(
+create table avaliacoes(
 	id_ava int UNSIGNED AUTO_INCREMENT  PRIMARY KEY NOT NULL,
 	dt_criacao_ava datetime not null,
 	nota_ava int not null,

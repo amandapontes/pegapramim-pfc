@@ -5,13 +5,8 @@ class Entidades extends CI_Controller{
 
 	public function index(){
 		$e = new Entidade();
-		//$end = new Enderecos_Temp();
-		$vei = new Veiculos_Temp();
-		//$c = new Contato();
 
-		$retorno = array_merge((array)$e->stored,(array)$vei->stored);
-		$retorno['descricao_cont_tel']='';
-		$retorno['descricao_cont_cel']='';
+		$retorno = (array)$e->stored;
  		$this->parser->parse('cadastros/entidades',$retorno); 
 	}
 	public function custom_form($save = TRUE){
@@ -24,7 +19,9 @@ class Entidades extends CI_Controller{
 		#echo "<pre>"; print_r($this->upload->data()); "</pre>";
 		$temp = $e->verificar_existe($_data['login_ent']);
 		#echo $this->session->userdata('id_ent');
-		if(!empty($temp->stored->id_ent) && empty($this->session->userdata('id_ent'))){
+		$id_temp1 = $temp->stored->id_ent;
+		$id_sessao = $this->session->userdata('id_ent');
+		if(!empty($id_temp1) && empty($id_sessao)){
 			$feedback['cod'] = '0';
 		 	$feedback['msg'] = 'Usuário já existe';
 		 	echo json_encode($feedback);
@@ -34,7 +31,8 @@ class Entidades extends CI_Controller{
 			$_data['id_ent']        	= $e->id;
 			$e->stored->id_ent	        = $e->id;
 			//echo "<pre>"; print_r($e->id); "</pre>";
-			if(empty($this->session->userdata('id_ent'))){
+			$id_sessao = $this->session->userdata('id_ent');
+			if(empty($id_sessao)){
 					$this->login->criarSessao($e);		
 			}
 		

@@ -31,4 +31,21 @@ class Ver_Negociacoes extends CI_Controller{
 			 redirect("inicio");
 		}
 	}
+
+	public function add_mensagem_negociao(){
+		$_data = $this->input->post();
+		$n = new Negociacoes();
+
+		$ln = $n->salvar($_data);
+	
+		if($ln){
+			$feedback['cod'] = '1';
+	 		$feedback['msg'] = 'Mensagem enviada com sucesso.';
+		}
+		else{
+			$feedback['cod'] = '0';
+	 		$feedback['msg'] = 'Não foi possível enviar a menssagem, tente novamente.';
+		}
+		echo $feedback;
+	}
 }

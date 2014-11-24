@@ -1,3 +1,4 @@
+<script type="text/javascript" src="<?php echo base_url()?>resources/js/my_functions.js"></script>
 <script>
   $(document).ready(function(){
     $('.proposta_aprovacao > span').click(function(){
@@ -16,6 +17,9 @@
 <h2>Lista de Avaliações</h2>
 <p class="bs-callout bs-callout-info">
   Aqui é possível avaliar os usuários que você finalizou um entrega com o mesmo.
+</p>
+<p class="bs-callout bs-callout-danger" style="{nenhum_resultado}">
+  Você não tem nenhum usuário para <code>avaliar</code> <strong>=D</strong>
 </p>
     <?php 
      echo form_open('encomenda_controller/enviar_proposta','name="formEncomenda" class="bs-callout bs-callout-warning form-horizontal" role="form"');
@@ -41,9 +45,9 @@
       </td>
           <td>Lucas Henrique</td>
           <td>
-            <a class="proposta_aprovacao"><span class="glyphicon glyphicon-star-empty"></span></a>
-            <a class="proposta_aprovacao"><span class="glyphicon glyphicon-star-empty"></span></a>
-            <a class="proposta_aprovacao"><span class="glyphicon glyphicon-star-empty"></span></a>
+            <a class="proposta_aprovacao"><span data-original-title="Marque para dar estrela para o usuário, ou desmarque para remover." class="glyphicon glyphicon-star-empty"></span></a>
+            <a class="proposta_aprovacao"><span data-original-title="Marque para dar estrela para o usuário, ou desmarque para remover." class="glyphicon glyphicon-star-empty"></span></a>
+            <a class="proposta_aprovacao"><span data-original-title="Marque para dar estrela para o usuário, ou desmarque para remover." class="glyphicon glyphicon-star-empty"></span></a>
 
           </td>
 
