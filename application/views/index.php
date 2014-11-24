@@ -38,21 +38,21 @@
 				<?php
  					echo form_hidden('url','ver_propostas');
 				?>
-					<span class="glyphicon glyphicon-usd"> Propostas Recebidas</span>
+					<span class="glyphicon glyphicon-usd"> Propostas</span>
 					
 				</a>
 				<a href="#">
 				<?php
  					echo form_hidden('url','ver_negociacoes');
 				?>
-					<span class="glyphicon glyphicon-user"> Lista Negociações</span>
+					<span class="glyphicon glyphicon-user"> Negociações</span>
 					
 				</a>
 				<a href="#">
 				<?php
  					echo form_hidden('url','lista_negociacao');
 				?>
-					<span class="glyphicon glyphicon-user"> Negociações</span>
+					<span class="glyphicon glyphicon-user"> Remover Negociações</span>
 					
 				</a>
 				<a href="#">

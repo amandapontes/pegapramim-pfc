@@ -5,6 +5,7 @@ class Ver_Propostas extends CI_Controller{
 	public function index(){
 		$p = new Proposta();
 		$id_logado = $this->session->userdata('id_ent');
+		
 		$dados['propostas'] = $p->getPropostasByIdUsuario($id_logado, 0);
 		#echo "<print>"; print_r($dados['propostas'][0]); echo "</pre>";
 		$dados['nenhum_resultado'] = 'display:none';

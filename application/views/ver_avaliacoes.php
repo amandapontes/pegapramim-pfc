@@ -1,3 +1,18 @@
+<script>
+  $(document).ready(function(){
+    $('.proposta_aprovacao > span').click(function(){
+      if($(this).hasClass('glyphicon-star')){
+        $(this).addClass('glyphicon-star-empty');   
+      }
+      else{
+        $(this).removeClass('glyphicon-star-empty');
+        $(this).addClass('glyphicon-star');   
+      }
+      
+    });
+  });
+</script>
+
 <h2>Lista de Avaliações</h2>
 <p class="bs-callout bs-callout-info">
   Aqui é possível avaliar os usuários que você finalizou um entrega com o mesmo.
@@ -9,13 +24,16 @@
 <table class="table table-responsive">
       <thead>
         <tr>    
+          <th style="display:none">id</th>
           <th>Foto</th>
           <th>Usuário</th>
           <th>Avaliação</th>
+          <th>Ações</th>
         </tr>
       </thead>
       <tbody>
         <tr class="active">
+        <td style="display:none" value="{id_pro}" id="table_id"></td>
           <td>
           <a data-toggle="dropdown" href="#"> 
       <img src="<?php echo base_url()?>resources/img/avatar.jpg" class="img-circle" />
@@ -23,37 +41,81 @@
       </td>
           <td>Lucas Henrique</td>
           <td>
-            <a href="#" id="proposta_aprovacao">  <span class="glyphicon glyphicon-star-empty"></span> </a>
+            <a class="proposta_aprovacao"><span class="glyphicon glyphicon-star-empty"></span></a>
+            <a class="proposta_aprovacao"><span class="glyphicon glyphicon-star-empty"></span></a>
+            <a class="proposta_aprovacao"><span class="glyphicon glyphicon-star-empty"></span></a>
+
+          </td>
+
+          <td>
+             <a href="#" name="proposta_aprovacao" id="proposta_aprovacao" data-original-title="Enviar Avaliação">  <span class="glyphicon glyphicon-ok"></span> </a>           
+          
+          </td>
+              </tr>
+
+        <tr>
+        <td style="display:none" value="{id_pro}" id="table_id"></td>
+           <td>
+          <a data-toggle="dropdown" href="#"> 
+      <img src="<?php echo base_url()?>resources/img/avatar.jpg" class="img-circle" />
+      </a>
+      </td>
+          <td>Lucas Henrique</td>
+          <td>
+            <a class="proposta_aprovacao"><span class="glyphicon glyphicon-star-empty"></span></a>
+            <a class="proposta_aprovacao"><span class="glyphicon glyphicon-star-empty"></span></a>
+            <a class="proposta_aprovacao"><span class="glyphicon glyphicon-star-empty"></span></a>
+
+          </td>
+          <td>
+             <a href="#" name="proposta_aprovacao" id="proposta_aprovacao" data-original-title="Enviar Avaliação">  <span class="glyphicon glyphicon-ok"></span> </a>           
+          
+          </td>
+
+        </tr>
+<tr>
+           <td>
+          <a data-toggle="dropdown" href="#"> 
+      <img src="<?php echo base_url()?>resources/img/avatar.jpg" class="img-circle" />
+      </a>
+      </td>
+          <td>Lucas Henrique</td>
+          <td>
+            <a class="proposta_aprovacao"><span class="glyphicon glyphicon-star-empty"></span></a>
+            <a class="proposta_aprovacao"><span class="glyphicon glyphicon-star-empty"></span></a>
+            <a class="proposta_aprovacao"><span class="glyphicon glyphicon-star-empty"></span></a>
+ 
+          </td>
+          <td>
+             <a href="#" name="proposta_aprovacao" id="proposta_aprovacao" data-original-title="Enviar Avaliação">  <span class="glyphicon glyphicon-ok"></span> </a>           
+          
           </td>
 
         </tr>
 
         <tr>
-           <td>
+        <td style="display:none" value="{id_pro}" id="table_id"></td>
+          <td>
           <a data-toggle="dropdown" href="#"> 
       <img src="<?php echo base_url()?>resources/img/avatar.jpg" class="img-circle" />
       </a>
       </td>
           <td>Lucas Henrique</td>
           <td>
-            <a href="#" id="proposta_aprovacao">  <span class="glyphicon glyphicon-star-empty"></span> </a>
+            <a class="proposta_aprovacao"><span class="glyphicon glyphicon-star-empty"></span></a>
+            <a class="proposta_aprovacao"><span class="glyphicon glyphicon-star-empty"></span></a>
+            <a class="proposta_aprovacao"><span class="glyphicon glyphicon-star-empty"></span></a>
+ 
           </td>
-
-        </tr>
-<tr>
-           <td>
-          <a data-toggle="dropdown" href="#"> 
-      <img src="<?php echo base_url()?>resources/img/avatar.jpg" class="img-circle" />
-      </a>
-      </td>
-          <td>Lucas Henrique</td>
           <td>
-            <a href="#" id="proposta_aprovacao">  <span class="glyphicon glyphicon-star-empty"></span> </a>
+             <a href="#" name="proposta_aprovacao" id="proposta_aprovacao" data-original-title="Enviar Avaliação">  <span class="glyphicon glyphicon-ok"></span> </a>           
+          
           </td>
 
         </tr>
 
 <tr>
+<td style="display:none" value="{id_pro}" id="table_id"></td>
            <td>
           <a data-toggle="dropdown" href="#"> 
       <img src="<?php echo base_url()?>resources/img/avatar.jpg" class="img-circle" />
@@ -61,20 +123,14 @@
       </td>
           <td>Lucas Henrique</td>
           <td>
-            <a href="#" id="proposta_aprovacao">  <span class="glyphicon glyphicon-star-empty"></span> </a>
+            <a class="proposta_aprovacao"><span class="glyphicon glyphicon-star-empty"></span></a>
+            <a class="proposta_aprovacao"><span class="glyphicon glyphicon-star-empty"></span></a>
+            <a class="proposta_aprovacao"><span class="glyphicon glyphicon-star-empty"></span></a>
+ 
           </td>
-
-        </tr>
-
-<tr>
-           <td>
-          <a data-toggle="dropdown" href="#"> 
-      <img src="<?php echo base_url()?>resources/img/avatar.jpg" class="img-circle" />
-      </a>
-      </td>
-          <td>Lucas Henrique</td>
           <td>
-            <a href="#" id="proposta_aprovacao">  <span class="glyphicon glyphicon-star-empty"></span> </a>
+             <a href="#" name="proposta_aprovacao" id="proposta_aprovacao" data-original-title="Enviar Avaliação">  <span class="glyphicon glyphicon-ok"></span> </a>           
+          
           </td>
 
         </tr>

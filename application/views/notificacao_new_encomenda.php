@@ -68,7 +68,7 @@
 			<div class="form-group">
 			   <div class="input-group">
 				  <span class="input-group-addon">R$</span>
-				  <input type="text" class="form-control text-right" placeholder="Valor" name="vr_pro" value="{vr_medio}" readonly="readonly" />
+				  <input type="text" class="form-control text-right" placeholder="Valor" name="vr_pro" value="{vr_medio}" />
 				</div>
 			</div>
 			<?php
