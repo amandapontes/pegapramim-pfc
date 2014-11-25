@@ -10,6 +10,12 @@ class Ver_Negociacoes extends CI_Controller{
 		#
 		foreach ($dados['propostas'] as $key => &$value) {
 		#echo "<pre>"; print_r($value); echo "</pre>";
+		if($value->status_pro != 'N'){
+			$value->possui_acoes = "none";
+		}
+		else{
+			$value->possui_acoes = "block";
+		}
 			$value->status 		 = converte_status($value->status_pro);
 			$value->status_color = converte_status_color($value->status_pro);
 			

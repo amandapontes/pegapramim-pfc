@@ -35,7 +35,7 @@ class Encomenda extends DataMapper {
 	// --------------------------------------------------------------------
 
 	// Insert related models that Template can have just one of.
-	var $has_one = array('enderecos_temp','veiculos_temp');
+	//var $has_one = array('');
 
 	// Insert related models that Template can have more than one of.
 	//var $has_many = array();
@@ -146,7 +146,7 @@ class Encomenda extends DataMapper {
 		/*$this->get();
 		$e = new Entidade();
 		return $e->where_related($this->get());*/
-		return $this->db->query('select encomendas.* , entidades.* , contatos.* from entidades join encomendas on encomendas.id_ent = entidades.id_ent left join propostas on propostas.id_enc = encomendas.id_enc left join contatos on contatos.id_ent = entidades.id_ent group by contatos.id_ent;')->result();
+		return $this->db->query('select encomendas.* , entidades.* FROM entidades join encomendas on encomendas.id_ent = entidades.id_ent left join propostas on propostas.id_enc = encomendas.id_enc group by contatos.id_ent;')->result();
 		//return $this->db->get()->result();
 	}
 
@@ -154,7 +154,7 @@ class Encomenda extends DataMapper {
 		/*$this->get();
 		$e = new Entidade();
 		return $e->where_related($this->get());*/
-		return $this->db->query("select encomendas.*, entidades.*, contatos.* FROM entidades JOIN encomendas ON encomendas.id_ent = entidades.id_ent LEFT JOIN propostas ON propostas.id_enc = encomendas.id_enc LEFT JOIN contatos ON contatos.id_ent = entidades.id_ent where propostas.id_enc IS NULL AND encomendas.id_ent !=" . $id ." GROUP BY encomendas.id_enc;")->result();
+		return $this->db->query("select encomendas.*, entidades.* FROM entidades JOIN encomendas ON encomendas.id_ent = entidades.id_ent LEFT JOIN propostas ON propostas.id_enc = encomendas.id_enc where propostas.id_enc IS NULL AND encomendas.id_ent !=" . $id ." GROUP BY encomendas.id_enc;")->result();
 		//return $this->db->get()->result();
 	}
 

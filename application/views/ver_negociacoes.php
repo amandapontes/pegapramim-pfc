@@ -1,7 +1,6 @@
 <script type="text/javascript" src="<?php echo base_url()?>resources/js/my_functions.js"></script>
 <script>
   $(document).ready(function(){
-  
   function feedback(msg){
     var obj = jQuery.parseJSON(msg);
     if(obj.cod == '-1' || obj.cod == '0' ){
@@ -59,6 +58,7 @@
       <thead>
         <tr>    
           <th style="display:none">id</th>
+          <th style="display:none">status_sigla</th>
           <th>Usuário</th>
           <th>Encomenda</th>
           <th>Status</th>
@@ -70,13 +70,14 @@
         <tr class="{status_color}">
              
           <td style="display:none" value="{id_pro}" id="table_id"></td>
+          <td style="display:none" value="{status_pro}" class="status_sigla"></td>
           <td>{nome_ent}</td>
           <td>{descricao_enc}</td>
           <td>{status}</td>
-          <td>
+          <td class="acoes">
            <a href="#" name="negociacao_visualizacao" id="negociacao_visualizacao" data-original-title="Visualizar" data-toggle="modal" data-target="#conversaModal" data-whatever="{id_pro}">  <span class="glyphicon glyphicon-eye-open"></span> </a>
-          <a href="#" name="proposta_aprovacao" id="proposta_aprovacao" data-original-title="Aprovar">  <span class="glyphicon glyphicon-ok"></span> </a>
-            <a href="#" name="proposta_recusar" id="proposta_recusar" data-original-title="Recusar">  <span class="glyphicon glyphicon-remove"></span> </a>
+           <a href="#" name="proposta_aprovacao" id="proposta_aprovacao" data-original-title="Aprovar" style="display:{possui_acoes};">  <span class="glyphicon glyphicon-ok"></span> </a>
+           <a href="#" name="proposta_recusar" id="proposta_recusar" data-original-title="Recusar" style="display:{possui_acoes};">  <span class="glyphicon glyphicon-remove"></span> </a>
           </td>
 
         </tr>
