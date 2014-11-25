@@ -3,7 +3,7 @@ class Inicio extends CI_Controller{
 
 	public function index(){
 		if(empty($this->session->userdata['id_ent'])){
-			 redirect("/");
+			 redirect(base_url());
 		}
 		$e = new Encomenda();
 		$encomendas = array();

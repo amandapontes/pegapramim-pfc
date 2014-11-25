@@ -54,7 +54,7 @@
 			<!-- Header -->
 				<section id="header" class="skel-layers-fixed">
 					<header>
-						<span class="image avatar"><img src="<?php echo base_url()?>resources/img/logo_nuvem.png" /></span>
+						<span class="image avatar"><a href="<?php echo base_url()?>"><img src="<?php echo base_url()?>resources/img/logo_nuvem.png" /></a></span>
 						<h1 id="logo"><a href="#">PegaPraMim</a></h1>
 						<p>Sistema de frete compartilhado<br />
 						totalmente gratuito.</p>
@@ -119,7 +119,7 @@
 								<p>Veja quem transforma idéias em ações, profissionais especializados em ajudar o usuário.</p>
 								<div class="features">
 									<article>
-										<a href="#" class="image"><img src="<?php echo base_url()?>resources/img/site/lucashenrique.jpg" alt="" /></a>
+										<a href="#" class="image"><img src="<?php echo base_url()?>resources/img/site/lucashenrique2.jpg" alt="" /></a>
 										<div class="inner">
 											<h4>Lucas Henrique</h4>
 											<p>
@@ -128,6 +128,7 @@
 													<li class="fa-code">HTML</li>
 													<li class="fa-code">CSS</li>
 													<li class="fa-code">JQUERY</li>
+													<li class="fa-code">AJAX</li>
 													<li class="fa-code">SQL</li>
 												</ul>
 											</p>
