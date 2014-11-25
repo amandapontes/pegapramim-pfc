@@ -55,7 +55,7 @@ if ( ! function_exists('converte_status_color')){
 				return "danger";
 				break;
 			default:
-				return "";
+				return "info";
 				break;
 		}
 	}

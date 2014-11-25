@@ -106,7 +106,10 @@
 		$this->load->view('localizacao_atual');
 	?>
 	<section id="troca">
-		
+		<hgroup class="bs-callout bs-callout-warning">
+			<h4> Conheça </h4>
+			<h5>Não sabe como funciona nossa solução? <a href="site/landing_page" target="__blank" data-original-title="Não demora nem 1 minuto!!" >Clique aqui</a> e veja o seu funcionamento.</h5>
+		</hgroup>
 	</section>
 
 </section>

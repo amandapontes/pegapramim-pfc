@@ -26,9 +26,7 @@ class Welcome extends CI_Controller {
 		$e = new Entidade();
 		#echo "<pre>"; print_r($e); echo "</pre>";die;
 		$dados 							= (array)$e->stored;
-		$dados['descricao_cont_tel'] 	='';
-		$dados['descricao_cont_cel'] 	='';
-		
+	
  		$this->parser->parse('login',$dados); 
 	}
 }
