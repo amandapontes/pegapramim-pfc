@@ -100,6 +100,7 @@ $(document).ready(function(){
 		          //data: { latitude: position.coords.latitude, longitude: position.coords.longitude }
 		        })
 		          .done(function( msg ) {
+		          	
 		          	$(formulario).hide();
 		          //  alert( "Data Saved: " + msg );
 		         // alert(position.coords.latitude);

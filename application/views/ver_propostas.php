@@ -12,6 +12,9 @@
                 url: "ver_propostas/atualizar_aprovado/"+id+"/1"
               })
                 .success(function( msg ) {
+                  var n = noty({text: "Proposta aprovada.", type: 'success',shadow: false, styling: "bootstrap" , hide: true, delay: 500,
+                      killer: true
+                  });
                     $(el).parent('td').parent('tr').hide();
                 });
   });
@@ -25,9 +28,12 @@
                 url: "ver_propostas/deletar/"+id
               })
                 .success(function( msg ) {
+                  var n = noty({text: "Proposta recusada.", type: 'success',shadow: false, styling: "bootstrap" , hide: true, delay: 500,
+                      killer: true
+                  });
                     $(el).parent('td').parent('tr').hide();
                 });
-    $('#sessao-json > #troca').load('index.php/ver_propostas');
+
     });
 
 /* =========================================================================*/

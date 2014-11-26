@@ -67,13 +67,16 @@ class Encomenda_Controller extends CI_Controller{
 		//echo "<pre>";  echo print_r($_data); echo "</pre>";die;
 		$p = new Proposta();
 		$p->salvar($_data);
+		/*$feedback['cod'] = '1';
+ 		$feedback['msg'] = 'Proposta.';
+ 		echo json_encode($feedback);*/
 	}
 
 
 		public function deletar($id_enc){
 			$e = new Encomenda();
 			$retorno = $e->verificaPodeDeletar($id_enc);
-			
+
 			if($retorno){
 				$e->deletar($id_enc);
 				$feedback['cod'] = '1';

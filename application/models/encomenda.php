@@ -168,7 +168,7 @@ class Encomenda extends DataMapper {
 	public function verificaPodeDeletar($id_enc){
 		$p = new Proposta();
 		$p->where('id_enc',$id_enc)->where('aprovado_pro', 0)->where('status_pro', 'N')->get();
-		return !$p->exists();
+		return $p->exists();
 	}
 
 	public function deletar($id){
