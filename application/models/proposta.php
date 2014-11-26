@@ -186,6 +186,10 @@ public function deletar($id){
 		$p = new Proposta();
 		return $p->where('id_pro',$id)->update(array('aprovado_pro' => $status ));
 	}
+	public function atualizar_status($id, $status){
+		$p = new Proposta();
+		return $p->where('id_pro',$id)->update(array('status_pro' => $status ));
+	}
 }
 /* End of file template.php */
 /* Location: ./application/models/template.php */

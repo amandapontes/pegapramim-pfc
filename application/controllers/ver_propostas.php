@@ -30,6 +30,10 @@ class Ver_Propostas extends CI_Controller{
 		$p = new Proposta();
 		$p->atualizar_aprovado($id, $status);
 	}
+	public function atualizar_status($id, $status){
+		$p = new Proposta();
+		$p->atualizar_status($id, $status);
+	}
 
 	public function deletar($id){
 		$p = new Proposta();

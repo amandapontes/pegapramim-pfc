@@ -38,7 +38,41 @@
             event.preventDefault;
 
             return false;
-      });
+      }); 
+    
+
+ $("[name=proposta_aprovacao]").on("click" , function(){
+    //$(this).parent('td').parent('tr').hide();
+    var id = $(this).parents('td').parents('tr').find('#table_id').attr('value');
+    var el = this;
+      $.ajax({
+                type: "POST",
+                url: "ver_propostas/atualizar_status/"+id+"/F"
+              })
+                .success(function( msg ) {
+                  var n = noty({text: "Negociação Finalizada, acesse o menu de avaliações e avalie sua ajudante.", type: 'success',shadow: false, styling: "bootstrap" , hide: true, delay: 500,
+                      killer: true
+                  });
+                   $('#sessao-json > #troca').load('ver_negociacoes');
+                });
+  });
+
+  $('[name=proposta_recusar]').on('click', function(){
+    $(this).parent('td').parent('tr').hide();
+    var id = $(this).parents('td').parents('tr').find('#table_id').attr('value');
+    var el = this;
+      $.ajax({
+                type: "POST",
+                url: "ver_propostas/atualizar_status/"+id+"/C"
+              })
+                .success(function( msg ) {
+                  var n = noty({text: "Negociação Cancelada.", type: 'success',shadow: false, styling: "bootstrap" , hide: true, delay: 500,
+                      killer: true
+                  });
+                   $('#sessao-json > #troca').load('ver_negociacoes');
+                });
+
+    });
 
 
   });
@@ -76,8 +110,8 @@
           <td>{status}</td>
           <td class="acoes">
            <a href="#" name="negociacao_visualizacao" id="negociacao_visualizacao" data-original-title="Visualizar" data-toggle="modal" data-target="#conversaModal" data-whatever="{id_pro}">  <span class="glyphicon glyphicon-eye-open"></span> </a>
-           <a href="#" name="proposta_aprovacao" id="proposta_aprovacao" data-original-title="Aprovar" style="display:{possui_acoes};">  <span class="glyphicon glyphicon-ok"></span> </a>
-           <a href="#" name="proposta_recusar" id="proposta_recusar" data-original-title="Recusar" style="display:{possui_acoes};">  <span class="glyphicon glyphicon-remove"></span> </a>
+           <a href="#" name="proposta_aprovacao" id="proposta_aprovacao" data-original-title="Finalizar" style="display:{possui_acoes};">  <span class="glyphicon glyphicon-ok"></span> </a>
+           <a href="#" name="proposta_recusar" id="proposta_recusar" data-original-title="Cancelar" style="display:{possui_acoes};">  <span class="glyphicon glyphicon-remove"></span> </a>
           </td>
 
         </tr>
