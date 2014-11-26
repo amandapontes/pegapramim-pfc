@@ -68,4 +68,25 @@ class Encomenda_Controller extends CI_Controller{
 		$p = new Proposta();
 		$p->salvar($_data);
 	}
+
+
+		public function deletar($id_enc){
+			$e = new Encomenda();
+			$retorno = $e->verificaPodeDeletar($id_enc);
+			
+			if($retorno){
+				$e->deletar($id_enc);
+				$feedback['cod'] = '1';
+		 		$feedback['msg'] = 'Necessidade apagada.';
+		 		echo json_encode($feedback);
+				
+			//	$this->parser->parse('index',(array)$e->stored);
+			}
+			else{
+				$feedback['cod'] = '0';
+			 	$feedback['msg'] = 'Necessidade não pode ser apagada pois possui proposta aceita.';
+			 	$e->deletar($id_enc);
+			 	echo json_encode($feedback);
+			}
+	}
 }

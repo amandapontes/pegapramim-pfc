@@ -162,10 +162,18 @@ public function getPropostasByIdUsuario($id, $aprovado = "-1"){
 
 
 public function deletar($id){
-		$e = new Entidade();
 		/*$this->get();
 		return $e->where_related($this->get());*/
-		return $e->where('id_pro', $id)->get()->delete();
+			return $this->db->query("delete from propostas where id_pro = ". $id ." ;");
+		//return $p->where('id_pro', $id)->get()->delete();
+				//return $this->db->get()->result();
+	}
+
+	public function deletarIdEncomenda($id){
+		
+		/*$this->get();
+		return $e->where_related($this->get());*/
+		return $this->db->query("delete from propostas where id_enc = ". $id ." ;");
 				//return $this->db->get()->result();
 	}
 

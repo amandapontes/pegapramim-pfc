@@ -17,4 +17,21 @@ class Solicitar_Motoboy extends CI_Controller{
 			 redirect("inicio");
 		}
 	}
+
+	public function load_list(){
+		$e = new Encomenda();
+		$id_logado = $this->session->userdata('id_ent');
+		
+		$dados['encomendas'] = $e->getApenasEncomendasById($id_logado);
+		#echo "<print>"; print_r($dados['propostas'][0]); echo "</pre>";
+		$dados['nenhum_resultado'] = 'display:none';
+		$dados['nenhum_resultado_tabela'] = 'display:block';
+		if(empty($dados['encomendas'])){
+			$dados['nenhum_resultado'] = 'display:block';
+			$dados['nenhum_resultado_tabela'] = 'display:none';
+		}
+		#echo "<print>"; print_r($dados['encomendas']); echo "</pre>";
+ 		$this->parser->parse('ver_encomendas',$dados); 
+	}
+
 }

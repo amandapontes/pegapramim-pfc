@@ -35,6 +35,14 @@
 				</a>
 		
 				<a href="#">
+					<?php
+	 					echo form_hidden('url','solicitar_motoboy/load_list');
+					?>
+					<span class="glyphicon glyphicon-globe"> Ajudas Solicitadas</span>
+					
+				</a>
+
+				<a href="#">
 				<?php
  					echo form_hidden('url','ver_propostas');
 				?>

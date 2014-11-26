@@ -65,7 +65,7 @@
 							<li><a href="#two">Como funciona</a></li>
 							<li><a href="#three">Equipe</a></li>
 							<li><a href="#four">Contato</a></li>
-							<li><a href="<?php echo base_url()?>">Entrar no sistema</a></li>
+							<li><a href="<?php echo base_url()?>" class="destaque">Entrar no sistema</a></li>
 						</ul>
 					</nav>
 					<footer>
@@ -82,6 +82,7 @@
 						<section id="one">
 							<div class="container">
 								<header class="major">
+									<a href="<?php echo base_url()?>"><img src="<?php echo base_url()?>resources/img/logo.png" /></a>
 									<h2>Sobre</h2>
 									<p>Precisando levar algo em algum lugar e ta sem tempo para ir até lá?<br />
 									Com o <a href="#">PEGAPRAMIM</a> falta de tempo não é empecilho.</p>
