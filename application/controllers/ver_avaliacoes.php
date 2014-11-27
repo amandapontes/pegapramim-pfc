@@ -8,6 +8,7 @@ class Ver_Avaliacoes extends CI_Controller{
 		$av =  new Avaliacoes();
 		$id_logado = $this->session->userdata('id_ent');
 		$dados['avaliacoes'] = $av->getAvaliacoes($id_logado);
+		// echo "<print>"; print_r($dados['avaliacoes']); echo "</pre>";
 		$dados['nenhum_resultado'] = 'display:none';
 		$dados['nenhum_resultado_tabela'] = 'display:block';
 		if(empty($dados['avaliacoes'])){
