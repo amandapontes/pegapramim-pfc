@@ -67,6 +67,9 @@ class Encomenda_Controller extends CI_Controller{
 		//echo "<pre>";  echo print_r($_data); echo "</pre>";die;
 		$p = new Proposta();
 		$p->salvar($_data);
+		$feedback['cod'] = '1';
+ 		$feedback['msg'] = 'Proposta enviada.';
+ 		echo json_encode($feedback);
 		/*$feedback['cod'] = '1';
  		$feedback['msg'] = 'Proposta.';
  		echo json_encode($feedback);*/

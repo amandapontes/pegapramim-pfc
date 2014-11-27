@@ -1,7 +1,56 @@
+<script type="text/javascript" src="<?php echo base_url()?>resources/js/my_functions.js"></script>
 <script>
-    $(document).ready(function(){
-        
-});
+  $(document).ready(function(){
+  function removeTodos(n){
+      
+    }
+  
+function feedback(msg){
+    var obj = jQuery.parseJSON(msg);
+    if(obj.cod == '-1' || obj.cod == '0' ){
+          var n = noty({text: obj.msg, type: 'error', shadow: false, styling: "bootstrap" , hide: true, delay: 500,
+      killer: true
+
+                });
+          removeTodos(n);
+          return 0;
+        }
+        else if(obj.cod == '1'){
+          var n = noty({text: obj.msg, type: 'success',shadow: false, styling: "bootstrap" , hide: true, delay: 500,
+        killer: true
+    });
+        removeTodos(n);
+        return obj.cod;
+        }
+        return obj.cod;
+}
+
+      $('#formSolicitar').submit(function(event){
+
+        event.preventDefault;
+      var formulario = $('form#formSolicitar');
+      var dados = formulario.serialize();
+ 
+          $.ajax({
+            type: "POST",
+             url: "solicitar_motoboy/custom_save",
+            data: dados
+          })
+            .success(function( msg ) {
+               var n = noty({text: "Necessidade salva com sucesso.", type: 'success',shadow: false, styling: "bootstrap" , hide: true, delay: 500,
+        killer: true
+    });
+          setInterval(function(){
+                  document.location = 'inicio';
+            },3000);
+              //var n = noty({text: msg, type: 'error',shadow: false, styling: "bootstrap" , hide: true, delay: 500});
+            });
+            event.preventDefault;
+
+            return false;
+      });
+
+  });
 </script>
 <section id="solicitar_ajuda_content">
     <h2>Solicitar Ajuda</h2>
@@ -9,7 +58,7 @@
         Aqui você pode solicitar aos usuários a ajuda para enviar sua encomenda.
     </div>
     <?php
-                echo form_open('solicitar_motoboy/custom_save','name="formSolicitar" class="form-horizontal"'); ?>
+                echo form_open('solicitar_motoboy/custom_save','name="formSolicitar" class="form-horizontal" id="formSolicitar"'); ?>
     <div id="endereco_origem">
                   <?php $this->parser->parse('input_endereco', array('label_input_endereco' => 'Endereço Origem '));  ?>
             </div>

@@ -83,7 +83,7 @@ $(document).ready(function(){
 	});
 
 	 $('input[name="btnEnviar"]').click(function(){
-            console.log($('form[name="formSolicitar"] > input[name="latitude_cli"]').val());
+            
             $('form[name="formSolicitar"] > input[name="latitude_cli"]').val($('input[name="latitude_cli_entra"]').val());
             $('form[name="formSolicitar"] > input[name="longitude_cli"]').val($('input[name="longitude_cli_entra"]').val());
             
@@ -102,6 +102,7 @@ $(document).ready(function(){
 		          .done(function( msg ) {
 		          	
 		          	$(formulario).hide();
+		          	feedback(msg);
 		          //  alert( "Data Saved: " + msg );
 		         // alert(position.coords.latitude);
 		           //  location.reload(); 

@@ -14,7 +14,9 @@ class Solicitar_Motoboy extends CI_Controller{
 		$_data['id_ent'] =  $this->session->userdata['id_ent'];
 		$e = new Encomenda();
 		if($e->salvar($_data)){
-			 redirect("inicio");
+			$feedback['cod'] = '1';
+	 		$feedback['msg'] = 'Necessidade salva com sucesso.';
+	 		echo json_encode($feedback);
 		}
 	}
 
