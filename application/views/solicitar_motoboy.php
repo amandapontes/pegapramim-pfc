@@ -59,22 +59,13 @@ function feedback(msg){
     </div>
     <?php
                 echo form_open('solicitar_motoboy/custom_save','name="formSolicitar" class="form-horizontal" id="formSolicitar"'); ?>
-    <div id="endereco_origem">
-                  <?php $this->parser->parse('input_endereco', array('label_input_endereco' => 'Endereço Origem '));  ?>
-            </div>
-            
-            <div id="endereco_destino">
-                <?php $this->parser->parse('input_endereco', array('label_input_endereco' => 'Endereço Destino'));  ?>
-            </div>
 
            <!-- <div id="apresentacao"> -->
             <?php
                 echo form_fieldset('');
-                echo form_hidden('longitude_cli');
-                echo form_hidden('latitude_cli');
-                echo form_hidden('id_ent_motoboy','');
                 echo form_hidden('id_ent','{id_logado}');
             ?>
+                 <?php $this->load->view('input_endereco');  ?>
     
 
         <div class="form-group">
