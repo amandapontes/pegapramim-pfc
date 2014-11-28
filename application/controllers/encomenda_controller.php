@@ -66,7 +66,7 @@ class Encomenda_Controller extends CI_Controller{
 
 		}
 		//echo $e->getEncomendas($_data);
-		echo "<pre>"; echo print_r($encomendas); echo "</pre>";
+		#echo "<pre>"; echo print_r($encomendas); echo "</pre>";
 //		echo "<pre>"; echo print_r($encomendas); echo "</pre>";
 //		
 		if(!empty($encomendas['encomendas'])){

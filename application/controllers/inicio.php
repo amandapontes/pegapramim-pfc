@@ -15,6 +15,8 @@ class Inicio extends CI_Controller{
 		$encomendas['encomendas'] = $e->getEncomendasById($this->session->userdata['id_ent']) ;
 		$encomendas['id_logado']  = $this->session->userdata('id_ent');
 		$encomendas['nome_ent']   = $this->session->userdata('nome_ent');
+		$a = new Avaliacoes();
+		
 		$opcoes = new Opcoe();
 		$vrKm = $opcoes->getVrKm($encomendas['id_logado'])->stored->vr_por_km;
 		//echo $vrKm;
@@ -26,7 +28,9 @@ class Inicio extends CI_Controller{
 			$value->vr_medio          			= '';
 			$value->duracao           			= '';
 			$value->distancia         			= '';
-
+			$value->media						= 0;
+			$value->media						= @$a->getReputacao($value->id_ent);
+			$value->media						= empty($value->media[0]->media)? 0 : $value->media[0]->media;
 			$json = file_get_contents("http://maps.google.com/maps/api/geocode/json?address=". $value->latitude_cli  . "," . $value->longitude_cli."&sensor=false"     );
 		
 	//		echo $json;

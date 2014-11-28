@@ -19,7 +19,6 @@
 /*$.getJSON("http://maps.google.com/maps/api/geocode/json?address="+position.coords.latitude +","+position.coords.longitude+"&sensor=false",function(result){
                  $("#str-endereco").html("Seu endereço é: " +result.results[0].formatted_address);
             });*/
-	
 	});
 </script>
 <section id="notification_encomenda" style="display: {exibe_notificacao}">
@@ -41,14 +40,10 @@
 		</h2>
 
 		 <div class="dropdown">
-			<a data-toggle="dropdown" href="#"> 
+			<a data-toggle="dropdown" href="#" data-original-title="Usuário possui nota {media} de reputação."> 
 			<img src="<?php echo base_url()?>resources/img/avatar.jpg" class="img-circle" />
 			{nome_ent}
 			</a>
-			  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-				<detais>
-				</detais>
-		  </ul>
 		</div>
 			<p><strong>Origem:</strong></p> {formatted_address_origem}
 			<p><strong>Destino:</strong></p> {formatted_address}

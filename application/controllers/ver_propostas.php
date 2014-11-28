@@ -41,6 +41,10 @@ class Ver_Propostas extends CI_Controller{
 	}
 	public function atualizar_status($id, $status){
 		$p = new Proposta();
+		$n = new Negociacoes();
+		$_data['id_pro']	= $id;
+		$ln = $n->salvar($_data, false);
+
 		$p->atualizar_status($id, $status);
 	}
 

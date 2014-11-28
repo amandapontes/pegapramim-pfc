@@ -126,7 +126,7 @@ class Negociacoes extends DataMapper {
 	}
 	*/
 	
-	public function salvar($_data){
+	public function salvar($_data, $add_msg = true){
 		$ln =  new Lista_Negociacoes();
 		$existe = $this->verificar_existe($_data['id_pro']);
 		#echo "<print>"; print_r(); echo "</pre>";die;
@@ -139,8 +139,10 @@ class Negociacoes extends DataMapper {
 			$_data['id_nego'] 					 = $this->id_nego;;
 		}
 	#	echo "existe";
-		return $ln->add_mensagem_negociao($_data);
-		//echo "<print>"; print_r($e->id); echo "</pre>";
+		if($add_msg){
+			return $ln->add_mensagem_negociao($_data);
+		}
+		return $this;
 	}
 	public function verificar_existe($id_pro){
 		return $this->where('id_pro',$id_pro)->get();
