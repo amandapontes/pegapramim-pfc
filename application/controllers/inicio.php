@@ -91,6 +91,9 @@ class Inicio extends CI_Controller{
 				$value->vr_medio = $vr_calc;
 				}
 			}
+			else{
+				$distancia_quebrada[0] = 0;
+			}
 			if(str_replace(',', '.', $distancia_quebrada[0]) <= $distanciaLimite && $distanciaLimite > 0){
 				unset($encomendas['encomendas'][$key]);
 			}
