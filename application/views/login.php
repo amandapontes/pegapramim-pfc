@@ -55,3 +55,10 @@
 <?php
 	#require_once('includes/footer.php');
 ?>
+
+<script>
+	$(document).ready(function(){
+		$('[name=tela_login]').val(1);
+		$('[name=id_ent]').val('');
+	});
+</script>

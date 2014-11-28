@@ -69,8 +69,8 @@
 		<form class="form-horizontal" role="form" id="cadastrar" method="POST">
 			<?php
 				echo form_hidden('ativo','1');
-				echo form_hidden('login_ent','');
-				echo form_hidden('tela_login','0');
+				echo form_hidden('id_ent','{id_ent}');
+				echo form_hidden('tela_login','0',"id='tela_login'");
 			?>
 			<div class="form-group">
 				<div class="input-group">

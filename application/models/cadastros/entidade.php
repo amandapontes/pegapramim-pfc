@@ -131,14 +131,31 @@ class Entidade extends DataMapper {
 		//$e->id_ent       = $_data['id_ent'];
 		$existe = $this->verificar_existe($_data['login_ent']);
 		#echo "<print>"; print_r(); echo "</pre>";die;
-		if(empty($existe->stored->id_ent)){
-			$this->ativo        = $_data['ativo'];
-			$this->nome_ent     = $_data['nome_ent'];
-			$this->login_ent    = $_data['login_ent'];
-			$this->senha_ent    = $_data['senha_ent'];
-			return $this->save();
+		if(!empty($_data['tela_login'])){
+			#echo "<pre>"; print_r($_data); "</pre>";
+			#echo "<pre>"; print_r($existe); "</pre>";
+			if(empty($existe->stored->id_ent)){
+				$this->ativo        = $_data['ativo'];
+				$this->nome_ent     = $_data['nome_ent'];
+				$this->login_ent    = $_data['login_ent'];
+				$this->senha_ent    = $_data['senha_ent'];
+				return $this->save();
+			}
+			return $existe;
 		}
-		return $existe;
+		else{
+			if(empty($existe->stored->id_ent) == $_data['id_ent'] ){
+				return $existe;
+			}
+			else{
+				$e = new Entidade();
+				unset($_data['tela_login']);
+				unset($_data['senha_ent_conf']);
+				$id_logado = $_data['id_ent'];
+				unset($_data['id_ent']);
+				return $e->where('id_ent', $id_logado)->update($_data);
+			}
+		}
 		//echo "<print>"; print_r($e->id); echo "</pre>";
 	}
 

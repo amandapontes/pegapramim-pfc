@@ -27,6 +27,7 @@ class Entidades extends CI_Controller{
 		 	echo json_encode($feedback);
 			return false;
 		}
+		
 		if($e->salvar($_data)){
 			$_data['id_ent']        	= $e->id;
 			$e->stored->id_ent	        = $e->id;
