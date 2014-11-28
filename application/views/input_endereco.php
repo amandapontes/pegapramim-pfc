@@ -23,6 +23,7 @@ function initialize() {
     marker.setPosition(latlng);
 }
  function carregarNoMapa(endereco, formulario) {
+    console.log(formulario);
         geocoder.geocode({ 'address': endereco + ', Brasil', 'region': 'BR' }, function (results, status) {
             if (status == google.maps.GeocoderStatus.OK) {
                 if (results[0]) {
@@ -46,13 +47,13 @@ $(document).ready(function () {
 
       $(".btnEndereco").click(function() {
       	var formulario = $(this).parents('.form-horizontal');
-        if($(this).val() != "")
+        if($(this).val().lenght > 3)
             carregarNoMapa($(this).parent().prev(".txtEndereco").val(), formulario);
     });
  
     $(".txtEndereco").blur(function() {
 	 	var formulario = $(this).parents('.form-horizontal');
-        if($(this).val() != "")
+        if($(this).val().lenght > 3)
             carregarNoMapa($(this).val(), formulario);
     });
     $(".txtEndereco").autocomplete({
@@ -69,9 +70,10 @@ $(document).ready(function () {
             })
         },
         select: function (event, ui) {
+            console.log(this);
         	var formulario = $(this).parents('.form-horizontal');
-            $(formulario).find('#txtLatitude').val(ui.item.latitude);
-            $(formulario).find("#txtLongitude").val(ui.item.longitude);
+            $(formulario).children('#txtLatitude').val(ui.item.latitude);
+            $(formulario).children("#txtLongitude").val(ui.item.longitude);
             var location = new google.maps.LatLng(ui.item.latitude, ui.item.longitude);
             marker.setPosition(location);
             map.setCenter(location);
