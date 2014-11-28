@@ -58,6 +58,7 @@ $("[name=proposta_aprovacao]").on("click" , function(){
                   }
                 });
       });
+
   });
 </script>
 

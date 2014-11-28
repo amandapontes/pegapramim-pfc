@@ -74,7 +74,9 @@ create table lista_negociacoes(
 	dt_criacao_lista_nego datetime not null,
 	msg_lista_nego text not null,
 	id_nego int not null,
-	foreign key(id_nego) references negociacoes(id_nego)
+	foreign key(id_nego) references negociacoes(id_nego),
+	id_ent_enviou int not null,
+	foreign key(id_ent_enviou) references entidades(id_ent)
 )engine=MYiSAM;
 
 

@@ -61,6 +61,7 @@ class Ver_Negociacoes extends CI_Controller{
 		$_data = $this->input->post();
 		$n = new Negociacoes();
 
+		$_data['id_ent_enviou'] = $this->session->userdata('id_ent');
 		$ln = $n->salvar($_data);
 	
 		if($ln){
@@ -73,4 +74,29 @@ class Ver_Negociacoes extends CI_Controller{
 		}
 		echo $feedback;
 	}
+
+	public function load_conversa($id_pro){
+		$ln =  new Lista_Negociacoes();
+		$dados["id_nego"] = $id_pro;
+		$dados["msg"] = $ln->getAllNego($id_pro);
+		
+		$dados['nenhum_resultado'] = 'display:none';
+		$dados['nenhum_resultado_tabela'] = 'display:block';
+		$dados['nenhum_resultado_tabela'] = 'display:block';
+		$dados["readonly_msg"] 			  = '';
+		if(!empty($dados["msg"])){
+			$dados["id_pro"] = $dados["msg"][0]->id_pro;
+			$status = $dados["msg"][0]->status_pro;
+			if($status != 'N'){
+				$dados["readonly_msg"] 	  = 'display:none';
+			}
+		}
+		if(empty($dados["msg"][0]->id_lista_nego)){
+			$dados['nenhum_resultado'] = 'display:block';
+			$dados['nenhum_resultado_tabela'] = 'display:none';
+		}
+ 		$this->parser->parse('negociacao_conversa', $dados); 
+	}
+
+
 }

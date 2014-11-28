@@ -133,6 +133,7 @@ class Lista_Negociacoes extends DataMapper {
 		$this->dt_criacao_lista_nego = date("Y-m-d H:i:s");
 		//$this->id_pro         = $_data['id_opc'];
 		$this->id_nego 				 = $_data['id_nego'];
+		$this->id_ent_enviou 		 = $_data['id_ent_enviou'];
 		$this->msg_lista_nego        = $_data['msg_lista_nego'];
 		return $this->save();
 		//echo "<print>"; print_r($e->id); echo "</pre>";
@@ -159,8 +160,9 @@ class Lista_Negociacoes extends DataMapper {
 		return $this->where('login_ent',$login)->get();
 	}
 
-	public function getAll(){
-		return $this->get();
+	public function getAllNego($id_pro){
+			return $this->db->query("select log.* , en.* , pro.id_pro, pro.status_pro FROM propostas pro left join negociacoes nego on nego.id_pro = pro.id_pro left join lista_negociacoes log on log.id_nego = nego.id_nego
+left JOIN entidades en on log.id_ent_enviou = en.id_ent where pro.id_pro = ". $id_pro ." order by log.id_lista_nego;")->result();	
 	}
 }
 /* End of file template.php */
