@@ -82,7 +82,7 @@
       </table>
   </div>
 <p class="bs-callout bs-callout-info">
-  Abaixo você pode ver a lista das propostas que foram feitas <code>por você.</code>.
+  Abaixo você pode ver a lista das propostas que foram feitas <code>por você.</code>
 </p>
 <p class="bs-callout bs-callout-danger" style="{nenhum_resultado_feito}">
   Você não tem nenhuma <code>proposta feita por você</code> <strong>;(</strong>
