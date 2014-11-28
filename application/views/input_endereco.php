@@ -138,7 +138,7 @@ $(document).ready(function () {
         <h4 class="modal-title" id="mapaModalLabel"></h4>
       </div>
       <div class="modal-body">
- 		<div id="mapa" style="height: 500px; width: initial;" >
+ 		<div id="mapa" style="height: 900px; width: 100%;" >
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>

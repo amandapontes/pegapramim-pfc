@@ -6,13 +6,22 @@ class Ver_Propostas extends CI_Controller{
 		$p = new Proposta();
 		$id_logado = $this->session->userdata('id_ent');
 		
-		$dados['propostas'] = $p->getPropostasByIdUsuario($id_logado, 0);
+		$dados['propostas'] 		= $p->getPropostasByIdUsuario($id_logado, 0);
+		$dados['propostas_feito'] 	= $p->getPropostasByIdUsuarioFeito($id_logado);
+		
 		#echo "<print>"; print_r($dados['propostas'][0]); echo "</pre>";
 		$dados['nenhum_resultado'] = 'display:none';
 		$dados['nenhum_resultado_tabela'] = 'display:block';
+		$dados['nenhum_resultado_feito'] = 'display:none';
+		$dados['nenhum_resultado_tabela_feito'] = 'display:block';
+
 		if(empty($dados['propostas'])){
 			$dados['nenhum_resultado'] = 'display:block';
 			$dados['nenhum_resultado_tabela'] = 'display:none';
+		}
+		if(empty($dados['propostas_feito'])){
+			$dados['nenhum_resultado_feito'] = 'display:block';
+			$dados['nenhum_resultado_tabela_feito'] = 'display:none';
 		}
  		$this->parser->parse('ver_propostas',$dados); 
 	}

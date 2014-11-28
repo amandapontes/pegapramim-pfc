@@ -19,7 +19,20 @@ class Encomenda_Controller extends CI_Controller{
 		//echo $vrKm;
 		//echo "<pre>"; echo print_r($opcoes->getVrKm($encomendas['id_logado'])); echo "</pre>";
 			//echo "<pre>"; echo print_r($encomendas['encomendas']); echo "</pre>";
-		foreach ($encomendas['encomendas'] as $key => $value) {
+		foreach ($encomendas['encomendas'] as $key => &$value) {
+			
+			$value->formatted_address_origem = '';
+			$json = file_get_contents("http://maps.google.com/maps/api/geocode/json?address=". $value->longitude_cli  . "," . $value->latitude_cli."&sensor=false");
+	//	echo "http://maps.google.com/maps/api/geocode/json?address=". $value->latitude_enco . "," . $value->longitude_enco ."&sensor=true";
+			$json = json_decode($json);
+			//echo $json->status . "merda";
+			//echo "<pre>";  echo print_r($json); echo "</pre>";
+			if($json->status == 'OK' || $json->status == 'ok'){
+				$value->formatted_address_origem = $json->results['0']->formatted_address;
+
+				$endCompletoEncomenda_origem = str_replace(" ", "+", $value->formatted_address_origem);
+			}
+
 			$value->formatted_address = '';
 			$json = file_get_contents("http://maps.google.com/maps/api/geocode/json?address=". $value->longitude_enco  . "," . $value->latitude_enco."&sensor=false");
 	//	echo "http://maps.google.com/maps/api/geocode/json?address=". $value->latitude_enco . "," . $value->longitude_enco ."&sensor=true";
@@ -50,14 +63,16 @@ class Encomenda_Controller extends CI_Controller{
 			}
 			
 			$value->vr_medio = 99;
+
 		}
 		//echo $e->getEncomendas($_data);
-	//	echo "<pre>"; echo print_r($encomendas); echo "</pre>";
+		echo "<pre>"; echo print_r($encomendas); echo "</pre>";
 //		echo "<pre>"; echo print_r($encomendas); echo "</pre>";
 //		
 		if(!empty($encomendas['encomendas'])){
 			$encomendas['exibe_notificacao'] = "block";
 		}
+		echo "<pre>"; echo print_r($encomendas); echo "</pre>";
 		$this->parser->parse('notificacao_new_encomenda',$encomendas);
 	}
 

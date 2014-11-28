@@ -43,19 +43,14 @@
 		 <div class="dropdown">
 			<a data-toggle="dropdown" href="#"> 
 			<img src="<?php echo base_url()?>resources/img/avatar.jpg" class="img-circle" />
-			{nome_ent} +
+			{nome_ent}
 			</a>
 			  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
 				<detais>
-					<p>
-						Telefone: {descricao_cont}
-					</p>
-					<p>
-						CPF/CNPJ: {cpf_cnpj_ent}
-					</p>
 				</detais>
 		  </ul>
 		</div>
+			<p><strong>Origem:</strong></p> {formatted_address_origem}
 			<p><strong>Destino:</strong></p> {formatted_address}
 				<div class="row">
 					  <div class="col-md-4"><strong>Distância:</strong> {distancia}</div>

@@ -42,46 +42,86 @@
 </script>
 <h2>Lista de Propostas</h2>
 <p class="bs-callout bs-callout-info">
-	Abaixo você pode ver a lista das propostas que foram feitas a você.
+	Abaixo você pode ver a lista das propostas que foram feitas <code>a você</code>.
 </p>
 <p class="bs-callout bs-callout-danger" style="{nenhum_resultado}">
-  Você não tem nenhuma <code>proposta</code> <strong>;(</strong>
+  Você não tem nenhuma <code>proposta feita a você</code> <strong>;(</strong>
 </p>
     <?php 
-     echo form_open('encomenda_controller/enviar_proposta','name="formEncomenda" class="bs-callout bs-callout-warning form-horizontal" role="form" style="{nenhum_resultado_tabela}"');
+     echo form_open('encomenda_controller/enviar_proposta','name="formEncomenda" class="form-horizontal" role="form" style=""');
 	   echo form_hidden('id_opc','{id_pro}');
 ?>
+<div style="{nenhum_resultado_tabela}">
+  <table class="bs-callout bs-callout-warning table table-responsive table-striped">
+        <thead>
+          <tr>
+          <th style="display:none">id</th>
+            <th>Usuário</th>
+            <th>Proposta</th>
+            <th>Encomenda</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+        {propostas}
+          <tr>
+               
+            <td style="display:none" value="{id_pro}" id="table_id"></td>
+            <td>{nome_ent}</td>
+            <td>R$ {vr_pro}</td>
+            <td>{descricao_enc}</td>
+            <td>
+             <a href="#" name="proposta_aprovacao" id="proposta_aprovacao" data-original-title="Aprovar">  <span class="glyphicon glyphicon-ok"></span> </a>
 
-<table class="table table-responsive table-striped">
-      <thead>
-        <tr>
-        <th style="display:none">id</th>
-          <th>Usuário</th>
-          <th>Proposta</th>
-          <th>Encomenda</th>
-          <th>Ações</th>
-        </tr>
-      </thead>
-      <tbody>
-      {propostas}
-        <tr>
-             
-          <td style="display:none" value="{id_pro}" id="table_id"></td>
-          <td>{nome_ent}</td>
-          <td>R$ {vr_pro}</td>
-          <td>{descricao_enc}</td>
-          <td>
-           <a href="#" name="proposta_aprovacao" id="proposta_aprovacao" data-original-title="Aprovar">  <span class="glyphicon glyphicon-ok"></span> </a>
+              <a href="#" name="proposta_recusar" id="proposta_recusar" data-original-title="Recusar">  <span class="glyphicon glyphicon-remove"></span> </a>
+            </td>
 
-            <a href="#" name="proposta_recusar" id="proposta_recusar" data-original-title="Recusar">  <span class="glyphicon glyphicon-remove"></span> </a>
-          </td>
+          </tr>
+          {/propostas}
+        </tbody>
+      </table>
+  </div>
+<p class="bs-callout bs-callout-info">
+  Abaixo você pode ver a lista das propostas que foram feitas <code>por você.</code>.
+</p>
+<p class="bs-callout bs-callout-danger" style="{nenhum_resultado_feito}">
+  Você não tem nenhuma <code>proposta feita por você</code> <strong>;(</strong>
+</p>
+    <?php 
+     echo form_open('encomenda_controller/enviar_proposta','name="formEncomenda" class="form-horizontal" role="form" style="{nenhum_resultado_tabela_feito}"');
+     echo form_hidden('id_opc','{id_pro}');
+?>
+<div style="{nenhum_resultado_tabela_feito}">
+    <table class="bs-callout bs-callout-warning table table-responsive table-striped">
+          <thead>
+            <tr>
+            <th style="display:none">id</th>
+              <th>Usuário</th>
+              <th>Proposta</th>
+              <th>Encomenda</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+          {propostas_feito}
+            <tr>
+                 
+              <td style="display:none" value="{id_pro}" id="table_id"></td>
+              <td>{nome_ent}</td>
+              <td>R$ {vr_pro}</td>
+              <td>{descricao_enc}</td>
+              <td>
+               <a href="#" name="proposta_aprovacao" id="proposta_aprovacao" data-original-title="Aprovar">  <span class="glyphicon glyphicon-ok"></span> </a>
 
-        </tr>
-        {/propostas}
-      </tbody>
-    </table>
-  
-  
+                <a href="#" name="proposta_recusar" id="proposta_recusar" data-original-title="Recusar">  <span class="glyphicon glyphicon-remove"></span> </a>
+              </td>
+            </tr>
+            {/propostas_feito}
+          </tbody>
+        </table>
+  </div>
+
+
 <?php
 	echo form_close();
 ?>

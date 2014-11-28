@@ -21,11 +21,29 @@ class Inicio extends CI_Controller{
 		//echo "<pre>"; echo print_r($opcoes->getVrKm($encomendas['id_logado'])); echo "</pre>";
 			//echo "<pre>"; echo print_r($encomendas['encomendas']); echo "</pre>";
 		foreach ($encomendas['encomendas'] as $key => $value) {
+			$value->formatted_address_origem 	= '';
+			$value->formatted_address 			= '';
+			$value->vr_medio          			= '';
+			$value->duracao           			= '';
+			$value->distancia         			= '';
 
-			$value->formatted_address = '';
-			$value->vr_medio          = '';
-			$value->duracao           = '';
-			$value->distancia         = '';
+			$json = file_get_contents("http://maps.google.com/maps/api/geocode/json?address=". $value->latitude_cli  . "," . $value->longitude_cli."&sensor=false"     );
+		
+	//		echo $json;
+	  //   	echo "http://maps.google.com/maps/api/geocode/json?address=". $value->latitude_enco . "," . $value->longitude_enco ."&sensor=true";
+		
+			$json = json_decode($json);
+		
+		//	echo "<pre>"; echo print_r($json); echo "</pre>";
+
+		//	echo " ".$json->status;
+			//echo $json->status . "merda";
+			$endCompletoEncomenda_origem='';
+			if($json->status == 'OK' || $json->status == 'ok'){
+				$value->formatted_address_origem = $json->results['0']->formatted_address;
+				$endCompletoEncomenda_origem = str_replace(" ", "+", $value->formatted_address_origem);
+			}
+
 
 			$json = file_get_contents("http://maps.google.com/maps/api/geocode/json?address=". $value->latitude_enco  . "," . $value->longitude_enco."&sensor=false"     );
 		
@@ -44,7 +62,8 @@ class Inicio extends CI_Controller{
 				$endCompletoEncomenda = str_replace(" ", "+", $value->formatted_address);
 			}
 
-			$json = file_get_contents("http://maps.googleapis.com/maps/api/distancematrix/json?origins=".$this->session->userdata('latitude_atual').",". $this->session->userdata('longitude_atual')."&destinations=".$endCompletoEncomenda."&mode=car&language=pt-BR&sensor=true");
+		//	$json = file_get_contents("http://maps.googleapis.com/maps/api/distancematrix/json?origins=".$this->session->userdata('latitude_atual').",". $this->session->userdata('longitude_atual')."&destinations=".$endCompletoEncomenda."&mode=car&language=pt-BR&sensor=true");
+			$json = file_get_contents("http://maps.googleapis.com/maps/api/distancematrix/json?origins=".$value->latitude_cli.",". $value->longitude_cli."&destinations=".$endCompletoEncomenda."&mode=car&language=pt-BR&sensor=true");
 		//echo "http://maps.googleapis.com/maps/api/distancematrix/json?origins=".$this->session->userdata('latitude_atual').",". $this->session->userdata('longitude_atual')."&destinations=".$endCompletoEncomenda."&mode=car&language=pt-BR&sensor=true" ;
 			$json = json_decode($json);
 

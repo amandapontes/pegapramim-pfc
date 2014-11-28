@@ -6,9 +6,22 @@ class Ver_Negociacoes extends CI_Controller{
 		$p = new Proposta();
 		$id_logado = $this->session->userdata('id_ent');
 		$dados['propostas'] = $p->getPropostasByIdUsuario($id_logado, 1);
+		$dados['propostas_feito'] = $p->getPropostasByIdUsuarioFeito($id_logado);
 		#echo "<pre>"; print_r($dados['propostas'][0]); echo "</pre>";
 		#
 		foreach ($dados['propostas'] as $key => &$value) {
+		#echo "<pre>"; print_r($value); echo "</pre>";
+		if($value->status_pro != 'N'){
+			$value->possui_acoes = "none";
+		}
+		else{
+			$value->possui_acoes = "";
+		}
+			$value->status 		 = converte_status($value->status_pro);
+			$value->status_color = converte_status_color($value->status_pro);
+			
+		}
+		foreach ($dados['propostas_feito'] as $key => &$value) {
 		#echo "<pre>"; print_r($value); echo "</pre>";
 		if($value->status_pro != 'N'){
 			$value->possui_acoes = "none";
@@ -25,6 +38,12 @@ class Ver_Negociacoes extends CI_Controller{
 		if(empty($dados['propostas'])){
 			$dados['nenhum_resultado'] = 'display:block';
 			$dados['nenhum_resultado_tabela'] = 'display:none';
+		}
+		$dados['nenhum_resultado_feito'] = 'display:none';
+		$dados['nenhum_resultado_tabela_feito'] = 'display:block';
+		if(empty($dados['propostas_feito'])){
+			$dados['nenhum_resultado_feito'] = 'display:block';
+			$dados['nenhum_resultado_tabela_feito'] = 'display:none';
 		}
  		$this->parser->parse('ver_negociacoes',$dados); 
 	}
