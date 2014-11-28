@@ -18,7 +18,9 @@ class Inicio extends CI_Controller{
 		$a = new Avaliacoes();
 		
 		$opcoes = new Opcoe();
-		$vrKm = $opcoes->getVrKm($encomendas['id_logado'])->stored->vr_por_km;
+		$dados_opcoes = $opcoes->getVrKm($encomendas['id_logado']);
+		$vrKm = $dados_opcoes->stored->vr_por_km;
+		$distanciaLimite = $dados_opcoes->stored->distancia_limite;
 		//echo $vrKm;
 		//echo "<pre>"; echo print_r($opcoes->getVrKm($encomendas['id_logado'])); echo "</pre>";
 			//echo "<pre>"; echo print_r($encomendas['encomendas']); echo "</pre>";
@@ -88,6 +90,9 @@ class Inicio extends CI_Controller{
 				$value->duracao = $json->rows['0']->elements['0']->duration->text;
 				$value->vr_medio = $vr_calc;
 				}
+			}
+			if(str_replace(',', '.', $distancia_quebrada[0]) <= $distanciaLimite && $distanciaLimite > 0){
+				unset($encomendas['encomendas'][$key]);
 			}
 		}
 		//echo $e->getEncomendas($_data);
