@@ -26,46 +26,6 @@ function abrirInfoBox(id, marker) {
 	idInfoBoxAberto = id;
 }
 
-function carregarPontos() {
-	
-	$.getJSON('../resources/json/pontos_usuarios.json', function(pontos) {
-		
-		var latlngbounds = new google.maps.LatLngBounds();
-		
-		$.each(pontos, function(index, ponto) {
-			
-			var marker = new google.maps.Marker({
-				position: new google.maps.LatLng(ponto.Latitude.replace('"',''), ponto.Longitude.replace('"','')),
-				title: ponto.Descricao,
-				icon: '../resources/img/marcador.png'
-			});
-			
-			var myOptions = {
-				content: "<p>" + ponto.Descricao + "</p>",
-				pixelOffset: new google.maps.Size(-150, 0)
-        	};
-
-			infoBox[ponto.Id.replace('"','')] = new InfoBox(myOptions);
-			infoBox[ponto.Id.replace('"','')].marker = marker;
-			
-			infoBox[ponto.Id.replace('"','')].listener = google.maps.event.addListener(marker, 'click', function (e) {
-				abrirInfoBox(ponto.Id.replace('"',''), marker);
-			});
-			
-			markers.push(marker);
-			
-			latlngbounds.extend(marker.position);
-			
-		});
-		
-		var markerCluster = new MarkerClusterer(map, markers);
-		
-		map.fitBounds(latlngbounds);
-		
-	});
-	
-}
-
 
 $(document).ready(function () {
 
@@ -147,5 +107,3 @@ $(document).ready(function () {
 	});
 
 });
-
-carregarPontos();
