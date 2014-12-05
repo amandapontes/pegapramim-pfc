@@ -28,15 +28,15 @@ function abrirInfoBox(id, marker) {
 
 function carregarPontos() {
 	
-	$.getJSON('../resources/json/pontos.json', function(pontos) {
+	$.getJSON('../resources/json/pontos_usuarios.json', function(pontos) {
 		
 		var latlngbounds = new google.maps.LatLngBounds();
 		
 		$.each(pontos, function(index, ponto) {
 			
 			var marker = new google.maps.Marker({
-				position: new google.maps.LatLng(ponto.Latitude, ponto.Longitude),
-				title: "Meu ponto personalizado! :-D",
+				position: new google.maps.LatLng(ponto.Latitude.replace('"',''), ponto.Longitude.replace('"','')),
+				title: ponto.Descricao,
 				icon: '../resources/img/marcador.png'
 			});
 			
@@ -45,11 +45,11 @@ function carregarPontos() {
 				pixelOffset: new google.maps.Size(-150, 0)
         	};
 
-			infoBox[ponto.Id] = new InfoBox(myOptions);
-			infoBox[ponto.Id].marker = marker;
+			infoBox[ponto.Id.replace('"','')] = new InfoBox(myOptions);
+			infoBox[ponto.Id.replace('"','')].marker = marker;
 			
-			infoBox[ponto.Id].listener = google.maps.event.addListener(marker, 'click', function (e) {
-				abrirInfoBox(ponto.Id, marker);
+			infoBox[ponto.Id.replace('"','')].listener = google.maps.event.addListener(marker, 'click', function (e) {
+				abrirInfoBox(ponto.Id.replace('"',''), marker);
 			});
 			
 			markers.push(marker);

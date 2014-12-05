@@ -91,6 +91,14 @@
 					<span class="glyphicon glyphicon-user"> <?php echo $this->session->userdata('nome_ent'); ?></span>
 					
 				</a>
+					<a href="#" id="acompanhamento">
+				<?php
+
+ 					echo form_hidden('url','localizacoes');
+				?>
+					<span class="glyphicon glyphicon-user"> Acompanhamento</span>
+					
+				</a>
 			
 				<a href="login_controller/deslogar"> 
 					<span class="glyphicon glyphicon-user"> Sair</span>
@@ -119,5 +127,6 @@
 			<h5>Não sabe como funciona nossa solução? <a href="site/landing_page" target="__blank" data-original-title="Não demora nem 1 minuto!!" >Clique aqui</a> e veja o seu funcionamento.</h5>
 		</hgroup>
 	</section>
-
 </section>
+
+

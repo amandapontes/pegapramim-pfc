@@ -39,8 +39,14 @@ class Login_Controller extends CI_Controller{
 	}
 
 	public function atualizarLocalizacao(){
-		$this->session->set_userdata('latitude_atual',$_GET['latitude']);
-		$this->session->set_userdata('longitude_atual',$_GET['longitude']);
+		$id = $this->session->userdata('id_ent');
+		if(!empty($id)){
+			$l =  new Localicacoe();
+			$_data['latitude'] 	= $_GET['latitude'];
+			$_data['longitude'] = $_GET['longitude'];
+			$_data['id_ent'] 	= $id;
+			$l->salvar($_data);
+		}
 	}
 
 	public function deslogar(){

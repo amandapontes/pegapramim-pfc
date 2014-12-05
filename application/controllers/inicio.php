@@ -2,7 +2,7 @@
 class Inicio extends CI_Controller{
 
 	public function index(){
-		enviar_email();die;
+		//enviar_email();die;
 		if(empty($this->session->userdata['id_ent'])){
 			 redirect(base_url());
 		}
