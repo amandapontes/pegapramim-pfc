@@ -13,7 +13,7 @@ class Localizacoes extends CI_Controller{
 		$l = $l->getAll();
 		$output = json_encode($l);
 		
-		$path_ics ='resources/json/';
+		$path_ics ='mpstst/js/';
 		
 		//Recebe o ponteiro do arquivo criado
 		$fp = fopen($path_ics."pontos_usuarios.json","w");
