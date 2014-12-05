@@ -21,10 +21,5 @@ class Localizacoes extends CI_Controller{
 		fwrite($fp,$output);
 	
 		fclose($fp);
-	
-		// Define the path to file
-		$arquivo_path = $path_ics."pontos_usuarios.json";
-		
-		$arquivo = basename($arquivo_path);
 	}
 }

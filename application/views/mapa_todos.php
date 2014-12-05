@@ -25,7 +25,7 @@
     
 
 
-              <div id="mapa" style="height: 500px; width: 700px">
+              <div id="mapa" style="height: 500px; width: 100%;">
               
               </div>
 
