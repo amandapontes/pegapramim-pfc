@@ -53,7 +53,7 @@
 				<?php
  					echo form_hidden('url','ver_negociacoes');
 				?>
-					<span class="glyphicon glyphicon-user"> Negociações</span>
+					<span class="glyphicon glyphicon-transfer"> Negociações</span>
 					
 				</a>
 				<!--
@@ -69,7 +69,7 @@
 				<?php
  					echo form_hidden('url','ver_avaliacoes');
 				?>
-					<span class="glyphicon glyphicon-user"> Avaliações</span>
+					<span class="glyphicon glyphicon-star"> Avaliações</span>
 					
 				</a>
 				<a href="#" id="opcoes">
@@ -80,7 +80,7 @@
 					
 				</a>
 				<a href="site/landing_page">
-					<span class="glyphicon glyphicon-user"> Conheça</span>
+					<span class="glyphicon glyphicon-thumbs-up"> Conheça</span>
 					
 				</a>
 				<a href="#" id="cadastro_entidade">
@@ -96,7 +96,7 @@
 
  					echo form_hidden('url','localizacoes');
 				?>
-					<span class="glyphicon glyphicon-user"> Acompanhamento</span>
+					<span class="glyphicon glyphicon-map-marker"> Acompanhamento</span>
 					
 				</a>
 				
@@ -105,12 +105,12 @@
 
  					echo form_hidden('url','localizacoes/busca');
 				?>
-					<span class="glyphicon glyphicon-user"> Busca</span>
+					<span class="glyphicon glyphicon-search"> Busca</span>
 					
 				</a>
 
 				<a href="login_controller/deslogar"> 
-					<span class="glyphicon glyphicon-user"> Sair</span>
+					<span class="glyphicon glyphicon-log-out"> Sair</span>
 					
 				</a>
 			
