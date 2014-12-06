@@ -38,7 +38,7 @@
 					<?php
 	 					echo form_hidden('url','solicitar_motoboy/load_list');
 					?>
-					<span class="glyphicon glyphicon-globe"> Ajudas Solicitadas</span>
+					<span class="glyphicon glyphicon-headphones"> Ajudas Solicitadas</span>
 					
 				</a>
 
