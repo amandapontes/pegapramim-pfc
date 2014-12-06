@@ -169,6 +169,9 @@ class Entidade extends DataMapper {
 public function get_by_id($id){
 		return $this->db->query("select * from entidades where entidades.id_ent = ". $id .";")->result();
 	}
+	public function get_all(){
+		return $this->db->query("select * from entidades order by nome_ent ASC ;")->result();
+	}
 }
 /* End of file template.php */
 /* Location: ./application/models/template.php */

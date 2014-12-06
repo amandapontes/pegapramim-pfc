@@ -146,6 +146,10 @@ class Localicacoe extends DataMapper {
 	public function getAll(){
 		return $this->db->query("select loca.id_loci as Id, loca.latitude as Latitude, loca.longitude as Longitude, en.nome_ent as Descricao from localicacoes loca JOIN  entidades en on loca.id_ent = en.id_ent;")->result();
 	}
+
+	public function get_by_id_ent($id_ent){
+		return $this->db->query("select loca.id_loci as Id, loca.latitude as Latitude, loca.longitude as Longitude, en.nome_ent as Descricao from localicacoes loca JOIN  entidades en on loca.id_ent = en.id_ent where loca.id_ent = ".$id_ent." ;")->result();
+	}
 }
 /* End of file template.php */
 /* Location: ./application/models/template.php */

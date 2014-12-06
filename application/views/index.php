@@ -99,7 +99,16 @@
 					<span class="glyphicon glyphicon-user"> Acompanhamento</span>
 					
 				</a>
-			
+				
+					<a href="#" id="busca">
+				<?php
+
+ 					echo form_hidden('url','localizacoes/busca');
+				?>
+					<span class="glyphicon glyphicon-user"> Busca</span>
+					
+				</a>
+
 				<a href="login_controller/deslogar"> 
 					<span class="glyphicon glyphicon-user"> Sair</span>
 					
