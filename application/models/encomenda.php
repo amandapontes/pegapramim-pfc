@@ -165,6 +165,14 @@ class Encomenda extends DataMapper {
 		return $this->db->query("select encomendas.* FROM encomendas where encomendas.id_ent =" . $id.";")->result();
 		//return $this->db->get()->result();
 	}
+
+	public function getApenasEncomendaByIdEncomenda($id){
+		/*$this->get();
+		$e = new Entidade();
+		return $e->where_related($this->get());*/
+		return $this->db->query("select encomendas.* FROM encomendas where encomendas.id_enc =" . $id.";")->result();
+		//return $this->db->get()->result();
+	}
 	public function verificaPodeDeletar($id_enc){
 		$p = new Proposta();
 		$p->where('id_enc',$id_enc)->where('aprovado_pro', 0)->where('status_pro', 'N')->get();

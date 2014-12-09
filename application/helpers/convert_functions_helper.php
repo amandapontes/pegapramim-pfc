@@ -61,22 +61,5 @@ if ( ! function_exists('converte_status_color')){
 	}
 }
 
-if ( ! function_exists('enviar_email')){
-	
-	function enviar_email(){
-		$ci = &get_instance();
-		$ci->load->library('email');
-
-		$ci->email->from('lhenrique@gattecnologia.com.br', 'PegaPraMim');
-		$ci->email->to('luketevl@g,gmail.com'); 
-
-		$ci->email->subject('Email Test');
-		$ci->email->message('Testing the email class.');	
-
-		$ci->email->send();
-
-		echo $ci->email->print_debugger();
-	}
-}
 /* End of file inflector_helper.php */
 /* Location: ./application/helpers/inflector_helper.php */

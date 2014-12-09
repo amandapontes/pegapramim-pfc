@@ -58,19 +58,23 @@ class Ver_Negociacoes extends CI_Controller{
 	}
 
 	public function add_mensagem_negociao(){
-		$_data = $this->input->post();
-		$n = new Negociacoes();
-
+		$_data 	= $this->input->post();
+		$n 		= new Negociacoes();
+		$p 		=  new Proposta();
+		$enco 	= new Encomenda();
+		$dados_temp = $p->getPropostaById($_data['id_pro']);
+		//echo "<pre>"; print_r($dados_temp); echo "</pre>";
 		$_data['id_ent_enviou'] = $this->session->userdata('id_ent');
 		$ln = $n->salvar($_data);
 	
 		if($ln){
 			$feedback['cod'] = '1';
 	 		$feedback['msg'] = 'Mensagem enviada com sucesso.';
+	 		enviar_email($dados_temp[0]->login_ent ,'Nova Mensagem','Você recebeu uma nova mensagem de '. $this->session->userdata('nome_ent') . ' referente a encomenda '. $dados_temp[0]->descricao_enc);
 		}
 		else{
 			$feedback['cod'] = '0';
-	 		$feedback['msg'] = 'Não foi possível enviar a menssagem, tente novamente.';
+	 		$feedback['msg'] = 'Não foi possível enviar a mensagem, tente novamente.';
 		}
 		echo $feedback;
 	}

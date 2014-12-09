@@ -50,6 +50,8 @@ class Ver_Propostas extends CI_Controller{
 
 	public function deletar($id){
 		$p = new Proposta();
+		$dados_temp = $p->getPropostaById($id);
 		$p->deletar($id);
+		enviar_email($dados_temp[0]->login_ent ,'Proposta Recusada','Sua proposta para a encomenda '.$dados_temp[0]->descricao_enc. 'foi recusada por '. $this->session->userdata('nome_ent'));
 	}
 }

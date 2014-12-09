@@ -20,7 +20,6 @@
   });
 
   $('[name=proposta_recusar]').on('click', function(){
-    $(this).parent('td').parent('tr').hide();
     var id = $(this).parents('td').parents('tr').find('#table_id').attr('value');
     var el = this;
       $.ajax({

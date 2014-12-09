@@ -167,6 +167,13 @@ public function getPropostasByIdUsuarioFeito($id){
 		return $this->db->query("select * from encomendas JOIN propostas on propostas.id_enc = encomendas.id_enc JOIN entidades on propostas.id_ent_motoboy = entidades.id_ent where propostas.id_ent_motoboy = ". $id ." group by encomendas.id_enc;")->result();
 		//return $this->db->get()->result();
 	}
+public function getPropostaById($id){
+		/*$this->get();
+		$e = new Entidade();
+		return $e->where_related($this->get());*/
+		return $this->db->query("select * from encomendas JOIN propostas on propostas.id_enc = encomendas.id_enc JOIN entidades on propostas.id_ent_motoboy = entidades.id_ent where propostas.id_pro = ". $id ." group by encomendas.id_enc;")->result();
+		//return $this->db->get()->result();
+	}
 
 public function deletar($id){
 		/*$this->get();
