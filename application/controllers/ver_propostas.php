@@ -9,7 +9,7 @@ class Ver_Propostas extends CI_Controller{
 		$dados['propostas'] 		= $p->getPropostasByIdUsuario($id_logado, 0);
 		$dados['propostas_feito'] 	= $p->getPropostasByIdUsuarioFeito($id_logado);
 		
-		#echo "<print>"; print_r($dados['propostas'][0]); echo "</pre>";
+		//echo "<print>"; print_r($dados['propostas']); echo "</pre>";
 		$dados['nenhum_resultado'] = 'display:none';
 		$dados['nenhum_resultado_tabela'] = 'display:block';
 		$dados['nenhum_resultado_feito'] = 'display:none';

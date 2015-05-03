@@ -1,5 +1,5 @@
 <section id="localizacao_atual">
-<h2 data-original-title="Essa opção apenas lhe auxilia a saber qual sua localização aproximada." >Localização atual</h2>
+<h2 data-original-title="Essa opção apenas lhe auxilia a saber qual sua localização aproximada." >Localização Atual</h2>
 	<?php
 		echo form_hidden('hd_latitude_atual');
 		echo form_hidden('hd_longitude_atual');

@@ -37,7 +37,7 @@ function feedback(msg){
             data: dados
           })
             .success(function( msg ) {
-               var n = noty({text: "Necessidade salva com sucesso.", type: 'success',shadow: false, styling: "bootstrap" , hide: true, delay: 500,
+               var n = noty({text: "Item cadastrado com sucesso.", type: 'success',shadow: false, styling: "bootstrap" , hide: true, delay: 500,
         killer: true
     });
           setInterval(function(){
@@ -53,9 +53,9 @@ function feedback(msg){
   });
 </script>
 <section id="solicitar_ajuda_content">
-    <h2>Solicitar Ajuda</h2>
+    <h2>Itens a Enviar</h2>
       <div class="bs-callout bs-callout-info">
-        Aqui você pode solicitar aos usuários a ajuda para enviar sua encomenda.
+        Aqui você cadastra seu item a ser enviado.
     </div>
     <?php
                 echo form_open('solicitar_motoboy/custom_save','name="formSolicitar" class="form-horizontal" id="formSolicitar"'); ?>
@@ -72,14 +72,14 @@ function feedback(msg){
             <div class="col-sm-11">
                 <div class="input-group">
                      <span class="input-group-addon">Descrição</span>
-                    <textarea class="form-control" id="descricao_enc" placeholder="Descrição da Ajuda" name="descricao_enc" class="form-control" id="inputPassword3" required></textarea>                            </div>
+                    <textarea class="form-control" id="descricao_enc" placeholder="Descrição do Item" name="descricao_enc" class="form-control" id="inputPassword3" required></textarea>                            </div>
 
             </div>
         </div>
 
         <div class="form-group">
               <div class="col-sm-11">
-                  <button type="submit" class="btn btn-default" id="btnEnviar">Enviar</button>
+                  <button type="submit" class="btn btn-default" id="btnEnviar">Cadastrar</button>
                 </div>
             </div>
         <input type="hidden" id="txtLatitude" name="txtLatitude" />

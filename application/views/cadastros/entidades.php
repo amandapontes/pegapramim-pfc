@@ -64,7 +64,7 @@
 </script>
  <hgroup class="bs-callout bs-callout-info">
 	<h4> Cadastrar </h4>
-	<h5><a href="#" id="openCadastro"  data-toggle="tooltip" data-placement="bottom" data-original-title="Vamos lá, é rápido e fácil!!">Clique aqui</a> para se cadastrar em nosso site e ter acesso aos nossos recursos</h5>
+	<h5>Para se cadastrar em nosso site e ter acesso aos nossos recursos<span id="complemento_cadastro">, <a href="#" id="openCadastro">clique aqui</a></span></h5> 
 
 		<form class="form-horizontal" role="form" id="cadastrar" method="POST">
 			<?php

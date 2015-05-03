@@ -44,12 +44,12 @@ function feedback(msg){
   });
 
 </script>
-<h2>Lista de Ajudas Solicitadas</h2>
+<h2>Lista de Itens Cadastrados</h2>
 <p class="bs-callout bs-callout-info">
-	Abaixo você pode ver a lista das <code>ajudas solicitadas</code> por você.
+	Lista dos seus <code>itens cadastrados</code>
 </p>
 <p class="bs-callout bs-callout-danger" style="{nenhum_resultado}">
-  Você não tem nenhuma <code>ajuda solicitada</code> <strong>;(</strong>
+  Você não tem nenhum <code>item cadastrado à enviar</code> <strong>;(</strong>
 </p>
     <?php 
      echo form_open('encomenda_controller/deletar','name="formEncomenda" class="bs-callout bs-callout-warning form-horizontal" role="form" style="{nenhum_resultado_tabela}"');
@@ -60,7 +60,7 @@ function feedback(msg){
       <thead>
         <tr>
         <th style="display:none">id</th>
-          <th>Encomenda</th>
+          <th>Item</th>
           <th>Ações</th>
         </tr>
       </thead>

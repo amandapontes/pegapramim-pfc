@@ -6,14 +6,14 @@ class Inicio extends CI_Controller{
 		if(empty($this->session->userdata['id_ent'])){
 			 redirect(base_url());
 		}
+	
 		$e = new Encomenda();
 		$encomendas = array();
  		$this->parser->parse('index',array()); 
 
-	 	$e = new Encomenda();
 		$encomendas = array();
-		$encomendas['exibe_notificacao'] = "none";
-		$encomendas['encomendas'] = $e->getEncomendasById($this->session->userdata['id_ent']) ;
+		$encomendas['exibe_notificacao'] = "none"; 
+		$encomendas['encomendas'] = $e->getEncomendasById($this->session->userdata['id_ent']) ; 
 		$encomendas['id_logado']  = $this->session->userdata('id_ent');
 		$encomendas['nome_ent']   = $this->session->userdata('nome_ent');
 		$a = new Avaliacoes();
@@ -32,9 +32,9 @@ class Inicio extends CI_Controller{
 			$value->duracao           			= '';
 			$value->distancia         			= '';
 			$value->media						= 0;
-			$value->media						= @$a->getReputacao($value->id_ent);
 			$value->media						= empty($value->media[0]->media)? 0 : $value->media[0]->media;
 			$json = file_get_contents("http://maps.google.com/maps/api/geocode/json?address=". $value->latitude_cli  . "," . $value->longitude_cli."&sensor=false"     );
+						
 		
 	//		echo $json;
 	  //   	echo "http://maps.google.com/maps/api/geocode/json?address=". $value->latitude_enco . "," . $value->longitude_enco ."&sensor=true";
@@ -73,7 +73,7 @@ class Inicio extends CI_Controller{
 			$json = file_get_contents("http://maps.googleapis.com/maps/api/distancematrix/json?origins=".$value->latitude_cli.",". $value->longitude_cli."&destinations=".$endCompletoEncomenda."&mode=car&language=pt-BR&sensor=true");
 		//echo "http://maps.googleapis.com/maps/api/distancematrix/json?origins=".$this->session->userdata('latitude_atual').",". $this->session->userdata('longitude_atual')."&destinations=".$endCompletoEncomenda."&mode=car&language=pt-BR&sensor=true" ;
 			$json = json_decode($json);
-
+			$distancia_quebrada[0] = 0;
 				//echo "<pre>"; echo print_r($json->rows['0']->elements['0']->status); echo "</pre>";
 			if(!empty($json->rows)){
 
@@ -82,6 +82,9 @@ class Inicio extends CI_Controller{
 
 					$distancia_quebrada = explode(" ", $value->distancia);
 
+					if(empty($distancia_quebrada)){
+						$distancia_quebrada[0] = 0;
+					}
 					
 					if($distancia_quebrada[1] == 'km'){
 						$vr_calc = $vrKm * str_replace(',', '.', $distancia_quebrada[0]);

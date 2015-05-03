@@ -1,10 +1,10 @@
 
 <h2>Lista de Negociações</h2>
 <p class="bs-callout bs-callout-info">
-	Abaixo você pode ver a lista das negociações de ajuda das <code>suas</code> encomendas.
+	Lista de negociações das <code>propostas aprovadas</code>
 </p>
 <p class="bs-callout bs-callout-danger" style="{nenhum_resultado}">
-  Você não tem nenhuma <code>negociação</code> <strong>;(</strong>
+  Não há nenhuma <code>negociação</code> <strong>;(</strong>
 </p>
     <?php 
      echo form_open('encomenda_controller/enviar_proposta','name="formEncomenda" class="form-horizontal" role="form"');
@@ -16,6 +16,7 @@
             <tr>    
               <th style="display:none">id</th>
               <th style="display:none">status_sigla</th>
+              <th style="display:none">id_nego</th>
               <th>Usuário</th>
               <th>Encomenda</th>
               <th>Status</th>
@@ -28,6 +29,7 @@
                  
               <td style="display:none" value="{id_pro}" id="table_id"></td>
               <td style="display:none" value="{status_pro}" class="status_sigla"></td>
+              <td style="display:none" value="{id_nego}" id="id_nego"></td>
               <td>{nome_ent}</td>
               <td>{descricao_enc}</td>
               <td>{status}</td>
@@ -43,10 +45,10 @@
         </table>
 </div>
 <p class="bs-callout bs-callout-info">
-  Abaixo você pode ver a lista das negociações das propostas que <code>você</code> fez.
+  Lista de negociações das <code>propostas realizadas</code>
 </p>
 <p class="bs-callout bs-callout-danger" style="{nenhum_resultado_feito}">
-  Você não tem nenhuma <code>negociação</code> <strong>;(</strong>
+  Não há nenhuma <code>negociação</code> <strong>;(</strong>
 </p>
 <div style="{nenhum_resultado_tabela_feito}">
   <table class="bs-callout bs-callout-warning table table-responsive table-striped">
@@ -54,6 +56,7 @@
           <tr>    
             <th style="display:none">id</th>
             <th style="display:none">status_sigla</th>
+            <th style="display:none">id_nego</th>
             <th>Usuário</th>
             <th>Encomenda</th>
             <th>Status</th>
@@ -65,6 +68,7 @@
           <tr class="{status_color}">
             <td style="display:none" value="{id_pro}" id="table_id"></td>
             <td style="display:none" value="{status_pro}" class="status_sigla"></td>
+            <td style="display:none" value="{id_nego}" id="id_nego"></td>
             <td>{nome_ent}</td>
             <td>{descricao_enc}</td>
             <td>{status}</td>
@@ -168,7 +172,8 @@
 
   $('[name=negociacao_visualizacao]').on('click', function(){
     var id = $(this).parents('td').parents('tr').find('#table_id').attr('value');
-        $('#sessao-json_conversa > #troca').load('ver_negociacoes/load_conversa/'+id);        
+    var id_nego = $(this).parents('td').parents('tr').find('#id_nego').attr('value');
+        $('#sessao-json_conversa > #troca').load('ver_negociacoes/load_conversa/'+id+'/'+id_nego);        
     });
 
   });

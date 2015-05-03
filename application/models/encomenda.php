@@ -137,7 +137,7 @@ class Encomenda extends DataMapper {
 		$this->descricao_enc     = $_data['descricao_enc'];
 		$this->dt_criacao_enco   = date('Y-m-d h:m:i');
 		$this->id_ent          	 = $_data['id_ent'];
-		$this->id_ent_motoboy    = 0;
+		$this->id_ent_ajudante    = 0;
 		return $this->save();
 		//echo "<print>"; print_r($e->id); echo "</pre>";
 	}

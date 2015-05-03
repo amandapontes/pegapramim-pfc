@@ -78,7 +78,7 @@ class Encomenda_Controller extends CI_Controller{
 
 	public function enviar_proposta(){
 		$_data = $_POST;
-		$_data['id_ent_motoboy'] = $this->session->userdata('id_ent');
+		$_data['id_ent_ajudante'] = $this->session->userdata('id_ent');
 		//echo "<pre>";  echo print_r($_data); echo "</pre>";die;
 		$p = new Proposta();
 		$p->salvar($_data);
@@ -94,19 +94,18 @@ class Encomenda_Controller extends CI_Controller{
 		public function deletar($id_enc){
 			$e = new Encomenda();
 			$retorno = $e->verificaPodeDeletar($id_enc);
-
+			//echo "<pre>"; print_r($retorno); echo "</pre>";
 			if($retorno){
 				$e->deletar($id_enc);
 				$feedback['cod'] = '1';
-		 		$feedback['msg'] = 'Necessidade apagada.';
+		 		$feedback['msg'] = 'Item apagado com sucesso.';
 		 		echo json_encode($feedback);
 				
 			//	$this->parser->parse('index',(array)$e->stored);
 			}
 			else{
 				$feedback['cod'] = '0';
-			 	$feedback['msg'] = 'Necessidade não pode ser apagada pois possui proposta aceita.';
-			 	$e->deletar($id_enc);
+			 	$feedback['msg'] = 'Item não pode ser apagado pois possui proposta aceita.';
 			 	echo json_encode($feedback);
 			}
 	}

@@ -5,7 +5,7 @@ class Teste extends CI_Controller{
 
 	public function index(){
 		$e = new Entidade();
- 		$this->load->view('cadastros/entidade'); 
+ 		$this->load->view('welcome_message'); 
 	}
 	public function custom_form(){
 		$_data = $this->input->post();

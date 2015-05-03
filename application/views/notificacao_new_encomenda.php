@@ -33,7 +33,7 @@
             echo form_hidden('latitude_cli','{latitude_cli}');
             echo form_hidden('longitude_enco','{longitude_enco}');
             echo form_hidden('latitude_enco','{latitude_enco}');
-            echo form_hidden('id_ent_motoboy','{id_logado}');
+            echo form_hidden('id_ent_ajudante','{id_logado}');
 		?>
 		<h2>
 			Nova Encomenda 

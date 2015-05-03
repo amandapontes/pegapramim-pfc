@@ -15,7 +15,7 @@ class Solicitar_Motoboy extends CI_Controller{
 		$e = new Encomenda();
 		if($e->salvar($_data)){
 			$feedback['cod'] = '1';
-	 		$feedback['msg'] = 'Necessidade salva com sucesso.';
+	 		$feedback['msg'] = 'Item cadastrado com sucesso.';
 	 		echo json_encode($feedback);
 		}
 	}

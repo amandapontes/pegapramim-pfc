@@ -145,12 +145,12 @@ public function getAvaliacoes($id_ent){
 		/*$this->get();
 		$e = new Entidade();
 		return $e->where_related($this->get());*/
-			return $this->db->query('select e.*, ava.*, p.*, en.* FROM entidades e JOIN propostas p on p.id_ent_motoboy = e.id_ent JOIN encomendas en on en.id_enc = p.id_enc LEFT JOIN avaliacoes ava on ava.id_pro = p.id_pro and ava.id_ava IS NULL where p.status_pro = "F" AND en.id_ent = '.$id_ent.' GROUP BY p.id_pro;')->result();	
+			return $this->db->query('select e.*, ava.*, p.*, en.* FROM entidades e JOIN propostas p on p.id_ent_ajudante = e.id_ent JOIN encomendas en on en.id_enc = p.id_enc LEFT JOIN avaliacoes ava on ava.id_pro = p.id_pro and ava.id_ava IS NULL where p.status_pro = "F" AND en.id_ent = '.$id_ent.' GROUP BY p.id_pro;')->result();	
 		//return $this->db->get()->result();
 	}
 
 	public function getReputacao($id_ent){
-		return $this->db->query('select ROUND(avg(ava.nota_ava)) as media from avaliacoes ava join propostas pro on ava.id_pro = pro.id_pro where pro.id_ent_motoboy = '.$id_ent)->result();	
+		return $this->db->query('select ROUND(avg(ava.nota_ava)) as media from avaliacoes ava join propostas pro on ava.id_pro = pro.id_pro where pro.id_ent_ajudante = '.$id_ent)->result();	
 	}
 }
 /* End of file template.php */

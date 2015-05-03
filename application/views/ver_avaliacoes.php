@@ -64,7 +64,7 @@ $("[name=proposta_aprovacao]").on("click" , function(){
 
 <h2>Lista de Avaliações</h2>
 <p class="bs-callout bs-callout-info">
-  Aqui é possível avaliar os usuários que você finalizou um entrega com o mesmo.
+  Avalie o usuário que realizou <code>sua entrega</code>
 </p>
 <p class="bs-callout bs-callout-danger" style="{nenhum_resultado}">
   Você não tem nenhum usuário para <code>avaliar</code> <strong>=D</strong>

@@ -41,10 +41,10 @@
 </script>
 <h2>Lista de Propostas</h2>
 <p class="bs-callout bs-callout-info">
-	Abaixo você pode ver a lista das propostas que foram feitas <code>a você</code>.
+	Lista das propostas <code>recebidas</code>
 </p>
 <p class="bs-callout bs-callout-danger" style="{nenhum_resultado}">
-  Você não tem nenhuma <code>proposta feita a você</code> <strong>;(</strong>
+  Nenhuma proposta <code>recebida</code> <strong>;(</strong>
 </p>
     <?php 
      echo form_open('encomenda_controller/enviar_proposta','name="formEncomenda" class="form-horizontal" role="form" style=""');
@@ -81,10 +81,10 @@
       </table>
   </div>
 <p class="bs-callout bs-callout-info">
-  Abaixo você pode ver a lista das propostas que foram feitas <code>por você.</code>
+  Lista das <code>suas</code> propostas
 </p>
 <p class="bs-callout bs-callout-danger" style="{nenhum_resultado_feito}">
-  Você não tem nenhuma <code>proposta feita por você</code> <strong>;(</strong>
+  Nenhuma proposta <code>feita</code> <strong>;(</strong>
 </p>
     <?php 
      echo form_open('encomenda_controller/enviar_proposta','name="formEncomenda" class="form-horizontal" role="form" style="{nenhum_resultado_tabela_feito}"');

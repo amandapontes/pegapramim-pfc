@@ -79,10 +79,11 @@ class Ver_Negociacoes extends CI_Controller{
 		echo $feedback;
 	}
 
-	public function load_conversa($id_pro){
+	public function load_conversa($id_pro, $id_nego){
 		$ln =  new Lista_Negociacoes();
-		$dados["id_nego"] = $id_pro;
 		$dados["msg"] = $ln->getAllNego($id_pro);
+		$dados["id_nego"] = $id_nego;
+		echo "<pre>";echo print_r($dados["msg"]); echo "</pre>"; echo "A";
 		
 		$dados['nenhum_resultado'] = 'display:none';
 		$dados['nenhum_resultado_tabela'] = 'display:block';

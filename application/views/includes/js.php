@@ -13,6 +13,18 @@
     <!-- Maps API Javascript -->
     <script src="http://maps.googleapis.com/maps/api/js?sensor=true"></script>
 
+<!-- INSERINDO GOOGLE CHARTS-->
+	<!--Load the AJAX API-->
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	<script type="text/javascript">
+	
+	  // Load the Visualization API library and the piechart library.
+	  google.load('visualization', '1.0', {'packages':['corechart']});
+	  google.setOnLoadCallback(drawChart);
+	     // ... draw the chart...
+	</script>
+
+
     <!-- Caixa de informação -->
     <script type="text/javascript" src="<?php echo base_url()?>resources/js/infobox.js"></script>
     
@@ -45,6 +57,7 @@
 	<script src="<?php echo base_url()?>resources/js/demo.js"></script>
 
 	<script type="text/javascript" src="<?php echo base_url()?>resources/js/my_functions.js"></script>
+	<script type="text/javascript" src="<?php echo base_url()?>resources/js/my_functions_charts.js"></script>
 
 
     <!--<script type="text/javascript" src="<?php echo base_url()?>resources/js/mapa_search.js"></script>-->

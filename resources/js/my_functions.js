@@ -112,14 +112,18 @@ $(document).ready(function(){
 /*====================================================================== LGON E DADOS ENTIDADE
 */
 //$('#login').hide();
-		$('#cadastrar').hide();
+		$('#cadastrar, #complemento_frase').hide();
 		$('a#openLogin').click(function(){
 			$('#login').show(600);
 			$('#cadastrar').hide(500);
+			$('#complemento_frase').hide();
+			$('#complemento_cadastro').show();
 		});
 		$('a#openCadastro').click(function(){
 			$('#cadastrar').show(600);
 			$('#login').hide(500);
+			$('#complemento_frase').show();
+			$('#complemento_cadastro').hide();
 		});
 
 /*

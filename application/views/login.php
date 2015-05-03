@@ -16,7 +16,7 @@
 	<?php $this->load->view('includes/header');?>
 	<hgroup class="bs-callout bs-callout-info">
 	<h4> Entrar </h4>
-	<h5>Caso já possua cadastro em nosso site, <a href="#" data-original-title="Boa escolha =D" id="openLogin">clique aqui</a> para entrar.</h5>
+	<h5>Caso já possua cadastro em nosso site<span id="complemento_frase">, <a href="#" id="openLogin">clique aqui</a> para entrar.</span></h5>
  
 
 		<form class="form-horizontal" role="form" id="login" method="POST">
@@ -47,7 +47,7 @@
 ?>
 <hgroup class="bs-callout bs-callout-warning">
 	<h4> Conheça </h4>
-	<h5>Não sabe como funciona nossa solução? <a href="index.php/site/landing_page" data-original-title="Não demora nem 1 minuto!!" >Clique aqui</a> e veja o seu funcionamento.</h5>
+	<h5>Não sabe como funciona nossa solução? <a href="index.php/site/landing_page" >Clique aqui</a> e veja o seu funcionamento.</h5>
 </hgroup>
 
 </body>

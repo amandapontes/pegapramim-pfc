@@ -131,7 +131,7 @@ class Proposta extends DataMapper {
 		//$n->dt_criacao = 		date("Y-m-d H:i:s");
 		$this->dt_criacao_pro = date("Y-m-d H:i:s");
 		//$this->id_pro         = $_data['id_opc'];
-		$this->id_ent_motoboy = $_data['id_ent_motoboy'];
+		$this->id_ent_ajudante = $_data['id_ent_ajudante'];
 		$this->id_enc         = $_data['id_enc'];
 		$this->vr_pro         = $_data['vr_pro'];
 		$this->status_pro     = 'N';
@@ -154,9 +154,9 @@ public function getPropostasByIdUsuario($id, $aprovado = "-1"){
 		$e = new Entidade();
 		return $e->where_related($this->get());*/
 		if($aprovado == "-1"){
-			return $this->db->query("select * from encomendas JOIN propostas on propostas.id_enc = encomendas.id_enc JOIN entidades on propostas.id_ent_motoboy = entidades.id_ent where encomendas.id_ent = ". $id .";")->result();	
+			return $this->db->query("select * from encomendas JOIN propostas on propostas.id_enc = encomendas.id_enc JOIN entidades on propostas.id_ent_ajudante = entidades.id_ent LEFT JOIN negociacoes on negociacoes.id_pro = propostas.id_pro where encomendas.id_ent = ". $id .";")->result();	
 		}
-		return $this->db->query("select * from encomendas JOIN propostas on propostas.id_enc = encomendas.id_enc JOIN entidades on propostas.id_ent_motoboy = entidades.id_ent where encomendas.id_ent = ". $id ." and aprovado_pro =". $aprovado ." ;")->result();
+		return $this->db->query("select * from encomendas JOIN propostas on propostas.id_enc = encomendas.id_enc JOIN entidades on propostas.id_ent_ajudante = entidades.id_ent LEFT JOIN negociacoes on negociacoes.id_pro = propostas.id_pro where encomendas.id_ent = ". $id ." and aprovado_pro =". $aprovado ." ;")->result();
 		//return $this->db->get()->result();
 	}
 
@@ -164,14 +164,14 @@ public function getPropostasByIdUsuarioFeito($id){
 		/*$this->get();
 		$e = new Entidade();
 		return $e->where_related($this->get());*/
-		return $this->db->query("select * from encomendas JOIN propostas on propostas.id_enc = encomendas.id_enc JOIN entidades on propostas.id_ent_motoboy = entidades.id_ent where propostas.id_ent_motoboy = ". $id ." group by encomendas.id_enc;")->result();
+		return $this->db->query("select * from encomendas JOIN propostas on propostas.id_enc = encomendas.id_enc JOIN entidades on propostas.id_ent_ajudante = entidades.id_ent LEFT JOIN negociacoes on negociacoes.id_pro = propostas.id_pro where propostas.id_ent_ajudante = ". $id ." group by encomendas.id_enc;")->result();
 		//return $this->db->get()->result();
 	}
 public function getPropostaById($id){
 		/*$this->get();
 		$e = new Entidade();
 		return $e->where_related($this->get());*/
-		return $this->db->query("select * from encomendas JOIN propostas on propostas.id_enc = encomendas.id_enc JOIN entidades on propostas.id_ent_motoboy = entidades.id_ent where propostas.id_pro = ". $id ." group by encomendas.id_enc;")->result();
+		return $this->db->query("select * from encomendas JOIN propostas on propostas.id_enc = encomendas.id_enc JOIN entidades on propostas.id_ent_ajudante = entidades.id_ent where propostas.id_pro = ". $id ." group by encomendas.id_enc;")->result();
 		//return $this->db->get()->result();
 	}
 

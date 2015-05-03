@@ -38,7 +38,7 @@ class Entidades extends CI_Controller{
 			}
 		
 			$feedback['cod'] = '1';
-	 		$feedback['msg'] = 'Olá <strong>'.$temp->stored->nome_ent.'</strong> suas informações foram salvas com sucesso';
+	 		$feedback['msg'] = 'Olá <strong>'.$temp->stored->nome_ent.'</strong>, suas informações foram salvas com sucesso';
 	 		echo json_encode($feedback);
 			
 		}

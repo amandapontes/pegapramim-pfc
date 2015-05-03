@@ -22,7 +22,7 @@
 <div id="opcoes_sistema">
 	<nav id="cbp-spmenu-s3" class="cbp-spmenu cbp-spmenu-horizontal cbp-spmenu-top cbp-spmenu-open">					
 		<a href="#" id="inicio" class="link_ativo">
-					<span class="glyphicon glyphicon-home"> Inicio</span>
+					<span class="glyphicon glyphicon-home"> Início</span>
 				
 				</a>
 		
@@ -30,7 +30,7 @@
 				<?php
  					echo form_hidden('url','solicitar_motoboy');
 				?>
-					<span class="glyphicon glyphicon-globe"> Soliciar Ajuda</span>
+					<span class="glyphicon glyphicon-globe"> Itens a enviar</span>
 					
 				</a>
 		
@@ -38,7 +38,7 @@
 					<?php
 	 					echo form_hidden('url','solicitar_motoboy/load_list');
 					?>
-					<span class="glyphicon glyphicon-headphones"> Ajudas Solicitadas</span>
+					<span class="glyphicon glyphicon-headphones"> Itens Cadastrados</span>
 					
 				</a>
 
@@ -133,7 +133,7 @@
 	<section id="troca">
 		<hgroup class="bs-callout bs-callout-warning">
 			<h4> Conheça </h4>
-			<h5>Não sabe como funciona nossa solução? <a href="site/landing_page" target="__blank" data-original-title="Não demora nem 1 minuto!!" >Clique aqui</a> e veja o seu funcionamento.</h5>
+			<h5>Não sabe como funciona nossa solução? <a href="site/landing_page" target="__blank" >Clique aqui</a> e veja o seu funcionamento.</h5>
 		</hgroup>
 	</section>
 </section>

@@ -4,6 +4,12 @@
 	<meta charset="utf-8">
 	<title>Welcome to CodeIgniter</title>
 
+	 <?php
+		$this->load->view('includes/css');
+		$this->load->view('includes/js');
+   ?>
+
+
 	<style type="text/css">
 
 	::selection{ background-color: #E13300; color: white; }
@@ -67,6 +73,12 @@
 <body>
 
 <div id="container">
+
+<!--Div that will hold the pie chart-->
+    <input type="button" value="Teste" id="teste-load"/>
+    <div id="chart_div" style="width:400; height:300"></div>
+    
+    
 	<h1>Welcome to CodeIgniter!</h1>
 
 	<div id="body">
