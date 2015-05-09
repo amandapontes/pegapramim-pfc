@@ -1,5 +1,5 @@
-create database pegapramim_vfinal;
-use pegapramim_vfinal;
+create database pegapramim;
+use pegapramim;
 
 create table entidades(
 	id_ent int UNSIGNED AUTO_INCREMENT  PRIMARY KEY NOT NULL,

@@ -16,6 +16,7 @@
 
 			}
 		}
+		
 /*$.getJSON("http://maps.google.com/maps/api/geocode/json?address="+position.coords.latitude +","+position.coords.longitude+"&sensor=false",function(result){
                  $("#str-endereco").html("Seu endereço é: " +result.results[0].formatted_address);
             });*/
@@ -58,7 +59,7 @@
 			<div class="form-group">
 			   <div class="input-group">
 				  <span class="input-group-addon">R$</span>
-				  <input type="text" class="form-control text-right" placeholder="0.00" name="vr_pro" value="{vr_medio}" />
+				  <input type="text" class="form-control text-right number" placeholder="0.00" name="vr_pro" value="{vr_medio}" />
 				</div>
 			</div>
 			<?php

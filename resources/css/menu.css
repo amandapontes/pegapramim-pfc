@@ -23,11 +23,14 @@
 .cbp-spmenu a:hover {
     background: #f0ad4e;
 }
+
 .cbp-spmenu a:active {
     background: #afdefa;
     /*color: #47a3da;*/
 }
-  
+  #cbp-spmenu-s3 a:hover, #cbp-spmenu-s3 a:focus{
+    text-decoration: none !important;
+}
 /* Orientation-dependent styles for the content of the menu */
  
 .cbp-spmenu-vertical {

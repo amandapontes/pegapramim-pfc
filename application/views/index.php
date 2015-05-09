@@ -30,7 +30,7 @@
 				<?php
  					echo form_hidden('url','solicitar_motoboy');
 				?>
-					<span class="glyphicon glyphicon-globe"> Itens a enviar</span>
+					<span class="glyphicon glyphicon-globe">&nbsp;</span>Itens a enviar
 					
 				</a>
 		
@@ -38,7 +38,7 @@
 					<?php
 	 					echo form_hidden('url','solicitar_motoboy/load_list');
 					?>
-					<span class="glyphicon glyphicon-headphones"> Itens Cadastrados</span>
+					<span class="glyphicon glyphicon-headphones">&nbsp;</span>Itens Cadastrados
 					
 				</a>
 
@@ -46,14 +46,14 @@
 				<?php
  					echo form_hidden('url','ver_propostas');
 				?>
-					<span class="glyphicon glyphicon-usd"> Propostas</span>
+					<span class="glyphicon glyphicon-usd">&nbsp;</span>Propostas
 					
 				</a>
 				<a href="#">
 				<?php
  					echo form_hidden('url','ver_negociacoes');
 				?>
-					<span class="glyphicon glyphicon-transfer"> Negociações</span>
+					<span class="glyphicon glyphicon-transfer">&nbsp;</span>Negociações
 					
 				</a>
 				<!--
@@ -69,18 +69,18 @@
 				<?php
  					echo form_hidden('url','ver_avaliacoes');
 				?>
-					<span class="glyphicon glyphicon-star"> Avaliações</span>
+					<span class="glyphicon glyphicon-star">&nbsp;</span>Avaliações
 					
 				</a>
 				<a href="#" id="opcoes">
 				<?php
  					echo form_hidden('url','opcoes');
 				?>
-					<span class="glyphicon glyphicon-cog"> Configurações</span>
+					<span class="glyphicon glyphicon-cog">&nbsp;</span>Configurações
 					
 				</a>
 				<a href="site/landing_page">
-					<span class="glyphicon glyphicon-thumbs-up"> Conheça</span>
+					<span class="glyphicon glyphicon-thumbs-up">&nbsp;</span>Conheça
 					
 				</a>
 				<a href="#" id="cadastro_entidade">
@@ -88,7 +88,7 @@
 
  					echo form_hidden('url','cadastros/entidades/load_user');
 				?>
-					<span class="glyphicon glyphicon-user"> <?php echo $this->session->userdata('nome_ent'); ?></span>
+					<span class="glyphicon glyphicon-user">&nbsp;</span><?php echo $this->session->userdata('nome_ent'); ?>
 					
 				</a>
 					<a href="#" id="acompanhamento">
@@ -96,7 +96,7 @@
 
  					echo form_hidden('url','localizacoes');
 				?>
-					<span class="glyphicon glyphicon-map-marker"> Acompanhamento</span>
+					<span class="glyphicon glyphicon-map-marker">&nbsp;</span>Acompanhamento
 					
 				</a>
 				
@@ -105,12 +105,12 @@
 
  					echo form_hidden('url','localizacoes/busca');
 				?>
-					<span class="glyphicon glyphicon-search"> Busca</span>
+					<span class="glyphicon glyphicon-search">&nbsp;</span>Busca
 					
 				</a>
 
 				<a href="login_controller/deslogar"> 
-					<span class="glyphicon glyphicon-log-out"> Sair</span>
+					<span class="glyphicon glyphicon-log-out">&nbsp;</span>Sair
 					
 				</a>
 			
