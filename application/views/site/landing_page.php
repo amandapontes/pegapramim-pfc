@@ -122,7 +122,7 @@
 									<article>
 										<a href="#" class="image"><img src="<?php echo base_url()?>resources/img/site/nospfc.jpg" alt="" /></a>
 										<div class="inner">
-											<h4>Lucas Henrique</h4>
+											<h4>Amanda Cristina & Lucas Henrique</h4>
 											<p>
 												<ul class="feature-icons">
 													<li class="fa-code">PHP</li>
