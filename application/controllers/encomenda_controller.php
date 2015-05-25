@@ -95,17 +95,17 @@ class Encomenda_Controller extends CI_Controller{
 			$e = new Encomenda();
 			$retorno = $e->verificaPodeDeletar($id_enc);
 			//echo "<pre>"; print_r($retorno); echo "</pre>";
-			if($retorno){
+			if(empty($retorno)){
 				$e->deletar($id_enc);
 				$feedback['cod'] = '1';
-		 		$feedback['msg'] = 'Item apagado com sucesso.';
+		 		$feedback['msg'] = 'Item excluído com sucesso.';
 		 		echo json_encode($feedback);
 				
 			//	$this->parser->parse('index',(array)$e->stored);
 			}
 			else{
 				$feedback['cod'] = '0';
-			 	$feedback['msg'] = 'Item não pode ser apagado pois possui proposta aceita.';
+			 	$feedback['msg'] = 'Item não pode ser apagado, pois possui proposta aceita.';
 			 	echo json_encode($feedback);
 			}
 	}

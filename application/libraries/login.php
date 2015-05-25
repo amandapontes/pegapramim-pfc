@@ -14,10 +14,19 @@ class Login{
 		return false;
 	}
 
+public function is_adm(){
+		$tipo = $this->session->userdata('tipo');
+		if(!empty($tipo) && $tipo == 'A'){
+			return true;
+		}
+		return false;
+	}
+
 	public function criarSessao($e){
 		//echo "<pre>"; print_r($e->stored); echo "</pre>";die;
 		$this->session->set_userdata('id_ent',$e->stored->id_ent);
 		$this->session->set_userdata('nome_ent',$e->stored->nome_ent);
+		$this->session->set_userdata('tipo',$e->stored->tipo);
 	}
 	public function deslogar(){
 		$this->session->sess_destroy();

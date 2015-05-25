@@ -29,11 +29,11 @@ if(!function_exists('enviar_email')){
 		$mail->MsgHTML($conteudo);
 		
 		if(@!$mail->Send()){
-			#echo "Erro ao enviar email: <pre>" ; print_r($mail->ErrorInfo); echo "</pre>";
+			echo "Erro ao enviar email: <pre>" ; print_r($mail->ErrorInfo); echo "</pre>";
 		}
 		
 		else{
-		#	echo "E-mail enviado!";
+			//echo "E-mail enviado!";
 		}
 	}
 }

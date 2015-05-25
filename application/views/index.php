@@ -26,6 +26,25 @@
 				
 				</a>
 		
+		<!-- MEUS ADM-->
+				<?php  
+					$tipo_ent = $this->session->userdata('tipo');
+					if($tipo_ent == 'A'){
+						echo '<a href="#">';       
+ 						echo form_hidden('url','cadastros/entidades/listagem/C');
+						echo '<span class="glyphicon glyphicon-globe">&nbsp;</span>Clientes</a>';	
+
+						// negociacoes
+						
+						// relatorios
+					}
+					else {					
+					
+					?>
+					
+		<!-- FIM ADM-->
+
+
 				<a href="#">
 				<?php
  					echo form_hidden('url','solicitar_motoboy');
@@ -34,11 +53,13 @@
 					
 				</a>
 		
+
+
 				<a href="#">
 					<?php
 	 					echo form_hidden('url','solicitar_motoboy/load_list');
 					?>
-					<span class="glyphicon glyphicon-headphones">&nbsp;</span>Itens Cadastrados
+					<span class="glyphicon glyphicon-tag">&nbsp;</span>Itens Cadastrados
 					
 				</a>
 
@@ -79,18 +100,7 @@
 					<span class="glyphicon glyphicon-cog">&nbsp;</span>Configurações
 					
 				</a>
-				<a href="site/landing_page">
-					<span class="glyphicon glyphicon-thumbs-up">&nbsp;</span>Conheça
-					
-				</a>
-				<a href="#" id="cadastro_entidade">
-				<?php
-
- 					echo form_hidden('url','cadastros/entidades/load_user');
-				?>
-					<span class="glyphicon glyphicon-user">&nbsp;</span><?php echo $this->session->userdata('nome_ent'); ?>
-					
-				</a>
+				
 					<a href="#" id="acompanhamento">
 				<?php
 
@@ -108,7 +118,25 @@
 					<span class="glyphicon glyphicon-search">&nbsp;</span>Busca
 					
 				</a>
-
+				<?php
+				 } 
+				?>
+				<a href="#" id="cadastro_entidade">
+				<?php
+				if($tipo_ent == 'A'){
+ 					echo form_hidden('url','cadastros/entidades/load_user');
+				}
+				else{
+					echo form_hidden('url','cadastros/entidades/load_user');
+				}
+				?>
+					<span class="glyphicon glyphicon-user">&nbsp;</span><?php echo $this->session->userdata('nome_ent'); ?>
+					
+				</a>
+				<a href="site/landing_page">
+					<span class="glyphicon glyphicon-thumbs-up">&nbsp;</span>Conheça
+					
+				</a>
 				<a href="login_controller/deslogar"> 
 					<span class="glyphicon glyphicon-log-out">&nbsp;</span>Sair
 					

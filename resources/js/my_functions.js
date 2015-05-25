@@ -81,7 +81,7 @@ $(document).ready(function(){
 		}
 		 */
 	});
-
+	
 	 $('input[name="btnEnviar"]').click(function(){
             
             $('form[name="formSolicitar"] > input[name="latitude_cli"]').val($('input[name="latitude_cli_entra"]').val());

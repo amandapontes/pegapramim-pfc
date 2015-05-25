@@ -42,6 +42,7 @@ create table encomendas(
 	latitude_enco text not null,
 	dt_criacao_enco datetime not null,
 	situacao_enco char(1) not null,
+	motivo_denuncia text null,
 	id_ent int not null,
 	foreign key(id_ent) references entidades(id_ent),
 	id_ent_ajudante int null,

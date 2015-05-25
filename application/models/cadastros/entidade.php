@@ -135,10 +135,12 @@ class Entidade extends DataMapper {
 			#echo "<pre>"; print_r($_data); "</pre>";
 			#echo "<pre>"; print_r($existe); "</pre>";
 			if(empty($existe->stored->id_ent)){
-				$this->ativo        = $_data['ativo'];
-				$this->nome_ent     = $_data['nome_ent'];
-				$this->login_ent    = $_data['login_ent'];
-				$this->senha_ent    = $_data['senha_ent'];
+				$this->ativo        		= $_data['ativo'];
+				$this->nome_ent     		= $_data['nome_ent'];
+				$this->login_ent    		= $_data['login_ent'];
+				$this->senha_ent    		= $_data['senha_ent'];
+				$this->dt_criacao_ent   	= date('Y-m-d h:m:s');
+				$this->tipo    = $_data['tipo'];
 				return $this->save();
 			}
 			return $existe;
@@ -169,8 +171,40 @@ class Entidade extends DataMapper {
 public function get_by_id($id){
 		return $this->db->query("select * from entidades where entidades.id_ent = ". $id .";")->result();
 	}
-	public function get_all(){
-		return $this->db->query("select * from entidades order by nome_ent ASC ;")->result();
+	public function get_all($id, $tipo = FALSE ){
+		if($tipo == 'A'){
+			return $this->db->query("select * from entidades where entidades.tipo = 'A' and entidades.id_ent != ". $id ." order by nome_ent ASC ;")->result();	
+		}
+		else if($tipo == 'C'){
+			return $this->db->query("select * from entidades where entidades.tipo = 'C' and entidades.id_ent != ". $id ." order by nome_ent ASC ;")->result();	
+		}
+		else{
+			return $this->db->query("select * from entidades where entidades.id_ent != ". $id ." order by nome_ent ASC ;")->result();	
+		}
+
+	}
+	public function get_all_ignore_logado($id){
+		return $this->db->query("select * from entidades where entidades.id_ent != ". $id ." order by nome_ent ASC ;")->result();
+	}
+
+	public function verificaPodeDeletar($id_ent){
+		$p = new Proposta();
+		$p->where('id_ent',$id_ent)->or_where('id_ent_ajudante', $id_ent)->get();
+		if(!$p->exists()){
+			$e = new Encomenda();
+			$e->where('id_ent',$id_ent)->or_where('id_ent_ajudante', $id_ent)->get();
+			return $e->exists();
+		}
+		return $p->exists();
+	}
+	public function deletar($id){
+		return $this->db->query("delete from entidades where id_ent= ". $id ." ;");
+	}
+
+	public function update_ativo($id, $flag=1){
+		$e = new Entidade();
+		$_data['ativo'] =  $flag;
+		return $e->where('id_ent', $id)->update($_data);
 	}
 }
 /* End of file template.php */

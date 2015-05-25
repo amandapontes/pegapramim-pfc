@@ -26,7 +26,7 @@ if(!function_exists('enviar_email_teste')){
 			echo ("Erro no envio de email. [smtp_host: {$config['smtp_host']}] [smtp_port: {$config['smtp_port']}] [smtp_user: {$config['smtp_user']}]");
 			return FALSE;
 		}
-		#echo "Email enviado";
+		//echo "Email enviado";
 		return TRUE;
 	}
 }

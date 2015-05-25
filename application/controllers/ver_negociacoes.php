@@ -3,12 +3,14 @@
 class Ver_Negociacoes extends CI_Controller{
 
 	public function index(){
+		//enviar_email("amandapontes.com@gmail.com", "Teste email","peidei");
+		//enviar_email_teste( "amandapontes.com@gmail.com", "Teste email","peidei",$replay_to="lucashenriqueps93@gmail.com",$mailtype='text');
 		$p = new Proposta();
 		$id_logado = $this->session->userdata('id_ent');
 		$dados['propostas'] = $p->getPropostasByIdUsuario($id_logado, 1);
 		$dados['propostas_feito'] = $p->getPropostasByIdUsuarioFeito($id_logado);
-		#echo "<pre>"; print_r($dados['propostas'][0]); echo "</pre>";
-		#
+		#echo "<pre>"; print_r($dados); echo "</pre>";
+		
 		foreach ($dados['propostas'] as $key => &$value) {
 		#echo "<pre>"; print_r($value); echo "</pre>";
 		if($value->status_pro != 'N'){
@@ -69,21 +71,21 @@ class Ver_Negociacoes extends CI_Controller{
 	
 		if($ln){
 			$feedback['cod'] = '1';
-	 		$feedback['msg'] = 'Mensagem enviada com sucesso.';
+	 		$feedback['msg'] = 'Mensagem enviada.';
 	 		enviar_email($dados_temp[0]->login_ent ,'Nova Mensagem','Você recebeu uma nova mensagem de '. $this->session->userdata('nome_ent') . ' referente a encomenda '. $dados_temp[0]->descricao_enc);
 		}
 		else{
 			$feedback['cod'] = '0';
 	 		$feedback['msg'] = 'Não foi possível enviar a mensagem, tente novamente.';
 		}
-		echo $feedback;
+		echo json_encode($feedback);
 	}
 
 	public function load_conversa($id_pro, $id_nego){
 		$ln =  new Lista_Negociacoes();
 		$dados["msg"] = $ln->getAllNego($id_pro);
 		$dados["id_nego"] = $id_nego;
-		echo "<pre>";echo print_r($dados["msg"]); echo "</pre>"; echo "A";
+		//echo "<pre>";echo print_r($dados["msg"]); echo "</pre>"; echo "A";
 		
 		$dados['nenhum_resultado'] = 'display:none';
 		$dados['nenhum_resultado_tabela'] = 'display:block';

@@ -60,5 +60,6 @@
 	$(document).ready(function(){
 		$('[name=tela_login]').val(1);
 		$('[name=id_ent]').val('');
+		$('[name=login_ent]').attr('readonly', false);
 	});
 </script>

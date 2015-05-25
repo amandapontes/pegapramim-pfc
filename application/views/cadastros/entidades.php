@@ -34,7 +34,7 @@
 					}
 					else{
 						if($('#cadastro_senha_rp').val() != $('#cadastro_senha').val()){
-							var n = noty({text: 'A confirmação da senha digitada não é igual a senha.', type: 'error',shadow: false, styling: "bootstrap" , hide: true, delay: 500});
+							var n = noty({text: 'Senhas não coincidem.', type: 'error',shadow: false, styling: "bootstrap" , hide: true, delay: 500});
 						}
 						else{
 					        $.ajax({
@@ -69,6 +69,7 @@
 		<form class="form-horizontal" role="form" id="cadastrar" method="POST">
 			<?php
 				echo form_hidden('ativo','1');
+				echo form_hidden('tipo','C');
 				echo form_hidden('id_ent','{id_ent}');
 				echo form_hidden('tela_login','0',"id='tela_login'");
 			?>
@@ -86,7 +87,7 @@
 				  <span class="input-group-addon">
 				  	<img src="<?php echo base_url();?>resources/img/email.png" width="14px" height="14px" />
 				  </span>
-				  <input type="email" class="form-control" placeholder="Email" name="login_ent" value="{login_ent}" required>
+				  <input type="email" class="form-control" placeholder="Email" name="login_ent" value="{login_ent}" required readonly="{readonly_email}" />
 				</div>
 			</div>
 

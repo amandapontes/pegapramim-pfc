@@ -7,6 +7,8 @@ class Entidades extends CI_Controller{
 		$e = new Entidade();
 
 		$retorno = (array)$e->stored;
+		//echo "<pre>"; print_r($retorno);echo "</pre>";
+		$retorno->readonly_email = false;
  		$this->parser->parse('cadastros/entidades',$retorno); 
 	}
 	public function custom_form($save = TRUE){
@@ -45,12 +47,55 @@ class Entidades extends CI_Controller{
 		//-$this->parser->parse('cadastros/entidade',array());
 	}
 
-	public function load_user(){
+	public function load_user($id = FALSE){
 		$e = new Entidade();
-		$id_logado = $this->session->userdata('id_ent');
+		$id_logado = ($id != FALSE)? $id : $this->session->userdata('id_ent');
 		$_data = $e->get_by_id($id_logado);
+		$_data[0]->readonly_email = true;
 		#echo "<pre>"; print_r($_data);echo "</pre>";
  		$this->parser->parse('cadastros/entidades',$_data[0]); 
+	}
+
+	public function listagem($tipo){
+		//enviar_email("amandapontes.com@gmail.com", "Teste email","peidei");
+		//enviar_email_teste( "amandapontes.com@gmail.com", "Teste email","peidei",$replay_to="lucashenriqueps93@gmail.com",$mailtype='text');
+		$e = new Entidade();
+		$id_logado = $this->session->userdata('id_ent');
+		//echo "select * from entidades where entidades.id_ent = 'C' and entidades.id_ent != ". $id_logado ." order by nome_ent ASC ";die;
+		$dados['usuarios'] = $e->get_all($id_logado, $tipo);
+		//echo "<pre>"; print_r($tipo); echo "</pre>";
+		//echo "<pre>"; print_r($dados); echo "</pre>";
+		#
+		
+		$dados['nenhum_resultado'] = 'display:none';
+		$dados['nenhum_resultado_tabela'] = 'display:block';
+		if(empty($dados['usuarios'])){
+			$dados['nenhum_resultado'] = 'display:block';
+			$dados['nenhum_resultado_tabela'] = 'display:none';
+		}
+		$dados['tipo_listagem']	= 'Clientes';
+		if($tipo == 'A'){$dados['tipo_listagem']	= 'Administradores';}
+ 		$this->parser->parse('ver_entidades',$dados); 
+	}
+
+public function deletar($id_ent){
+			$e = new Entidade();
+			$retorno = $e->verificaPodeDeletar($id_ent);
+			
+			if(empty($retorno)){
+				$e->deletar($id_ent);
+				$feedback['cod'] = '1';
+		 		$feedback['msg'] = 'Cliente excluído com sucesso';
+		 		echo json_encode($feedback);
+				
+			//	$this->parser->parse('index',(array)$e->stored);
+			}
+			else{
+				$e->update_ativo($id_ent,0);
+				$feedback['cod'] = '1';
+			 	$feedback['msg'] = 'Cliente desativado com sucesso.';
+			 	echo json_encode($feedback);
+			}
 	}
 /*
 	function do_upload($id){

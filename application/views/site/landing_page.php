@@ -108,7 +108,7 @@
 									<li class="fa-users">Receba propostas</li>
 									<li class="fa-twitch">Avalie seu ajudante</li>
 									<li class="fa-calculator">Negocie propostas</li>
-									<li class="fa-birthday-cake">Fique satisfeito</li>
+									<li class="fa-smile-o">Fique satisfeito</li>
 								</ul>
 							</div>
 						</section>

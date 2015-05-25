@@ -116,9 +116,13 @@ $(document).ready(function () {
 								<div class="input-group">
 						 			<span class="input-group-addon">Endereço Origem</span>
 						  			<input type="text" class="form-control txtEndereco_origem"  name="btnEndereco" required />
-						  			<span class="input-group-btn">
-							            	<button class="btn btn-default btnEndereco" type="button" data-toggle="modal" data-target="#mapaModal"><span class="glyphicon glyphicon-flag"></span> Mostrar no Mapa</button>
+						  			<!--
+                                    <span class="input-group-btn">
+							            	<button class="btn btn-default btnEndereco" type="button" data-toggle="modal" data-target="#mapaModal"><span class="glyphicon glyphicon-flag">
+                                                
+                                            </span> Mostrar no Mapa</button>
 						          	</span>
+                                    -->
 								</div>
 							</div>
 						</div>
@@ -141,9 +145,12 @@ $(document).ready(function () {
 								<div class="input-group">
 						 			<span class="input-group-addon">Endereço Destino</span>
 						  			<input type="text" class="form-control txtEndereco_destino"  name="btnEndereco" required />
-						  			<span class="input-group-btn">
-							            	<button class="btn btn-default btnEndereco" type="button" data-toggle="modal" data-target="#mapaModal"><span class="glyphicon glyphicon-flag"></span> Mostrar no Mapa</button>
+						  			<!--
+                                    <span class="input-group-btn">
+							            	<button class="btn btn-default btnEndereco" type="button" data-toggle="modal" data-target="#mapaModal"><span class="glyphicon glyphicon-flag">
+                                            </span> Mostrar no Mapa</button>
 						          	</span>
+                                    -->
 								</div>
 							</div>
 						</div>
