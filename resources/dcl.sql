@@ -11,6 +11,9 @@ create table entidades(
 	tipo char(1) not null
 	)engine=MYiSAM;
 
+/* USUARIO ADMINISTRADOR PADRÃO */
+insert into entidades values(1, 1, 'ADMINISTRADOR', 'pegapramimpfc@gmail.com', 'adminpfc', now(), 'A');
+
 create table opcoes(
 	id_opc int UNSIGNED AUTO_INCREMENT  PRIMARY KEY NOT NULL,
 	id_ent int not null,

@@ -68,11 +68,21 @@
 
 		<form class="form-horizontal" role="form" id="cadastrar" method="POST">
 			<?php
-				echo form_hidden('ativo','1');
+				//echo form_hidden('ativo','1');
+				echo form_hidden('hide_ativo','{hide_ativo}');
 				echo form_hidden('tipo','C');
 				echo form_hidden('id_ent','{id_ent}');
 				echo form_hidden('tela_login','0',"id='tela_login'");
 			?>
+			<div class="form-group" id="ativo_div">
+				<div class="input-group">
+					<div class="checkbox">
+					    <label>
+					      <input type="checkbox" name="ativo" checked="{ativo}"> Ativo
+					    </label>
+		  	</div>
+		  		</div>
+		  			</div>
 			<div class="form-group">
 				<div class="input-group">
 				  <span class="input-group-addon">
@@ -112,3 +122,20 @@
 		    </div>
 		</form>
 </hgroup>
+
+<script>
+	$(document).ready(function(){
+		if($('[name=hide_ativo]').val() != ''){
+			$('#ativo_div').hide();
+		} 
+		else{
+			$('#ativo_div').show();
+		}
+		if('{ativo}' == '1'){
+			$('[name=ativo]').attr('checked', true);
+		}
+		else{
+			$('[name=ativo]').removeAttr('checked');
+		}
+	});
+</script>

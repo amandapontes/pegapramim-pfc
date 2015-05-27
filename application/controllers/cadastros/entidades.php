@@ -9,6 +9,8 @@ class Entidades extends CI_Controller{
 		$retorno = (array)$e->stored;
 		//echo "<pre>"; print_r($retorno);echo "</pre>";
 		$retorno->readonly_email = false;
+		$retorno->hide_ativo	 = '1';
+		$retorno->ativo 		 = 1;
  		$this->parser->parse('cadastros/entidades',$retorno); 
 	}
 	public function custom_form($save = TRUE){
@@ -17,12 +19,16 @@ class Entidades extends CI_Controller{
 		$e = new Entidade();
 		//$end = new Enderecos_Temp();
 		//$vei = new Veiculos_Temp();
-		#echo "<pre>"; print_r($_data);echo "</pre>";
+		if(!isset($_data['ativo'])){
+			$_data['ativo'] 	= 1;
+		}
+		//echo "<pre>"; print_r($_data);echo "</pre>";
 		#echo "<pre>"; print_r($this->upload->data()); "</pre>";
 		$temp = $e->verificar_existe($_data['login_ent']);
 		#echo $this->session->userdata('id_ent');
 		$id_temp1 = $temp->stored->id_ent;
 		$id_sessao = $this->session->userdata('id_ent');
+
 		if(!empty($id_temp1) && empty($id_sessao)){
 			$feedback['cod'] = '0';
 		 	$feedback['msg'] = 'Usuário já existe';
@@ -36,7 +42,7 @@ class Entidades extends CI_Controller{
 			//echo "<pre>"; print_r($e->id); "</pre>";
 			$id_sessao = $this->session->userdata('id_ent');
 			if(empty($id_sessao)){
-					$this->login->criarSessao($e);		
+				$this->login->criarSessao($e);		
 			}
 		
 			$feedback['cod'] = '1';
@@ -50,7 +56,15 @@ class Entidades extends CI_Controller{
 	public function load_user($id = FALSE){
 		$e = new Entidade();
 		$id_logado = ($id != FALSE)? $id : $this->session->userdata('id_ent');
+		$tipo = $this->session->userdata('tipo');
 		$_data = $e->get_by_id($id_logado);
+		if($tipo == 'A'){
+			$_data[0]->hide_ativo = '';
+			
+		}
+		else{
+			$_data[0]->hide_ativo = '1';
+		}
 		$_data[0]->readonly_email = true;
 		#echo "<pre>"; print_r($_data);echo "</pre>";
  		$this->parser->parse('cadastros/entidades',$_data[0]); 

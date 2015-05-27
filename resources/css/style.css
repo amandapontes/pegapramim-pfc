@@ -50,6 +50,9 @@ header{
 
 }
 
+#ativo_div{
+	display: none;
+}
 
 .left-text-content{
 	width: 68%;
