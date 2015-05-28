@@ -24,9 +24,15 @@ class Login_Controller extends CI_Controller{
 		$temp = $e->verificar_login($_data['login_ent'], $_data['senha_ent']);
 			#echo "<pre>"; print_r($temp); echo "</pre>";die;
 		if(!empty($temp->stored->id_ent)){
-			$this->login->criarSessao($e);
-			$feedback['cod'] = '1';
-	 		$feedback['msg'] = 'Bem Vindo <strong>'.$temp->stored->nome_ent.'</strong>';
+			if(empty($temp->stored->ativo)){
+				$feedback['cod'] = '0';
+		 		$feedback['msg'] = 'Usuário não esta ativo, entre em contato com o administrador pelo email <strong>pegapramimpfc@gmail.com</strong>';
+			}else{
+				$this->login->criarSessao($e);
+				$feedback['cod'] = '1';
+	 			$feedback['msg'] = 'Bem Vindo <strong>'.$temp->stored->nome_ent.'</strong>';
+			}
+			
 	 		echo json_encode($feedback);
 			
 		//	$this->parser->parse('index',(array)$e->stored);

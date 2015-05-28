@@ -108,6 +108,26 @@ $(document).ready(function(){
 		           //  location.reload(); 
 		          });
 		});
+			$('[name="enviarDenuncia"]').on("click", function(){
+				
+				var formulario = $(this).parents('form');
+				var dados = formulario.serialize();
+
+		        $.ajax({
+		          type: "POST",
+		          url: "encomenda_controller/denunciar_item/D",
+		          data: dados
+		          //data: { latitude: position.coords.latitude, longitude: position.coords.longitude }
+		        })
+		          .done(function( msg ) {
+		          	
+		          	$(formulario).hide();
+		          	feedback(msg);
+		          //  alert( "Data Saved: " + msg );
+		         // alert(position.coords.latitude);
+		           //  location.reload(); 
+		          });
+		});
 
 /*====================================================================== LGON E DADOS ENTIDADE
 */

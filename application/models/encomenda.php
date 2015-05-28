@@ -150,11 +150,17 @@ class Encomenda extends DataMapper {
 		//return $this->db->get()->result();
 	}
 
-	public function getEncomendasById($id){
+	public function getEncomendasById($id, $status = false){
 		/*$this->get();
 		$e = new Entidade();
 		return $e->where_related($this->get());*/
-		return $this->db->query("select encomendas.*, entidades.* FROM entidades JOIN encomendas ON encomendas.id_ent = entidades.id_ent LEFT JOIN propostas ON propostas.id_enc = encomendas.id_enc where propostas.id_enc IS NULL AND encomendas.id_ent !=" . $id ." GROUP BY encomendas.id_enc;")->result();
+		if($status == false){
+			return $this->db->query("select encomendas.*, entidades.* FROM entidades JOIN encomendas ON encomendas.id_ent = entidades.id_ent LEFT JOIN propostas ON propostas.id_enc = encomendas.id_enc where propostas.id_enc IS NULL AND encomendas.id_ent !=" . $id ." GROUP BY encomendas.id_enc;")->result();		
+		}
+		else{
+			return $this->db->query("select encomendas.*, entidades.* FROM entidades JOIN encomendas ON encomendas.id_ent = entidades.id_ent LEFT JOIN propostas ON propostas.id_enc = encomendas.id_enc where propostas.id_enc IS NULL AND encomendas.id_ent !=" . $id ." AND encomendas.situacao_enco not in (". $status .") GROUP BY encomendas.id_enc;")->result();
+		}
+		
 		//return $this->db->get()->result();
 	}
 

@@ -13,7 +13,7 @@ class Inicio extends CI_Controller{
 
 		$encomendas = array();
 		$encomendas['exibe_notificacao'] = "none"; 
-		$encomendas['encomendas'] = $e->getEncomendasById($this->session->userdata['id_ent']) ; 
+		$encomendas['encomendas'] = $e->getEncomendasById($this->session->userdata['id_ent'], "'D','S'"); 
 		$encomendas['id_logado']  = $this->session->userdata('id_ent');
 		$encomendas['nome_ent']   = $this->session->userdata('nome_ent');
 		$a = new Avaliacoes();

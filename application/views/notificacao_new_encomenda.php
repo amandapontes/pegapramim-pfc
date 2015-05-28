@@ -71,7 +71,11 @@
 				<button type="button" name="enviarProposta" id="enviarProposta" class="btn btn-default" >
 					<span class="glyphicon glyphicon-usd"></span> Enviar Proposta
 				</button>
+				<button type="button" name="enviarDenuncia" id="enviarDenuncia" class="btn btn-default" >
+					<span class="glyphicon glyphicon-ban-circle"></span> Denunciar
+				</button>
 				</div>
+				 
 			</div>
 		</p>
 		<?php
