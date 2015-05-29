@@ -20,7 +20,6 @@
 	
 	  // Load the Visualization API library and the piechart library.
 	  google.load('visualization', '1.0', {'packages':['corechart']});
-	  google.setOnLoadCallback(drawChart);
 	     // ... draw the chart...
 	</script>
 
