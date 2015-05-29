@@ -195,6 +195,11 @@ class Encomenda extends DataMapper {
 		//$e->where('id_enc', $id)->get()->delete();
 				//return $this->db->get()->result();
 	}
+
+	public function atualizar_situacao($id, $status){
+		$e = new Encomenda();
+		return $e->where('id_enc',$id)->update(array('situacao_enco' => $status ));
+	}
 }
 /* End of file template.php */
 /* Location: ./application/models/template.php */

@@ -77,6 +77,26 @@
 				</div>
 				 
 			</div>
+		<div class="grupo_denuncia">
+			<div class="form-group">
+		        <h5>Nós informe o motivo da denúncia</h5>
+		              <div class="form-group">
+		                  <div class="col-sm-12">
+		                  <div class="input-group">
+		                     <span class="input-group-addon">Motivo</span>
+		                       <textarea class="form-control" id="conteudo_mensagem" placeholder="Digite o motivo" name="motivo_denuncia" class="form-control" required ></textarea>
+		                  </div>
+		                </div>
+		              </div>
+		               <div class="col-sm-offset-1">
+				<button type="button" name="enviarProposta" id="enviarMotivoDenuncia" class="btn btn-default" >
+					<span class="glyphicon glyphicon-usd"></span> Enviar
+				</button>
+				</div>
+          </div>
+			
+		</div>
+
 		</p>
 		<?php
 			echo form_close();

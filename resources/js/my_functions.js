@@ -109,13 +109,17 @@ $(document).ready(function(){
 		          });
 		});
 			$('[name="enviarDenuncia"]').on("click", function(){
+				var formulario = $(this).parents('form');
+				var id_enc = $(formulario).find('.grupo_denuncia').toggle();
+				
+			});
+			$('[name="enviarMotivoDenuncia"]').on("click", function(){
 				
 				var formulario = $(this).parents('form');
-				var dados = formulario.serialize();
-
+				var id_enc = $(formulario).find('[name=id_enc]').val();
 		        $.ajax({
 		          type: "POST",
-		          url: "encomenda_controller/denunciar_item/D",
+		          url: "encomenda_controller/denunciar_item/"+id_enc+"/D",
 		          data: dados
 		          //data: { latitude: position.coords.latitude, longitude: position.coords.longitude }
 		        })
