@@ -90,13 +90,26 @@ class Encomenda_Controller extends CI_Controller{
  		echo json_encode($feedback);*/
 	}
 
-public function denunciar_item($id_enc, $denunciado = 'D'){
+public function denunciar_item($id_enc, $denunciado = 'D', $motivo_da_denuncia = FALSE){
 		$_data = $_POST;
 		#echo "<pre>";  echo print_r($_data); echo "</pre>";die;
 		$e = new Encomenda();
-		$e->denunciar($id_enc, $denunciado, $_data['motivo_denuncia']);
+
+		if($motivo_da_denuncia == FALSE && $denunciado == 'D') {
+			$motivo_da_denuncia = $_data['motivo_denuncia'];
+
+		}
+		$e->denunciar($id_enc, $denunciado, $motivo_da_denuncia);
 		$feedback['cod'] = '1';
-		$feedback['msg'] = 'Item denúnciado.';
+		if($denunciado == 'B'){
+			$feedback['msg'] = 'Denúncia Aprovada.';
+		}
+		else if($denunciado == 'D'){
+			$feedback['msg'] = 'Item denúnciado.';
+		}
+		else if($denunciado == 0){
+			$feedback['msg'] = 'Denúncia Recusada';
+		}
  		echo json_encode($feedback);
 		/*$feedback['cod'] = '1';
  		$feedback['msg'] = 'Proposta.';

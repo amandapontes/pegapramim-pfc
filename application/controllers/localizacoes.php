@@ -51,7 +51,8 @@ class Localizacoes extends CI_Controller{
 		//$p = new Propostas();
 		//$p->getVrKm($this->session->userdata('id_ent'));
 		$e = new Entidade();
-		$dados['usuarios'] = $e->get_all(); 
+		$id_logado = $this->session->userdata('id_ent');
+		$dados['usuarios'] = $e->get_all(0, 'C'); 
 		$this->get_pontos();
 		$this->parser->parse('mapa_busca',$dados); 
 	}

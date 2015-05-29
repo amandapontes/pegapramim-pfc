@@ -56,13 +56,29 @@ function feedback(msg){
     }
     });
 
+   $('[name=entidade_cadastrar]').on('click', function(){
+    var valor = 'cadastros/entidades/load_user/-1';
+    if(valor != 'undefined'){
+      $('#sessao-json > #troca').load(valor);
+      if(valor=='solicitar_motoboy'){
+        $('#descricao_enc').focus();
+        $('#esconde').hide();
+      }
+      else{
+        $('#mapa').hide();
+      }
+    }
+    });
+
 /* =========================================================================*/
   });
 
 </script>
 <h2>Lista de {tipo_listagem} cadastrados</h2>
 <p class="bs-callout bs-callout-info">
-	Listagem dos <code>{tipo_listagem} cadastrados</code>
+	Listagem dos <code>{tipo_listagem} cadastrados</code> <button type="button" name="entidade_cadastrar" style="display:{hide_cadastrar};" id="entidade_cadastrar" class="btn btn-default" >
+          <span class="glyphicon glyphicon-user"></span> Cadastrar Administrador
+        </button>
 </p>
 <p class="bs-callout bs-callout-danger" style="{nenhum_resultado}">
   Não há {tipo_listagem} cadastrados.

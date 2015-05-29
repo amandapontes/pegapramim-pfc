@@ -173,7 +173,7 @@
   $('[name=negociacao_visualizacao]').on('click', function(){
     var id = $(this).parents('td').parents('tr').find('#table_id').attr('value');
     var id_nego = $(this).parents('td').parents('tr').find('#id_nego').attr('value');
-        $('#sessao-json_conversa > #troca').load('ver_negociacoes/load_conversa/'+id+'/'+id_nego);        
+    $('#sessao-json_conversa > #troca').load('ver_negociacoes/load_conversa/'+id+'/'+id_nego);        
     });
 
   });

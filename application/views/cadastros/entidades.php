@@ -70,7 +70,7 @@
 			<?php
 				//echo form_hidden('ativo','1');
 				echo form_hidden('hide_ativo','{hide_ativo}');
-				echo form_hidden('tipo','C');
+				echo form_hidden('tipo','{tipo}');
 				echo form_hidden('id_ent','{id_ent}');
 				echo form_hidden('tela_login','0',"id='tela_login'");
 			?>
@@ -125,6 +125,11 @@
 
 <script>
 	$(document).ready(function(){
+		if('{novo_adm}' == 1){
+			$('[name=tela_login]').val(1);
+			$('[name=id_ent]').val('');
+			$('[name=login_ent]').attr('readonly', false);
+		}
 		if($('[name=hide_ativo]').val() != ''){
 			$('#ativo_div').hide();
 		} 

@@ -28,6 +28,8 @@ class Ver_Avaliacoes extends CI_Controller{
 	}
 
 	public function enviar_avialiacao($id_pro , $qtd_estrelas){
+		$_data 	= $this->input->post();
+		# echo "<print>"; print_r($_data); echo "</pre>";
 		$av = new Avaliacoes();
 		$_data['id_pro'] 	= $id_pro; 
 		$_data['nota_ava'] 	= $qtd_estrelas; 

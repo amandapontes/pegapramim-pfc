@@ -22,6 +22,9 @@ class Entidades extends CI_Controller{
 		if(!isset($_data['ativo'])){
 			$_data['ativo'] 	= 1;
 		}
+		if($_data['ativo'] != 1){
+			$_data['ativo'] = 0;
+		}
 		//echo "<pre>"; print_r($_data);echo "</pre>";
 		#echo "<pre>"; print_r($this->upload->data()); "</pre>";
 		$temp = $e->verificar_existe($_data['login_ent']);
@@ -56,8 +59,19 @@ class Entidades extends CI_Controller{
 	public function load_user($id = FALSE){
 		$e = new Entidade();
 		$id_logado = ($id != FALSE)? $id : $this->session->userdata('id_ent');
-		$tipo = $this->session->userdata('tipo');
-		$_data = $e->get_by_id($id_logado);
+		if($id == '-1'){
+			$_data[0]  = $e->stored;
+			$_data[0]->readonly_email = false;
+			$_data[0]->ativo = 1;
+			$_data[0]->tipo = "A";
+			$_data[0]->novo_adm = 1;
+			$tipo = "A";
+		}
+		else{
+			$tipo = $this->session->userdata('tipo');
+			$_data = $e->get_by_id($id_logado);
+			$_data[0]->readonly_email = true;
+		}
 		if($tipo == 'A'){
 			$_data[0]->hide_ativo = '';
 			
@@ -65,7 +79,6 @@ class Entidades extends CI_Controller{
 		else{
 			$_data[0]->hide_ativo = '1';
 		}
-		$_data[0]->readonly_email = true;
 		#echo "<pre>"; print_r($_data);echo "</pre>";
  		$this->parser->parse('cadastros/entidades',$_data[0]); 
 	}
@@ -87,15 +100,19 @@ class Entidades extends CI_Controller{
 			$dados['nenhum_resultado'] = 'display:block';
 			$dados['nenhum_resultado_tabela'] = 'display:none';
 		}
-		$dados['tipo_listagem']	= 'Clientes';
-		if($tipo == 'A'){$dados['tipo_listagem']	= 'Administradores';}
+		$dados['tipo_listagem']		= 'Clientes';
+		$dados['hide_cadastrar']	= 'none';
+		if($tipo == 'A'){
+		$dados['hide_cadastrar']	= '';
+			$dados['tipo_listagem']	= 'Administradores';
+		}
  		$this->parser->parse('ver_entidades',$dados); 
 	}
 
 public function deletar($id_ent){
 			$e = new Entidade();
 			$retorno = $e->verificaPodeDeletar($id_ent);
-			
+
 			if(empty($retorno)){
 				$e->deletar($id_ent);
 				$feedback['cod'] = '1';

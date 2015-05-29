@@ -188,14 +188,18 @@ public function get_by_id($id){
 	}
 
 	public function verificaPodeDeletar($id_ent){
-		$p = new Proposta();
-		$p->where('id_ent',$id_ent)->or_where('id_ent_ajudante', $id_ent)->get();
-		if(!$p->exists()){
-			$e = new Encomenda();
-			$e->where('id_ent',$id_ent)->or_where('id_ent_ajudante', $id_ent)->get();
-			return $e->exists();
-		}
-		return $p->exists();
+		$ev =  new Evento();
+		$ev->where('id_ent_adm',$id_ent)->get();
+		if(!$ev->exists()){
+			$p = new Proposta();
+			$p->where('id_ent',$id_ent)->or_where('id_ent_ajudante', $id_ent)->get();
+			if(!$p->exists()){
+				$e = new Encomenda();
+				$e->where('id_ent',$id_ent)->or_where('id_ent_ajudante', $id_ent)->get();
+				return $e->exists();
+			}
+	}
+		return $ev->exists();
 	}
 	public function deletar($id){
 		return $this->db->query("delete from entidades where id_ent= ". $id ." ;");

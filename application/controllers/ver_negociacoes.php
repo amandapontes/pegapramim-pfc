@@ -60,13 +60,15 @@ class Ver_Negociacoes extends CI_Controller{
 	}
 
 	public function add_mensagem_negociao(){
+		
 		$_data 	= $this->input->post();
+		#echo "<pre>"; print_r($_data); echo "</pre>";
 		$n 		= new Negociacoes();
 		$p 		=  new Proposta();
 		$enco 	= new Encomenda();
 		$dados_temp = $p->getPropostaById($_data['id_pro']);
-		//echo "<pre>"; print_r($dados_temp); echo "</pre>";
 		$_data['id_ent_enviou'] = $this->session->userdata('id_ent');
+		#echo "<pre>"; print_r($_data); echo "</pre>";
 		$ln = $n->salvar($_data);
 	
 		if($ln){

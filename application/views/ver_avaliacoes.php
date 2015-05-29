@@ -48,9 +48,11 @@ $("[name=proposta_aprovacao]").on("click" , function(){
     var el = this;
     var estrelas = $(this).parents('td').parents('tr').find('#qtd_estrelas');
     var qtd_estrelas = $(estrelas).children('a').children('span.glyphicon-star').length;
+    var descricao = $(this).parents('td').parents('tr').find('#descricao_ava').val();
       $.ajax({
                 type: "POST",
-                url: "ver_avaliacoes/enviar_avialiacao/"+id+"/"+qtd_estrelas
+                url: "ver_avaliacoes/enviar_avialiacao/"+id+"/"+qtd_estrelas,
+                data: {descricao_ava: descricao}
               })
                 .success(function( msg ) {
                   if(feedback(msg)){
@@ -70,7 +72,7 @@ $("[name=proposta_aprovacao]").on("click" , function(){
   Você não tem nenhum usuário para <code>avaliar</code> <strong>=D</strong>
 </p>
     <?php 
-     echo form_open('encomenda_controller/enviar_proposta','name="formEncomenda" class="bs-callout bs-callout-warning form-horizontal" role="form" style="{nenhum_resultado_tabela}"');
+     echo form_open('encomenda_controller/enviar_proposta','name="formAvaliacoes" class="bs-callout bs-callout-warning form-horizontal" role="form" style="{nenhum_resultado_tabela}"');
      echo form_hidden('id_opc','{id_pro}');
 ?>
 <table class="table table-responsive">
@@ -81,6 +83,7 @@ $("[name=proposta_aprovacao]").on("click" , function(){
           <th>Usuário</th>
           <th>Encomenda</th>
           <th>Avaliação</th>
+          <th>Comentário</th>
           <th>Ações</th>
         </tr>
       </thead>
@@ -95,6 +98,17 @@ $("[name=proposta_aprovacao]").on("click" , function(){
       </td>
           <td>{nome_ent}</td>
           <td>{descricao_enc}</td>
+          <td>
+                  <div class="form-group">
+                      <div class="col-sm-12">
+                      <div class="input-group">
+                           <textarea class="form-control" id="descricao_ava" placeholder="Digite a avaliação" name="descricao_ava" class="form-control">{descricao_ava}</textarea>
+                      </div>
+                    </div>
+                  </div>
+                   <div class="col-sm-offset-1">
+        </div>
+          </td>
           <td id="qtd_estrelas">
             <a class="proposta_aprovacao"><span data-original-title="Marque para dar estrela para o usuário, ou desmarque para remover." class="glyphicon glyphicon-star-empty"></span></a>
             <a class="proposta_aprovacao"><span data-original-title="Marque para dar estrela para o usuário, ou desmarque para remover." class="glyphicon glyphicon-star-empty"></span></a>

@@ -30,11 +30,21 @@
 				<?php  
 					$tipo_ent = $this->session->userdata('tipo');
 					if($tipo_ent == 'A'){
+						// CLIENTES
 						echo '<a href="#">';       
  						echo form_hidden('url','cadastros/entidades/listagem/C');
 						echo '<span class="glyphicon glyphicon-globe">&nbsp;</span>Clientes</a>';	
 
+						// ADMINISTRADORES
 						// negociacoes
+						echo '<a href="#">';       
+ 						echo form_hidden('url','cadastros/entidades/listagem/A');
+						echo '<span class="glyphicon glyphicon-globe">&nbsp;</span>Administradores</a>';	
+						
+						// DENUNCIA
+						echo '<a href="#">';       
+ 						echo form_hidden('url','solicitar_motoboy/load_list/D');
+						echo '<span class="glyphicon glyphicon-globe">&nbsp;</span>Denúncias</a>';	
 						
 						// relatorios
 					}

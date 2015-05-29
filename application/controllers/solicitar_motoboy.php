@@ -20,11 +20,21 @@ class Solicitar_Motoboy extends CI_Controller{
 		}
 	}
 
-	public function load_list(){
+	public function load_list($tipo = FALSE){
 		$e = new Encomenda();
 		$id_logado = $this->session->userdata('id_ent');
-		
-		$dados['encomendas'] = $e->getApenasEncomendasById($id_logado);
+		if($tipo != FALSE){
+			$dados['encomendas'] = $e->getApenasEncomendaByStatus($tipo);
+			$dados['titulo_caso'] = 'Denunciados';
+			$dados['descricao_caso'] = 'Lista de denuncias dos';
+			$dados['descricao_nenhum_resultado'] = 'Você não tem nenhum <code>item denunciado para avaliar</code> <strong>;)</strong>';
+		}
+		else{
+			$dados['encomendas'] = $e->getApenasEncomendasById($id_logado);
+			$dados['titulo_caso'] = 'Cadastrados';
+			$dados['descricao_caso'] = 'Lista dos seus';
+			$dados['descricao_nenhum_resultado'] = 'Você não tem nenhum <code>item cadastrado à enviar</code> <strong>;(</strong>';
+		}
 		#echo "<print>"; print_r($dados['propostas'][0]); echo "</pre>";
 		$dados['nenhum_resultado'] = 'display:none';
 		$dados['nenhum_resultado_tabela'] = 'display:block';
@@ -33,7 +43,12 @@ class Solicitar_Motoboy extends CI_Controller{
 			$dados['nenhum_resultado_tabela'] = 'display:none';
 		}
 		#echo "<print>"; print_r($dados['encomendas']); echo "</pre>";
- 		$this->parser->parse('ver_encomendas',$dados); 
+ 		if($tipo != FALSE){
+ 			$this->parser->parse('ver_denuncias',$dados); 
+ 		}
+ 		else{
+ 			$this->parser->parse('ver_encomendas',$dados); 
+ 		}
 	}
 
 }

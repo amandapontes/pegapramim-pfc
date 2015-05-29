@@ -19,12 +19,12 @@
  * @author		Phil DeJarnett
  * @link		http://www.overzealous.com
  */
-class Avaliacoes extends DataMapper {
+class Evento extends DataMapper {
 
 	// Uncomment and edit these two if the class has a model name that
 	//   doesn't convert properly using the inflector_helper.
 	// var $model = 'template';
-	 var $table = 'avaliacoes';
+	 var $table = 'eventos';
 
 	// You can override the database connections with this option
 	// var $db_params = 'db_config_name';
@@ -84,10 +84,10 @@ class Avaliacoes extends DataMapper {
 	/**
 	 * Constructor: calls parent constructor
 	 */
-    function __construct($id = NULL)
-	{
-		parent::__construct($id);
-    }
+    function Evento(){
+		parent::DataMapper();
+	}
+
 
 	// --------------------------------------------------------------------
 	// Post Model Initialisation
@@ -129,29 +129,26 @@ class Avaliacoes extends DataMapper {
 		//$e = new Entidade();
 		//echo "<pre>"; print_r($_data); "</pre>";
 		//$n->dt_criacao = 		date("Y-m-d H:i:s");
-		$this->dt_criacao_ava = date("Y-m-d H:i:s");
-		//$this->id_pro         = $_data['id_opc'];
-		$this->id_pro 		  = $_data['id_pro'];
-		$this->nota_ava       = $_data['nota_ava'];
-		$this->descricao_ava  = $_data['descricao_ava'];
-		return $this->save();
-		//echo "<print>"; print_r($e->id); echo "</pre>";
+		//$this->id_opc         = $_data['id_opc'];
+		$o = new Opcoe();
+		$o->where('id_ent',$_data['id_ent'])->get();
+		if(!$o->exists()){
+			$this->id_ent        		 = $_data['id_ent'];
+			$this->vr_por_km      		 = $_data['vr_por_km'];
+			$this->distancia_limite      = $_data['distancia_limite'];
+			return $this->save();
+		}
+		else{
+			return $o->where('id_ent', $_data['id_ent'])->update(array('vr_por_km' => $_data['vr_por_km'] , 'distancia_limite' => $_data['distancia_limite']));
+		}
 	}
 
-	public function getAll(){
-		return $this->get();
+	public function getAll($id){
+		return $this->where('id_eve',$id)->get();
 	}
 
-public function getAvaliacoes($id_ent){
-		/*$this->get();
-		$e = new Entidade();
-		return $e->where_related($this->get());*/
-			return $this->db->query('select e.*, ava.*, p.*, en.* FROM entidades e JOIN propostas p on p.id_ent_ajudante = e.id_ent JOIN encomendas en on en.id_enc = p.id_enc LEFT JOIN avaliacoes ava on ava.id_pro = p.id_pro and ava.id_ava IS NULL where p.status_pro = "F" AND en.id_ent = '.$id_ent.' and ava.id_ava is NULL GROUP BY p.id_pro;')->result();	
-		//return $this->db->get()->result();
-	}
-
-	public function getReputacao($id_ent){
-		return $this->db->query('select ROUND(avg(ava.nota_ava)) as media from avaliacoes ava join propostas pro on ava.id_pro = pro.id_pro where pro.id_ent_ajudante = '.$id_ent)->result();	
+	public function getby_id_ent_adm($id){
+		return $this->where('id_ent_adm',$id)->get()->result();
 	}
 }
 /* End of file template.php */

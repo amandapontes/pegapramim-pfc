@@ -26,12 +26,26 @@ function feedback(msg){
 }
 /* =========================================================== PROPOSSTAS=====================================================*/
 
-  $('[name=encomenda_deletar]').on('click', function(){
+  $('[name=encomenda_recusar_denuncia]').on('click', function(){
     var id = $(this).parents('td').parents('tr').find('#table_id').attr('value');
     var el = this;
       $.ajax({
                 type: "POST",
-                url: "encomenda_controller/deletar/"+id
+                 url: "encomenda_controller/denunciar_item/"+id+"/N/",
+              })
+                .success(function( msg ) {
+                    if(feedback(msg)){
+                      $(el).parent('td').parent('tr').hide();
+                    }
+                });
+    });
+
+    $('[name=encomenda_aprovar_denuncia]').on('click', function(){
+    var id = $(this).parents('td').parents('tr').find('#table_id').attr('value');
+    var el = this;
+      $.ajax({
+                type: "POST",
+                 url: "encomenda_controller/denunciar_item/"+id+"/B/0",
               })
                 .success(function( msg ) {
                     if(feedback(msg)){
@@ -61,6 +75,7 @@ function feedback(msg){
         <tr>
         <th style="display:none">id</th>
           <th>Item</th>
+          <th>Motivo da Denúncia</th>
           <th>Ações</th>
         </tr>
       </thead>
@@ -70,9 +85,10 @@ function feedback(msg){
              
           <td style="display:none" value="{id_enc}" id="table_id"></td>
           <td>{descricao_enc}</td>
+          <td>{motivo_denuncia}</td>
           <td>
-          <!-- <a href="#" name="proposta_aprovacao" id="proposta_aprovacao" data-original-title="Editar">  <span class="glyphicon glyphicon-edit"></span> </a> -->
-            <a href="#" name="encomenda_deletar" id="encomenda_deletar" data-original-title="Apagar">  <span class="glyphicon glyphicon-remove"></span> </a>
+           <a href="#" name="encomenda_aprovar_denuncia" id="encomenda_aprovar_denuncia" data-original-title="Aprovar">  <span class="glyphicon glyphicon-ok"></span> </a>
+           <a href="#" name="encomenda_recusar_denuncia" id="encomenda_recusar_denuncia" data-original-title="Recusar">  <span class="glyphicon glyphicon-remove"></span> </a>
           </td>
 
         </tr>

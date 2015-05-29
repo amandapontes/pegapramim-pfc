@@ -48,7 +48,7 @@
           </section>
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-primary enviar_mensagem" style="{readonly_msg}"><span class="glyphicon glyphicon-envelope" aria-hidden="true"> Enviar</span></button>
+          <button type="button" name="enviar_msg_usuario" class="btn btn-primary enviar_mensagem" style="{readonly_msg}"><span class="glyphicon glyphicon-envelope" aria-hidden="true"> Enviar</span></button>
           <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
         </div>
 
@@ -63,6 +63,26 @@
   <script>
   $(document).ready(function(){
      $('#conversaModal').modal('show');  
+
+      $('[name="enviar_msg_usuario"]').on("click", function(){
+        
+        var formulario = $(this).parents('form');
+        var dados = formulario.serialize();
+            $.ajax({
+              type: "POST",
+              url: "ver_negociacoes/add_mensagem_negociao",
+              data: dados
+              //data: { latitude: position.coords.latitude, longitude: position.coords.longitude }
+            })
+              .done(function( msg ) {
+                
+               $('#conversaModal').modal('hide');  
+                feedback(msg);
+              //  alert( "Data Saved: " + msg );
+             // alert(position.coords.latitude);
+               //  location.reload(); 
+              });
+    });
 
   });
   </script>
