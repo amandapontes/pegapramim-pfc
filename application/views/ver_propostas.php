@@ -27,7 +27,7 @@
                 url: "ver_propostas/deletar/"+id
               })
                 .success(function( msg ) {
-                  var n = noty({text: "Proposta recusada.", type: 'success',shadow: false, styling: "bootstrap" , hide: true, delay: 500,
+                  var n = noty({text: msg, type: 'success',shadow: false, styling: "bootstrap" , hide: true, delay: 500,
                       killer: true
                   });
                     $(el).parent('td').parent('tr').hide();
@@ -110,8 +110,6 @@
               <td>R$ {vr_pro}</td>
               <td>{descricao_enc}</td>
               <td>
-               <a href="#" name="proposta_aprovacao" id="proposta_aprovacao" data-original-title="Aprovar">  <span class="glyphicon glyphicon-ok"></span> </a>
-
                 <a href="#" name="proposta_recusar" id="proposta_recusar" data-original-title="Recusar">  <span class="glyphicon glyphicon-remove"></span> </a>
               </td>
             </tr>

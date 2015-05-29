@@ -164,7 +164,7 @@ public function getPropostasByIdUsuarioFeito($id){
 		/*$this->get();
 		$e = new Entidade();
 		return $e->where_related($this->get());*/
-		return $this->db->query("select * from encomendas JOIN propostas on propostas.id_enc = encomendas.id_enc JOIN entidades on propostas.id_ent_ajudante = entidades.id_ent LEFT JOIN negociacoes on negociacoes.id_pro = propostas.id_pro where propostas.id_ent_ajudante = ". $id ." group by encomendas.id_enc;")->result();
+		return $this->db->query("select encomendas.*, propostas.*, entidades.*, negociacoes.id_nego from encomendas JOIN propostas on propostas.id_enc = encomendas.id_enc JOIN entidades on propostas.id_ent_ajudante = entidades.id_ent LEFT JOIN negociacoes on negociacoes.id_pro = propostas.id_pro where propostas.id_ent_ajudante = ". $id ." group by encomendas.id_enc;")->result();
 		//return $this->db->get()->result();
 	}
 public function getPropostaById($id){

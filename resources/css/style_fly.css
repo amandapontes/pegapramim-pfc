@@ -28,6 +28,7 @@ footer{
  	/*padding: 10px 10px 10px 10px; */
  	line-height:200%;
 }
+.grupo_denuncia{display: none;}
 
 #localizacao_atual{
 /*	float:left;*/

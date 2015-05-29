@@ -77,7 +77,7 @@
 				</div>
 				 
 			</div>
-		<div class="grupo_denuncia">
+		<div class="grupo_denuncia bs-callout bs-callout-danger">
 			<div class="form-group">
 		        <h5>Nós informe o motivo da denúncia</h5>
 		              <div class="form-group">
@@ -89,8 +89,8 @@
 		                </div>
 		              </div>
 		               <div class="col-sm-offset-1">
-				<button type="button" name="enviarProposta" id="enviarMotivoDenuncia" class="btn btn-default" >
-					<span class="glyphicon glyphicon-usd"></span> Enviar
+				<button type="button" name="enviarMotivoDenuncia" id="enviarMotivoDenuncia" class="btn btn-default" >
+					<span class="glyphicon glyphicon-send"></span> Enviar
 				</button>
 				</div>
           </div>

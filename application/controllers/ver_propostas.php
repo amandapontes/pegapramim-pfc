@@ -52,6 +52,12 @@ class Ver_Propostas extends CI_Controller{
 		$p = new Proposta();
 		$dados_temp = $p->getPropostaById($id);
 		$p->deletar($id);
+		if($dados_temp[0]->id_ent_ajudante == $this->session->userdata('id_ent')){
+			echo "Proposta excluída.";	
+		}
+		else{
+			echo "Proposta recusada.";
+		}
 		enviar_email($dados_temp[0]->login_ent ,'Proposta Recusada','Sua proposta para a encomenda '.$dados_temp[0]->descricao_enc. 'foi recusada por '. $this->session->userdata('nome_ent'));
 	}
 }

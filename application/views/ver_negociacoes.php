@@ -146,7 +146,7 @@
                 url: "ver_propostas/atualizar_status/"+id+"/F"
               })
                 .success(function( msg ) {
-                  var n = noty({text: "Negociação Finalizada, acesse o menu de avaliações e avalie sua ajudante.", type: 'success',shadow: false, styling: "bootstrap" , hide: true, delay: 500,
+                  var n = noty({text: "Negociação finalizada, acesse o menu de Avaliações e avalie o outro cliente.", type: 'success',shadow: false, styling: "bootstrap" , hide: true, delay: 500,
                       killer: true
                   });
                    $('#sessao-json > #troca').load('ver_negociacoes');

@@ -117,6 +117,7 @@ $(document).ready(function(){
 				
 				var formulario = $(this).parents('form');
 				var id_enc = $(formulario).find('[name=id_enc]').val();
+				var dados = formulario.serialize();
 		        $.ajax({
 		          type: "POST",
 		          url: "encomenda_controller/denunciar_item/"+id_enc+"/D",

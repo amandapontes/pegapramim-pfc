@@ -196,9 +196,9 @@ class Encomenda extends DataMapper {
 				//return $this->db->get()->result();
 	}
 
-	public function atualizar_situacao($id, $status){
+	public function denunciar($id, $status, $motivo){
 		$e = new Encomenda();
-		return $e->where('id_enc',$id)->update(array('situacao_enco' => $status ));
+		return $e->where('id_enc',$id)->update(array('situacao_enco' => $status, 'motivo_denuncia' => $motivo ));
 	}
 }
 /* End of file template.php */

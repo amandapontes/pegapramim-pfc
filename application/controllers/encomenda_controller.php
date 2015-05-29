@@ -93,10 +93,10 @@ class Encomenda_Controller extends CI_Controller{
 public function denunciar_item($id_enc, $denunciado = 'D'){
 		$_data = $_POST;
 		#echo "<pre>";  echo print_r($_data); echo "</pre>";die;
-		$e = new Proposta();
-		$e->salvar($_data);
+		$e = new Encomenda();
+		$e->denunciar($id_enc, $denunciado, $_data['motivo_denuncia']);
 		$feedback['cod'] = '1';
-		$feedback['msg'] = 'Item denúnciado denunciada.';
+		$feedback['msg'] = 'Item denúnciado.';
  		echo json_encode($feedback);
 		/*$feedback['cod'] = '1';
  		$feedback['msg'] = 'Proposta.';
